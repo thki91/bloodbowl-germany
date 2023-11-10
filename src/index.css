@@ -16,11 +16,39 @@
   margin: 0 !important;
 }
 
-
-td, th {
- @apply px-4 py-1 border-b border-slate-200 text-left text-xs;
+td,
+th {
+  @apply px-4 py-1.5 border-b border-zinc-200 text-left text-xs;
 }
 
 p {
   @apply mb-2;
+}
+
+a {
+  @apply font-semibold text-red-600 hover:text-red-500 transition cursor-pointer;
+}
+
+.react-multi-carousel-dot:nth-child(3n + 1) button {
+  @apply bg-black;
+}
+
+.react-multi-carousel-dot:nth-child(3n + 2) button {
+  @apply bg-red-500;
+}
+
+.react-multi-carousel-dot:nth-child(3n) button {
+  @apply bg-yellow-500;
+}
+
+.react-multi-carousel-dot button {
+  @apply border-[1px];
+}
+
+.react-multi-carousel-dot--active button {
+  @apply border-stone-300 border-[1px];
+}
+
+.scrollbar-transparent::-webkit-scrollbar {
+  @apply hidden;
 }

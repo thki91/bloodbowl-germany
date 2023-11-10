@@ -1,12 +1,11 @@
-import Layout from '../Layout'
+import Layout from "../Layout";
 
 function Ranking() {
-
   return (
     <Layout>
-     <div>RANKING</div>
+      <div>RANKING</div>
     </Layout>
-  )
+  );
 }
 
-export default Ranking
+export default Ranking;

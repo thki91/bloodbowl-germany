@@ -1,14 +1,11 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import Home from './pages/Home.jsx'
-import Ranking from './pages/Ranking.jsx'
-import Team from './pages/Team.jsx'
-import History from './pages/History.jsx'
-import './index.css'
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import Home from "./pages/Home.jsx";
+import Ranking from "./pages/Ranking.jsx";
+import History from "./pages/History.jsx";
+import Imprint from "./pages/Imprint.jsx";
+import "./index.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
@@ -24,13 +21,13 @@ const router = createBrowserRouter([
     element: <History />,
   },
   {
-    path: "/team",
-    element: <Team />,
+    path: "/impressum",
+    element: <Imprint />,
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={router} />
   </React.StrictMode>,
-)
+);
