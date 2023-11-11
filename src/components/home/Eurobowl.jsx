@@ -22,7 +22,7 @@ const Eurobowl = () => {
             <Heading title="Eurobowl: Das Nationenturnier" />
           </div>
           <div className="xl:flex sm:gap-x-7 text-sm sm:text-base">
-            <div className="flex-1 text-justify">
+            <div className="flex-1 xl:text-justify">
               <p>
                 Der Eurobowl ist eines der am längsten laufenden Turniere in der
                 Geschichte des Blood Bowl. Er findet seit 2003 jedes Jahr, mit
@@ -31,32 +31,34 @@ const Eurobowl = () => {
                 nationenübergreifendes Mannschaftsturnier für Teams mit 8
                 Coaches. Dem Namen nach handelt es sich traditionell um eine
                 Europameisterschaft, doch seit 2022 dürfen auch andere
-                Nationalmannschaften teilnehmen.Jeder Coach des Teams nimmt an
+                Nationalmannschaften teilnehmen. Jeder Coach des Teams nimmt an
                 einem anderen Rennen in einem abgestuften Fähigkeitspaketsystem
                 teil. Parallel zum Eurobowl finden die Europen statt, ein
                 Teamturnier ohne nationale Beschränkungen für Teams mit 4
                 Coaches.
               </p>
             </div>
-            {readMore && (
-              <div className="flex-1 text-justify">
-                <p>
-                  Jede Mannschaft spielt 6 Runden Blood Bowl. Da es sich um ein
-                  Mannschaftsturnier handelt, basiert der Sieg in jedem Match
-                  auf den kombinierten Ergebnissen der gesamten Mannschaft. Dies
-                  führt tendenziell zu einem etwas anderen Meta als bei
-                  Einzelspielturnieren, nicht nur weil die Coaches
-                  unterschiedliche Rassen wählen müssen, sondern auch weil bei
-                  einem Teamturnier häufig "solidere Rassen", d.h. Rassen die
-                  weniger gewinnen, aber auch weniger verlieren gewählt werden.
-                  Nach der ersten Runde werden die Paarungen beider Mannschaften
-                  und die darin enthaltenen einzelnen Coaches nach dem
-                  Schweizer-System gepaart, was bedeutet, dass die stärksten
-                  Coaches gegen die stärksten Coaches der gegnerischen
-                  Mannschaft spielen. 
-                </p>
-              </div>
-            )}
+            <div
+              className={`flex-1 xl:text-justify ${
+                readMore ? "!block" : "hidden sm:block"
+              }`}
+            >
+              <p>
+                Jede Mannschaft spielt 6 Runden Blood Bowl. Da es sich um ein
+                Mannschaftsturnier handelt, basiert der Sieg in jedem Match auf
+                den kombinierten Ergebnissen der gesamten Mannschaft. Dies führt
+                tendenziell zu einem etwas anderen Meta als bei
+                Einzelspielturnieren, nicht nur weil die Coaches
+                unterschiedliche Rassen wählen müssen, sondern auch weil bei
+                einem Teamturnier häufig "solidere Rassen", d.h. Rassen die
+                weniger gewinnen, aber auch weniger verlieren gewählt werden.
+                Nach der ersten Runde werden die Paarungen beider Mannschaften
+                und die darin enthaltenen einzelnen Coaches nach dem
+                Schweizer-System gepaart, was bedeutet, dass die stärksten
+                Coaches gegen die stärksten Coaches der gegnerischen Mannschaft
+                spielen. 
+              </p>
+            </div>
             <div className="sm:hidden">
               <a onClick={() => setReadMore(!readMore)}>
                 {readMore ? "Weniger" : "Mehr"} lesen

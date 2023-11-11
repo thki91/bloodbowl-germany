@@ -23,6 +23,15 @@ const Modal = ({ handleClose, show, children }) => {
     };
   }, [escFunction]);
 
+  useEffect(() => {
+    if (show) {
+      document.body.style.overflow = "hidden";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [show]);
+
   if (!show) return null;
   return (
     <div
