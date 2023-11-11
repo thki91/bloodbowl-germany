@@ -65,7 +65,7 @@ const Menu = () => {
     headerClasses = `${headerClasses} transform -translate-y-[70px]`;
   }
 
-  if (!isScrollingDown && scrollPosition > 100) {
+  if (!isScrollingDown && scrollPosition > 70) {
     headerClasses = `${headerClasses} bg-zinc-800`;
   }
 
