@@ -50,7 +50,11 @@ const useContentful = () => {
       });
       return entries.items
         .map((entry) => mapTeamMember(entry))
-        .sort((a, b) => a.order - b.order);
+        .sort((a, b) => {
+          if (!a.order) a.order = 100;
+          if (!b.order) b.order = 100;
+          return a.order - b.order;
+        });
     } catch (error) {
       console.log(`Error fetching team members ${error}`);
     }

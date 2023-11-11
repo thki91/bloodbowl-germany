@@ -14,7 +14,7 @@ const Member = ({ member }) => {
           className="mx-auto rounded-full w-28 text-center relative mb-3"
         />
       ) : (
-        <div className="w-28 h-28 bg-stone-800 flex items-center justify-center rounded-full">
+        <div className="w-28 h-28 bg-stone-800 flex items-center justify-center rounded-full mb-3">
           <img src={AnonymousIcon} className="w-16" />
         </div>
       )}
