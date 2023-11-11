@@ -15,9 +15,11 @@ const Eurobowl = () => {
           />
         </div>
         {/* desktop */}
-        <div className="hidden sm:block transition-all duration-700 flex-1">
-          <Heading title="Eurobowl: Das Nationenturnier" />
-          <div className="xl:flex sm:gap-x-7">
+        <div className="transition-all duration-700 flex-1">
+          <div className="text-center sm:text-left">
+            <Heading title="Eurobowl: Das Nationenturnier" />
+          </div>
+          <div className="xl:flex sm:gap-x-7 text-sm sm:text-base">
             <div className="flex-1 text-justify">
               <p>
                 Der Eurobowl ist eines der am längsten laufenden Turniere in der
