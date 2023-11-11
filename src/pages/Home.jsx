@@ -10,7 +10,7 @@ function Home() {
   const [firstSection, setFirstSection] = useState("eurobowl");
   return (
     <Layout>
-      <div className="relative flex justify-end items-end -mt-10 -mr-6 sm:-mr-10">
+      <div className="relative flex justify-end items-end -mt-10 -mr-4 sm:-mr-10">
         <div className="z-20 px-3 py-2 rounded-tl-md bg-stone-200 font-semibold ">
           <a
             className={`py-2 px-4 ${
