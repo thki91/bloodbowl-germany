@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useInterval } from "../hooks/useInterval";
 import News from "../components/News";
 import { useScrollDirection } from "../hooks/useScrollDirection";
-import { useLocation } from "react-router-dom";
 
 const headerImg1 = "/header.JPG";
 const headerImg2 = "/header2.JPG";
@@ -11,14 +10,11 @@ const Header = () => {
   const [headerImg, setHeaderImg] = useState(headerImg1);
   const { scrollDirection } = useScrollDirection();
   const isScrollingDown = scrollDirection === "down";
-  const location = useLocation();
 
   useInterval(() => {
     if (headerImg === headerImg1) setHeaderImg(headerImg2);
     if (headerImg === headerImg2) setHeaderImg(headerImg1);
   }, 10000);
-
-  const isHomepage = location.pathname === "/";
 
   return (
     <header
@@ -37,12 +33,6 @@ const Header = () => {
           Team Deutschland
         </h3>
         <News />
-        {isHomepage && (
-          <div className="absolute right-0 bottom-0 px-3 py-2 rounded-tl-md bg-stone-200 font-semibold">
-            <a className="py-2 px-4 border-b-2 border-red-600">Eurobowl</a>
-            <a className="text-stone-400 px-4 py-2">Bloowbowl</a>
-          </div>
-        )}
       </div>
     </header>
   );
