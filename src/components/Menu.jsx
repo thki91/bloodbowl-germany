@@ -59,14 +59,14 @@ const Menu = () => {
   const isScrollingDown = scrollDirection === "down";
 
   let headerClasses =
-    "sm:bg-zinc-800 flex items-center fixed duration-600 top-0 z-10 w-full h-[70px] transition-[transform]";
+    "sm:bg-zinc-800 flex items-center absolute sm:fixed duration-600 top-0 z-10 w-full h-[70px] transition-[transform]";
 
   if (isScrollingDown) {
-    headerClasses = `${headerClasses} transform -translate-y-[70px]`;
+    headerClasses = `${headerClasses} transform sm:-translate-y-[70px]`;
   }
 
   if (!isScrollingDown && scrollPosition > 70) {
-    headerClasses = `${headerClasses} bg-zinc-800`;
+    headerClasses = `${headerClasses} !fixed bg-zinc-800`;
   }
 
   return (
