@@ -11,11 +11,11 @@ const Member = ({ member }) => {
       {member.picture ? (
         <img
           src={member.picture}
-          className="mx-auto rounded-full w-28 text-center relative mb-3"
+          className="mx-auto rounded-full w-28 text-center relative mb-3 max-w-[100px] sm:max-w-none"
         />
       ) : (
-        <div className="w-28 h-28 bg-stone-800 flex items-center justify-center rounded-full mb-3">
-          <img src={AnonymousIcon} className="w-16" />
+        <div className="mx-auto w-28 h-28 bg-stone-800 flex items-center justify-center rounded-full mb-3 relative max-w-[100px] sm:max-w-none max-h-[100px] sm:max-h-none">
+          <img src={AnonymousIcon} className="w-12" />
         </div>
       )}
       {member.captain && (

@@ -1,6 +1,8 @@
+import { useState } from "react";
 import Heading from "../Heading";
 
 const Eurobowl = () => {
+  const [readMore, setReadMore] = useState(false);
   return (
     <section
       className="bg-stone-200 -mx-4 sm:-mx-10 px-6 sm:px-10 py-5 md:py-10 lg:py-20"
@@ -36,22 +38,29 @@ const Eurobowl = () => {
                 Coaches.
               </p>
             </div>
-            <div className="flex-1 text-justify">
-              <p>
-                Jede Mannschaft spielt 6 Runden Blood Bowl. Da es sich um ein
-                Mannschaftsturnier handelt, basiert der Sieg in jedem Match auf
-                den kombinierten Ergebnissen der gesamten Mannschaft. Dies führt
-                tendenziell zu einem etwas anderen Meta als bei
-                Einzelspielturnieren, nicht nur weil die Coaches
-                unterschiedliche Rassen wählen müssen, sondern auch weil bei
-                einem Teamturnier häufig "solidere Rassen", d.h. Rassen die
-                weniger gewinnen, aber auch weniger verlieren gewählt werden.
-                Nach der ersten Runde werden die Paarungen beider Mannschaften
-                und die darin enthaltenen einzelnen Coaches nach dem
-                Schweizer-System gepaart, was bedeutet, dass die stärksten
-                Coaches gegen die stärksten Coaches der gegnerischen Mannschaft
-                spielen. 
-              </p>
+            {readMore && (
+              <div className="flex-1 text-justify">
+                <p>
+                  Jede Mannschaft spielt 6 Runden Blood Bowl. Da es sich um ein
+                  Mannschaftsturnier handelt, basiert der Sieg in jedem Match
+                  auf den kombinierten Ergebnissen der gesamten Mannschaft. Dies
+                  führt tendenziell zu einem etwas anderen Meta als bei
+                  Einzelspielturnieren, nicht nur weil die Coaches
+                  unterschiedliche Rassen wählen müssen, sondern auch weil bei
+                  einem Teamturnier häufig "solidere Rassen", d.h. Rassen die
+                  weniger gewinnen, aber auch weniger verlieren gewählt werden.
+                  Nach der ersten Runde werden die Paarungen beider Mannschaften
+                  und die darin enthaltenen einzelnen Coaches nach dem
+                  Schweizer-System gepaart, was bedeutet, dass die stärksten
+                  Coaches gegen die stärksten Coaches der gegnerischen
+                  Mannschaft spielen. 
+                </p>
+              </div>
+            )}
+            <div className="sm:hidden">
+              <a onClick={() => setReadMore(!readMore)}>
+                {readMore ? "Weniger" : "Mehr"} lesen
+              </a>
             </div>
           </div>
         </div>
