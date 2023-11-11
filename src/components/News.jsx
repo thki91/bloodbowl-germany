@@ -55,7 +55,7 @@ const News = ({}) => {
       <Modal show={!!modalContent} handleClose={() => setModalContent(null)}>
         {modalContent}
       </Modal>
-      <div className="max-w-[350px] sm:max-w-[450px] mt-5 sm:mt-10 mb-10 sm:mb-0 overflow-hidden pr-5 sm:pr-0">
+      <div className="max-w-[350px] sm:max-w-[450px] mt-5 sm:mt-10 mb-10 sm:mb-0 overflow-hidden">
         <CarouselDefault
           items={newsData?.map((news) => (
             <NewsItem news={news} />
