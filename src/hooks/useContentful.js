@@ -5,7 +5,7 @@ import Papa from "papaparse";
 
 const mapTeamMember = (contentEntry) => {
   return {
-    picture: contentEntry.fields.picture.fields.file.url,
+    picture: contentEntry.fields?.picture?.fields?.file?.url,
     text: documentToHtmlString(contentEntry.fields.text),
     name: contentEntry.fields.name,
     captain: !!contentEntry.fields?.captain,

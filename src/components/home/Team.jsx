@@ -3,14 +3,22 @@ import Heading from "../Heading";
 import PropTypes from "prop-types";
 import useContentful from "../../hooks/useContentful";
 import Modal, { ModalTitle } from "../Modal";
+import AnonymousIcon from "../../assets/anonymous.png";
 
 const Member = ({ member }) => {
   return (
     <>
-      <img
-        src={member.picture}
-        className="mx-auto rounded-full w-28 text-center relative mb-3"
-      />
+      {member.picture ? (
+        <img
+          src={member.picture}
+          className="mx-auto rounded-full w-28 text-center relative mb-3"
+        />
+      ) : (
+        <div className="w-28 h-28 bg-stone-800 flex items-center justify-center rounded-full">
+          <img src={AnonymousIcon} className="w-16" />
+        </div>
+      )}
+
       {member.captain && (
         <div className="absolute top-2 bg-stone-100 border-2 border-amber-500 z-1 rounded-full w-8 h-8 text-md flex items-center justify-center">
           👑
