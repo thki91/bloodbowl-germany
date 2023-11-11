@@ -26,15 +26,18 @@ const Header = () => {
       <div className="absolute bg-zinc-800 bg-opacity-80 sm:bg-opacity-50 w-full h-full top-0 left-0" />
       <div className="absolute bg-gradient-to-r from-zinc-600 from-10% via-1% to-transparent w-1/2 h-full top-0 left-0" />
       <div className="transition flex flex-col justify-center">
-        <h3 className="relative uppercase font-semibold mb-1 tracking-widest bg-clip-text text-transparent bg-gradient-to-r from-black via-red-500 to-yellow-400 w-[150px] text-2xl">
+        <h3 className="relative uppercase font-semibold mb-1 tracking-widest bg-clip-text text-transparent bg-gradient-to-r from-black via-red-500 to-yellow-400 w-[150px] text-xl sm:text-2xl">
           Eurobowl
         </h3>
-        <h3 className="relative uppercase font-semibold mb-1  bg-clip-text text-transparent bg-gradient-to-r from-black via-red-500 to-yellow-400 w-[450px] text-4xl">
+        <h3 className="relative uppercase font-semibold bg-clip-text text-transparent bg-gradient-to-r from-black via-red-500 to-yellow-400 w-[270px] sm:w-[450px] text-2xl sm:text-4xl">
           Team Deutschland
         </h3>
         {/* <h1 className="text-white text-4xl sm:text-6xl relative bg-clip-text  text-transparent bg-gradient-to-r from-black via-red-500 to-yellow-400 w-[150px] ">Team Germany</h1> */}
         <News />
-        {/* <div className="absolute right-0 bottom-0 px-3 py-2 rounded-tl-md bg-stone-200 font-semibold"><a>Was ist Bloodbowl?</a></div> */}
+        <div className="absolute right-0 bottom-0 px-3 py-2 rounded-tl-md bg-stone-200 font-semibold">
+          <a className="py-2 px-4 border-b-2 border-red-600">Eurobowl</a>
+          <a className="text-stone-400 px-4 py-2">Bloowbowl</a>
+        </div>
       </div>
     </header>
   );

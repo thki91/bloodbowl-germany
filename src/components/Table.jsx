@@ -24,7 +24,7 @@ const Table = ({ data, columns, limit, className }) => {
     <table className={`w-full ${className}`}>
       <thead>
         {table.getHeaderGroups().map((headerGroup) => (
-          <tr key={headerGroup.id} className="bg-zinc-200">
+          <tr key={headerGroup.id} className="bg-stone-300">
             {headerGroup.headers.map((header) => {
               return (
                 <th key={header.id} colSpan={header.colSpan}>
@@ -39,7 +39,7 @@ const Table = ({ data, columns, limit, className }) => {
                     >
                       {flexRender(
                         header.column.columnDef.header,
-                        header.getContext(),
+                        header.getContext()
                       )}
                       {{
                         asc: " 🔼",

@@ -22,26 +22,23 @@ const News = ({}) => {
         <ModalTitle title={news.title} />
         <div
           dangerouslySetInnerHTML={{ __html: news.text }}
-          className="mt-10"
+          className="mt-10 text-sm md:text-base"
         />
-        <div className="text-zinc-600 mb-3 absolute bottom-3 left-6">
-          {new Date(news.publishedAt)?.toLocaleDateString("de-DE")}
-        </div>
-      </div>,
+      </div>
     );
   };
 
   const NewsItem = ({ news }) => {
     return (
-      <div className={`rounded-sm flex-[45%] mb-5 md:mb-10 text-white`}>
-        <h3 className="text-md font-semibold mb-2 text-zinc-200">
+      <div className="rounded-sm flex-[45%] mb-5 md:mb-10 text-white text-sm sm:text-base">
+        <h3 className="font-semibold mb-2 text-zinc-200">
           <span className="text-zinc-200">
             {new Date(news?.publishedAt)?.toLocaleDateString("de-DE")} |{" "}
           </span>
           {news?.title}
         </h3>
         <div>
-          {news?.previewText}{" "}
+          {news?.previewText}
           <a
             className="text-red-600 hover:text-red-500 transition cursor-pointer"
             onClick={() => handleClickReadMore(news)}
@@ -58,7 +55,7 @@ const News = ({}) => {
       <Modal show={!!modalContent} handleClose={() => setModalContent(null)}>
         {modalContent}
       </Modal>
-      <div className="max-w-[350px] sm:max-w-[450px] mt-10 overflow-hidden">
+      <div className="max-w-[350px] sm:max-w-[450px] mt-5 sm:mt-10 mb-10 sm:mb-0 overflow-hidden">
         <CarouselDefault
           items={newsData?.map((news) => (
             <NewsItem news={news} />

@@ -623,11 +623,11 @@ const useContentful = () => {
 
   const getNews = useCallback(async () => {
     try {
-      // const entries = await client.getEntries({
-      //     content_type: "newsArticle",
-      //     select: "fields"
-      // });
-      return newsHardcoded.items.map((entry) => mapNewsArticle(entry));
+      const entries = await client.getEntries({
+        content_type: "newsArticle",
+        select: "fields",
+      });
+      return entries.items.map((entry) => mapNewsArticle(entry));
     } catch (error) {
       console.log(`Error fetching news articles ${error}`);
     }

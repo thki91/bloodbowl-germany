@@ -12,7 +12,7 @@ const Member = ({ member }) => {
         className="mx-auto rounded-full w-28 text-center relative mb-3"
       />
       {member.captain && (
-        <div className="absolute top-2 bg-stone-100 border-2 border-amber-500 z-1 rounded-full w-8 h-8 text-md flex items-center justify-center">
+        <div className="absolute top-2 bg-stone-100 border-2 border-amber-500 z-1 rounded-full w-8 h-8 text-base flex items-center justify-center">
           👑
         </div>
       )}
@@ -44,13 +44,13 @@ function Team() {
         <ModalTitle title={member.name} />
         <img
           src={member.picture}
-          className="float-left w-36 rounded-full pr-4 pb-4"
+          className="float-left w-36 rounded-full pr-4"
         />
         <div
           dangerouslySetInnerHTML={{ __html: member.text }}
-          className="mt-8"
+          className="mt-8 text-sm md:text-base"
         />
-      </div>,
+      </div>
     );
   };
 
@@ -70,7 +70,7 @@ function Team() {
       <div className="text-white text-center -mt-5">
         <Heading title="Amtierendes Team" />
       </div>
-      <div className="overflow-x-auto overflow-y-hidden px-5 py-6 scrollbar-transparent">
+      <div className="overflow-x-auto overflow-y-hidden px-10 sm:px-5 py-2 sm:py-6 scrollbar-transparent">
         <div className="flex items-start gap-x-5 gap-y-24 justify-center min-w-[1300px] w-full">
           {teamData?.map((member) => (
             <div
