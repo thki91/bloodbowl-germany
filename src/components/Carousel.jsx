@@ -19,6 +19,7 @@ function CarouselDefault({ items }) {
       autoPlay={true}
       rewind={true}
       autoPlaySpeed={10000}
+      infinite={true}
     >
       {items?.map((item, index) => (
         <div key={`carousel-${index}`}>{item}</div>

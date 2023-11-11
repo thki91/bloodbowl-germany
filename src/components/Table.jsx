@@ -57,7 +57,7 @@ const Table = ({ data, columns, limit, className }) => {
         {tableRows.map((row) => {
           return (
             <tr key={row.id}>
-              {row.getVisibleCells().map((cell) => {
+              {row.getAllCells().map((cell) => {
                 return <td key={cell.id}>{cell.getValue()}</td>;
               })}
             </tr>

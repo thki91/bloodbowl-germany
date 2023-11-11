@@ -4,6 +4,7 @@ const THRESHOLD = 0;
 
 const useScrollDirection = () => {
   const [scrollDirection, setScrollDirection] = React.useState("up");
+  const [scrollPosition, setScrollPosition] = React.useState(0);
 
   const blocking = React.useRef(false);
   const prevScrollY = React.useRef(0);
@@ -13,6 +14,8 @@ const useScrollDirection = () => {
 
     const updateScrollDirection = () => {
       const scrollY = window.pageYOffset;
+
+      setScrollPosition(scrollY);
 
       if (Math.abs(scrollY - prevScrollY.current) >= THRESHOLD) {
         const newScrollDirection =
@@ -38,7 +41,7 @@ const useScrollDirection = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, [scrollDirection]);
 
-  return scrollDirection;
+  return { scrollDirection, scrollPosition };
 };
 
 export { useScrollDirection };

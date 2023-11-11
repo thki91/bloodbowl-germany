@@ -37,8 +37,8 @@ const dropdownMenuLinks = [
 
 const dropdownMenuMobile = [
   {
-    text: "Team",
-    link: "/#team",
+    text: "Home",
+    link: "/",
   },
   {
     text: "Historie",
@@ -55,14 +55,18 @@ const dropdownDiscordLinks = [
 
 const Menu = () => {
   const location = useLocation();
-  const scrollDirection = useScrollDirection();
+  const { scrollDirection, scrollPosition } = useScrollDirection();
   const isScrollingDown = scrollDirection === "down";
 
   let headerClasses =
-    "bg-zinc-800 flex items-center fixed duration-600 top-0 z-10 w-full h-[70px] transition-[transform]";
+    "sm:bg-zinc-800 flex items-center fixed duration-600 top-0 z-10 w-full h-[70px] transition-[transform]";
 
   if (isScrollingDown) {
     headerClasses = `${headerClasses} transform -translate-y-[70px]`;
+  }
+
+  if (!isScrollingDown && scrollPosition > 100) {
+    headerClasses = `${headerClasses} bg-zinc-800`;
   }
 
   return (
@@ -87,16 +91,15 @@ const Menu = () => {
           isActive={location.pathname === "/" && !location.hash}
         />
       </div>
-      <MenuLink url="/#team" text="Team" isActive={location.hash === "#team"} />
       <MenuLink
         url="/historie"
         text="Historie"
         isActive={location.pathname === "/historie"}
       />
       <MenuLink
-        url="/ranking"
-        text="Ranking"
-        isActive={location.pathname === "/ranking"}
+        url="/news"
+        text="News"
+        isActive={location.pathname === "/news"}
       />
       <div className="ml-auto flex items-center">
         <DropdownMenu icon={LinkIcon} items={dropdownMenuLinks} />

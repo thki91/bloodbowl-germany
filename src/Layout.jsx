@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
     <>
       <Menu />
       <Header />
-      <div className="px-4 sm:px-10 mx-auto min-h-[40vh]">{children}</div>
+      <div className="px-4 sm:px-10">{children}</div>
       <Footer />
     </>
   );

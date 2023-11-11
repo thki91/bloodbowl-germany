@@ -11,14 +11,14 @@ const FactItem = ({ text, iconUrl }) => {
     <>
       <img src={iconUrl} className="w-12 text-center mx-auto mb-7" />
       <div className=" text-center mb-2">Wusstest du...</div>
-      <div className="pb-12 text-center">{text}</div>
+      <div className="pb-8 sm:pb-12 text-center">{text}</div>
     </>
   );
 };
 
 function Facts() {
   return (
-    <section className="pt-12 sm:pt-18 pb-12 sm:pb-16 bg-stone-800 -mx-10 text-white text-md sm:text-xl font-semibold">
+    <section className="pt-10 sm:pt-18 pb-10 sm:pb-16 bg-stone-800 -mx-4 sm:-mx-10 text-white text-md sm:text-xl font-semibold">
       <div className="mx-auto max-w-[80%]">
         <CarouselDefault
           items={[

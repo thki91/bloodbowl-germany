@@ -12,7 +12,7 @@ const Member = ({ member }) => {
         className="mx-auto rounded-full w-28 text-center relative mb-3"
       />
       {member.captain && (
-        <div className="absolute top-2 bg-stone-100 border-2 border-amber-500 z-1 rounded-full w-8 h-8 text-base flex items-center justify-center">
+        <div className="absolute top-2 bg-stone-100 border-2 border-amber-500 z-1 rounded-full w-8 h-8 text-md flex items-center justify-center">
           👑
         </div>
       )}
@@ -42,13 +42,18 @@ function Team() {
     setModalContent(
       <div>
         <ModalTitle title={member.name} />
+        {member.captain && (
+          <div className="absolute top-14 bg-stone-100 border-2 border-amber-500 z-1 rounded-full w-8 h-8 text-md flex items-center justify-center">
+            👑
+          </div>
+        )}
         <img
           src={member.picture}
-          className="float-left w-36 rounded-full pr-4"
+          className="float-left clear-left w-36 rounded-full pr-4 pb-4"
         />
         <div
           dangerouslySetInnerHTML={{ __html: member.text }}
-          className="mt-8 text-sm md:text-base"
+          className="mt-8"
         />
       </div>
     );
@@ -57,10 +62,8 @@ function Team() {
   return (
     <section
       id="team"
-      className="pt-10 pb-5 px-4 md:px-10 md:pt-24 md:pb-20 bg-stone-900 -mx-10 overflow-hidden"
+      className="pt-12 pb-5 px-2 md:px-10 md:pt-24 md:pb-20 bg-stone-900 -mx-4 sm:-mx-10 overflow-hidden bg-[url('/bg_team_mobile.png')] sm:bg-[url('/bg_team.png')] bg-center bg-fixed bg-no-repeat"
       style={{
-        background: 'url("/bg_team.png") center center no-repeat',
-        backgroundAttachment: "fixed",
         backgroundSize: "100% 100%",
       }}
     >
@@ -70,12 +73,12 @@ function Team() {
       <div className="text-white text-center -mt-5">
         <Heading title="Amtierendes Team" />
       </div>
-      <div className="overflow-x-auto overflow-y-hidden px-10 sm:px-5 py-2 sm:py-6 scrollbar-transparent">
-        <div className="flex items-start gap-x-5 gap-y-24 justify-center min-w-[1300px] w-full">
+      <div className="overflow-x-auto overflow-y-hidden px-5 pt-3 pb-6 sm:py-6 scrollbar-transparent">
+        <div className="flex items-start gap-x-3 sm:gap-x-5 gap-y-24 justify-center min-w-[1200px] w-full">
           {teamData?.map((member) => (
             <div
               key={member.name}
-              className="p-3 relative bg-stone-200 rounded-md transform hover:scale-110 transition cursor-pointer flex-1"
+              className="p-2 sm:p-3 relative bg-stone-200 rounded-md transform hover:scale-110 transition cursor-pointer flex-1"
               onClick={() => handleReadMore(member)}
             >
               <Member member={member} />

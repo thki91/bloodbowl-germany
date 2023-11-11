@@ -1,15 +1,15 @@
 import Layout from "../Layout";
 import Heading from "../components/Heading";
 
-function Ranking() {
+function News() {
   return (
     <Layout>
-      <section className="py-10">
-        <Heading title="Ranking" />
+      <section className="py-10 mb-[300px]">
+        <Heading title="News" />
         In Bearbeitung...
       </section>
     </Layout>
   );
 }
 
-export default Ranking;
+export default News;

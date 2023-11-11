@@ -10,7 +10,7 @@ function Home() {
   return (
     <Layout>
       <section
-        className="bg-stone-200 -mx-10 px-10 py-5 md:py-10 lg:py-20"
+        className="bg-stone-200 -mx-4 sm:-mx-10 px-6 sm:px-10 py-5 md:py-10 lg:py-20"
         id="was-ist-bloodbowl"
       >
         <div className="xl:flex xl:items-center mt-2 transition-all ease-in-out duration-700">
@@ -21,7 +21,7 @@ function Home() {
           >
             <img
               src="/bloodbowl.jpeg"
-              className="hidden sm:block sm:flex-shrink-0 w-[100px] sm:w-[250px] xl:w-[350px] float-left xl:pr-10"
+              className="hidden sm:block sm:flex-shrink-0 w-[100px] sm:w-[250px] xl:w-[350px] float-left clear-left xl:pr-10"
               style={{ mixBlendMode: "multiply" }}
             />
           </div>
