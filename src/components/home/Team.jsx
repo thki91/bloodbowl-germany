@@ -18,7 +18,6 @@ const Member = ({ member }) => {
           <img src={AnonymousIcon} className="w-16" />
         </div>
       )}
-
       {member.captain && (
         <div className="absolute top-2 bg-stone-100 border-2 border-amber-500 z-1 rounded-full w-8 h-8 text-md flex items-center justify-center">
           👑
@@ -55,10 +54,16 @@ function Team() {
             👑
           </div>
         )}
-        <img
-          src={member.picture}
-          className="float-left clear-left w-36 rounded-full pr-4 pb-4"
-        />
+        {member.picture ? (
+          <img
+            src={member.picture}
+            className="float-left clear-left w-36 rounded-full pr-4 pb-4"
+          />
+        ) : (
+          <div className="float-left clear-left w-28 h-28 bg-stone-800 flex items-center justify-center rounded-full mr-4">
+            <img src={AnonymousIcon} className="w-16" />
+          </div>
+        )}
         <div
           dangerouslySetInnerHTML={{ __html: member.text }}
           className="mt-8"

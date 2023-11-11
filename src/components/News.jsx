@@ -11,10 +11,7 @@ const News = ({}) => {
   useEffect(() => {
     const getNewsArticles = async () => {
       const data = await getNews();
-      const newsSorted = data.sort(function (a, b) {
-        return new Date(b.publishedAt) - new Date(a.publishedAt);
-      });
-      setNewsData(newsSorted);
+      setNewsData(data);
     };
     getNewsArticles();
   }, []);
