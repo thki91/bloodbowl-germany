@@ -11,7 +11,7 @@ function Home() {
   return (
     <Layout>
       <div className="relative flex justify-end items-end -mt-10 -mr-4 sm:-mr-10">
-        <div className="z-20 px-3 py-2 rounded-tl-md bg-stone-200 font-semibold ">
+        <div className="z-10 px-3 py-2 rounded-tl-md bg-stone-200 font-semibold ">
           <a
             className={`py-2 px-4 ${
               firstSection === "eurobowl"
