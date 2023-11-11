@@ -4,8 +4,11 @@ import Heading from "../components/Heading";
 function Imprint() {
   return (
     <Layout>
-      <Heading title="Impressum" />
-      <div className="absolute top-0 left-0 bg-stone-900 h-full w-full">
+      <section className="py-10">
+        <Heading title="Impressum" />
+        In Bearbeitung...
+      </section>
+      {/* <div className="absolute top-0 left-0 bg-stone-900 h-full w-full">
         <div
           className="absolute w-[1200px] h-[200%]  -left-20"
           style={{
@@ -32,7 +35,7 @@ function Imprint() {
               "radial-gradient(circle, rgba(220 38 38) 0%, transparent 50%)",
           }}
         />
-      </div>
+      </div> */}
     </Layout>
   );
 }

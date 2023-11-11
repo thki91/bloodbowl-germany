@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useInterval } from "../hooks/useInterval";
 import News from "../components/News";
 import { useScrollDirection } from "../hooks/useScrollDirection";
+import { useLocation } from "react-router-dom";
 
 const headerImg1 = "/header.JPG";
 const headerImg2 = "/header2.JPG";
@@ -10,11 +11,14 @@ const Header = () => {
   const [headerImg, setHeaderImg] = useState(headerImg1);
   const scrollDirection = useScrollDirection();
   const isScrollingDown = scrollDirection === "down";
+  const location = useLocation();
 
   useInterval(() => {
     if (headerImg === headerImg1) setHeaderImg(headerImg2);
     if (headerImg === headerImg2) setHeaderImg(headerImg1);
   }, 10000);
+
+  const isHomepage = location.pathname === "/";
 
   return (
     <header
@@ -32,12 +36,13 @@ const Header = () => {
         <h3 className="relative uppercase font-semibold bg-clip-text text-transparent bg-gradient-to-r from-black via-red-500 to-yellow-400 w-[270px] sm:w-[450px] text-2xl sm:text-4xl">
           Team Deutschland
         </h3>
-        {/* <h1 className="text-white text-4xl sm:text-6xl relative bg-clip-text  text-transparent bg-gradient-to-r from-black via-red-500 to-yellow-400 w-[150px] ">Team Germany</h1> */}
         <News />
-        <div className="absolute right-0 bottom-0 px-3 py-2 rounded-tl-md bg-stone-200 font-semibold">
-          <a className="py-2 px-4 border-b-2 border-red-600">Eurobowl</a>
-          <a className="text-stone-400 px-4 py-2">Bloowbowl</a>
-        </div>
+        {isHomepage && (
+          <div className="absolute right-0 bottom-0 px-3 py-2 rounded-tl-md bg-stone-200 font-semibold">
+            <a className="py-2 px-4 border-b-2 border-red-600">Eurobowl</a>
+            <a className="text-stone-400 px-4 py-2">Bloowbowl</a>
+          </div>
+        )}
       </div>
     </header>
   );

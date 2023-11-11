@@ -1,9 +1,13 @@
 import Layout from "../Layout";
+import Heading from "../components/Heading";
 
 function Ranking() {
   return (
     <Layout>
-      <div>RANKING</div>
+      <section className="py-10">
+        <Heading title="Ranking" />
+        In Bearbeitung...
+      </section>
     </Layout>
   );
 }

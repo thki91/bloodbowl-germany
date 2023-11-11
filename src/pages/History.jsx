@@ -187,7 +187,7 @@ const HistoryItem = ({ historyItem }) => {
         accessorKey: "tdMinus",
       },
     ],
-    [],
+    []
   );
 
   return (
@@ -221,21 +221,23 @@ HistoryItem.propTypes = {
 function History() {
   return (
     <Layout>
-      <Heading title="Eurobowl" subtitle="Historie Team Deutschland" />
-      <div className="mb-10">
-        Die Spieldaten wurden der NAF-DB und aus den persönlichen Unterlagen die
-        Spieler entnommen. Insbesondere bei den ersten Eurobowls gab es keine
-        NAF-Pflicht, daher können einige Spiele in der Statistik fehlen.
-      </div>
-      <div className="flex items-center flex-wrap gap-6">
-        {historyData.map((item) => {
-          return (
-            <div key={item.id} className="overflow-hidden">
-              <HistoryItem historyItem={item} />
-            </div>
-          );
-        })}
-      </div>
+      <section className="py-10">
+        <Heading title="Eurobowl" subtitle="Historie Team Deutschland" />
+        <div className="mb-10">
+          Die Spieldaten wurden der NAF-DB und aus den persönlichen Unterlagen
+          die Spieler entnommen. Insbesondere bei den ersten Eurobowls gab es
+          keine NAF-Pflicht, daher können einige Spiele in der Statistik fehlen.
+        </div>
+        <div className="flex items-center flex-wrap gap-6">
+          {historyData.map((item) => {
+            return (
+              <div key={item.id} className="overflow-hidden">
+                <HistoryItem historyItem={item} />
+              </div>
+            );
+          })}
+        </div>
+      </section>
     </Layout>
   );
 }

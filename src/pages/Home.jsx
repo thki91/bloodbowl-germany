@@ -13,11 +13,6 @@ function Home() {
         className="bg-stone-200 -mx-10 px-10 py-5 md:py-10 lg:py-20"
         id="was-ist-bloodbowl"
       >
-        {/* <div className="mb-5">
-          <a className="py-2 px-4 border-b-2 border-red-600">Eurobowl</a>
-          <a className="text-stone-400 px-4 py-2">Bloowbowl</a>
-        </div> */}
-
         <div className="xl:flex xl:items-center mt-2 transition-all ease-in-out duration-700">
           <div
             className={`relative xl:min-w-[350px] transition-all duration-500 ${
