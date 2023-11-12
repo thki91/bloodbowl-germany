@@ -1,11 +1,20 @@
-const DropdownMenu = ({ icon, items, containerClasses, iconClasses }) => {
+const DropdownMenu = ({
+  image,
+  icon,
+  items,
+  containerClasses,
+  iconClasses,
+}) => {
   let dropdownContainerClasses = `opacity-0 group-hover:opacity-100 pointer-events-none min-w-[100px] group-hover:pointer-events-auto transition absolute top-4 pt-3 right-0 ${containerClasses}`;
   return (
     <div className="relative group cursor-pointer">
-      <img
-        src={icon}
-        className={`w-6 opacity-80 hover:opacity-100 transition mr-6 ${iconClasses}`}
-      />
+      {image && (
+        <img
+          src={image}
+          className={`w-6 opacity-80 hover:opacity-100 transition mr-6 ${iconClasses}`}
+        />
+      )}
+      {icon && icon}
       <div className={dropdownContainerClasses}>
         <ul className="z-10 bg-zinc-700 divide-y divide-zinc-600 rounded-lg shadow overflow-hidden">
           {items.map((item) => (

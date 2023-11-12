@@ -10,8 +10,8 @@ function Home() {
   const [firstSection, setFirstSection] = useState("eurobowl");
   return (
     <Layout>
-      <div className="relative flex justify-end items-end -mt-10 -mr-4 sm:-mr-10">
-        <div className="z-10 px-3 py-2 rounded-tl-md bg-stone-200 font-semibold ">
+      <div className="relative flex justify-end items-end -mt-9 -mr-4 sm:-mr-10">
+        <div className="z-10 px-3 py-2 rounded-tl-md bg-stone-200 font-semibold text-sm">
           <a
             className={`py-2 px-4 ${
               firstSection === "eurobowl"

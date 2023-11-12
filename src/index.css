@@ -14,6 +14,7 @@
   -webkit-text-size-adjust: 100%;
   padding: 0 !important;
   margin: 0 !important;
+  color: black;
 }
 
 td,
@@ -67,4 +68,15 @@ th:nth-child(2) {
 
 td:nth-child(2) {
   @apply sticky left-[74px] sm:left-0 bg-stone-200 sm:bg-transparent sm:relative;
+}
+
+.hamburger {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.hamburger-bar1,
+.hamburger-bar2,
+.hamburger-bar3 {
+  @apply bg-white my-[4px] h-[3px] w-[20px] opacity-80 hover:opacity-100 transition;
 }

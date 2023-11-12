@@ -19,9 +19,7 @@ const Header = () => {
   return (
     <header
       style={{ backgroundImage: `url("${headerImg}")` }}
-      className={`${
-        isScrollingDown ? "mt-0" : "sm:mt-16"
-      } p-6 pt-20 sm:pt-10 sm:p-10 sm:min-h-[480px] bg-center bg-cover bg-no-repeat relative flex items-center transition-[background-image] duration-200 ease-in-out`}
+      className="p-6 pt-20 sm:pt-24 sm:p-10 sm:min-h-[480px] bg-center bg-cover bg-no-repeat relative flex items-center transition-[background-image] duration-200 ease-in-out"
     >
       <div className="absolute bg-zinc-800 bg-opacity-80 sm:bg-opacity-50 w-full h-full top-0 left-0" />
       <div className="absolute bg-gradient-to-r from-zinc-600 from-10% via-1% to-transparent w-1/2 h-full top-0 left-0" />

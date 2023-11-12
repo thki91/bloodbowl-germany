@@ -5,7 +5,7 @@ const Eurobowl = () => {
   const [readMore, setReadMore] = useState(false);
   return (
     <section
-      className="bg-stone-200 -mx-4 sm:-mx-10 px-6 sm:px-10 py-5 md:py-10 lg:py-20"
+      className="bg-stone-200 -mx-4 sm:-mx-10 px-6 sm:px-10 py-5 md:py-10 lg:py-10 xl:py-14"
       id="was-ist-eurobowl"
     >
       <div className="xl:flex xl:items-center mt-2 transition-all ease-in-out duration-700">

@@ -1,19 +1,19 @@
-import * as React from "react";
+import { useEffect, useRef, useState } from "react";
 
 const THRESHOLD = 0;
 
 const useScrollDirection = () => {
-  const [scrollDirection, setScrollDirection] = React.useState("up");
-  const [scrollPosition, setScrollPosition] = React.useState(0);
+  const [scrollDirection, setScrollDirection] = useState("up");
+  const [scrollPosition, setScrollPosition] = useState(0);
 
-  const blocking = React.useRef(false);
-  const prevScrollY = React.useRef(0);
+  const blocking = useRef(false);
+  const prevScrollY = useRef(0);
 
-  React.useEffect(() => {
-    prevScrollY.current = window.pageYOffset;
+  useEffect(() => {
+    prevScrollY.current = window.scrollY;
 
     const updateScrollDirection = () => {
-      const scrollY = window.pageYOffset;
+      const scrollY = window.scrollY;
 
       setScrollPosition(scrollY);
 
@@ -21,7 +21,9 @@ const useScrollDirection = () => {
         const newScrollDirection =
           scrollY > prevScrollY.current ? "down" : "up";
 
-        setScrollDirection(newScrollDirection);
+        if (prevScrollY.current >= 0 && scrollY >= 0) {
+          setScrollDirection(newScrollDirection);
+        }
 
         prevScrollY.current = scrollY > 0 ? scrollY : 0;
       }

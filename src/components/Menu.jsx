@@ -72,11 +72,17 @@ const Menu = () => {
 
   return (
     <div className={headerClasses}>
-      <div className="sm:hidden">
+      <div className="sm:hidden pl-6">
         <DropdownMenu
-          icon={Logo}
+          icon={
+            <div className="hamburger mt-1">
+              <div class="hamburger-bar1"></div>
+              <div class="hamburger-bar2"></div>
+              <div class="hamburger-bar3"></div>
+            </div>
+          }
           items={dropdownMenuMobile}
-          containerClasses="!left-2 !top-7"
+          containerClasses="!left-0 !top-7"
           iconClasses="!w-10 !h-auto ml-4"
         />
       </div>
@@ -103,8 +109,8 @@ const Menu = () => {
         isActive={location.pathname === "/news"}
       />
       <div className="ml-auto flex items-center">
-        <DropdownMenu icon={LinkIcon} items={dropdownMenuLinks} />
-        <DropdownMenu icon={Discord} items={dropdownDiscordLinks} />
+        <DropdownMenu image={LinkIcon} items={dropdownMenuLinks} />
+        <DropdownMenu image={Discord} items={dropdownDiscordLinks} />
         <a
           href="https://www.instagram.com/team_germany_bb/"
           target="_blank"
