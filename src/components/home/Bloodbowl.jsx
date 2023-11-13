@@ -5,7 +5,7 @@ const Bloodbowl = () => {
   const [readMore, setReadMore] = useState(false);
   return (
     <section
-      className="bg-stone-200 -mx-4 sm:-mx-10 px-6 sm:px-10 py-5 md:py-10 lg:py-20"
+      className="bg-stone-200 -mx-4 sm:-mx-10 px-6 sm:px-10 py-5 md:py-10 lg:py-14"
       id="was-ist-bloodbowl"
     >
       <div className="xl:flex xl:items-center mt-2 transition-all ease-in-out duration-700">
