@@ -45,6 +45,10 @@ const dropdownMenuMobile = [
     text: "Historie",
     link: "/historie",
   },
+  {
+    text: "News",
+    link: "/news",
+  },
 ];
 
 const dropdownDiscordLinks = [

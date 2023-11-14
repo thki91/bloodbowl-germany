@@ -40,7 +40,7 @@ const News = ({}) => {
         <div>
           {news?.previewText}
           <a
-            className="text-red-600 hover:text-red-500 transition cursor-pointer"
+            className="text-red-600 hover:text-red-500 transition cursor-pointer ml-0.5"
             onClick={() => handleClickReadMore(news)}
           >
             Weiterlesen
