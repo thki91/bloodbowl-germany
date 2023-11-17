@@ -1,8 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Heading from "../Heading";
+import Accordion from "../Accordion";
+import useContentful from "../../hooks/useContentful";
 
 const Eurobowl = () => {
   const [readMore, setReadMore] = useState(false);
+  const [charterData, setCharterData] = useState();
+  const { getCharter } = useContentful();
+
+  useEffect(() => {
+    const getCharterData = async () => {
+      const data = await getCharter();
+      setCharterData(data);
+    };
+    getCharterData();
+  }, []);
+
   return (
     <section
       className="bg-stone-200 -mx-4 sm:-mx-10 px-6 sm:px-10 py-5 md:py-10 lg:py-10 xl:py-14"
@@ -59,6 +72,7 @@ const Eurobowl = () => {
                 spielen. 
               </p>
             </div>
+
             <div className="sm:hidden">
               <a onClick={() => setReadMore(!readMore)}>
                 {readMore ? "Weniger" : "Mehr"} lesen
@@ -67,6 +81,26 @@ const Eurobowl = () => {
           </div>
         </div>
       </div>
+      {!readMore && (
+        <div className="my-5 md:mb-0">
+          <Accordion
+            title="Charter"
+            children={
+              <>
+                {charterData?.map(({ title, description }, index) => (
+                  <div>
+                    <Accordion
+                      title={title}
+                      description={description}
+                      isLastItem={charterData.length - 1 === index}
+                    />
+                  </div>
+                ))}
+              </>
+            }
+          />
+        </div>
+      )}
     </section>
   );
 };

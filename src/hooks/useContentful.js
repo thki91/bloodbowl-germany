@@ -2,6 +2,7 @@ import { useCallback } from "react";
 import { createClient } from "contentful";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import Papa from "papaparse";
+import _ from "lodash";
 
 const mapTeamMember = (contentEntry) => {
   return {
@@ -10,6 +11,7 @@ const mapTeamMember = (contentEntry) => {
     name: contentEntry.fields.name,
     captain: !!contentEntry.fields?.captain,
     order: contentEntry.fields?.order,
+    teamType: contentEntry.fields?.teamType,
   };
 };
 
@@ -20,6 +22,15 @@ const mapNewsArticle = (contentEntry) => {
     previewText: contentEntry.fields.previewText,
     publishedAt: contentEntry.fields.publishedAt,
     picture: contentEntry.fields.picture?.fields?.file?.url,
+  };
+};
+
+const mapCharter = (contentEntry) => {
+  return {
+    description: documentToHtmlString(contentEntry.fields.description),
+    title: contentEntry.fields.title,
+    order: contentEntry.fields?.order,
+    type: contentEntry.fields?.type,
   };
 };
 
@@ -48,13 +59,16 @@ const useContentful = () => {
         content_type: "teamMember",
         select: "fields",
       });
-      return entries.items
+
+      const mappedItemsSortedByOrder = entries.items
         .map((entry) => mapTeamMember(entry))
         .sort((a, b) => {
           if (!a.order) a.order = 100;
           if (!b.order) b.order = 100;
           return a.order - b.order;
         });
+
+      return _.groupBy(mappedItemsSortedByOrder, "teamType");
     } catch (error) {
       console.log(`Error fetching team members ${error}`);
     }
@@ -80,11 +94,23 @@ const useContentful = () => {
       const asset = await client.getAsset("4QbbhyoSHk3gPwESRCxOFv");
       return await parseCSVFile(asset.fields.file.url);
     } catch (error) {
-      console.log(`Error fetching news articles ${error}`);
+      console.log(`Error fetching ranking ${error}`);
     }
   }, [client]);
 
-  return { getMembers, getNews, getRanking };
+  const getCharter = useCallback(async () => {
+    try {
+      const entries = await client.getEntries({
+        content_type: "accordion",
+        "fields.type": "Charter",
+      });
+      return entries.items.map((entry) => mapCharter(entry));
+    } catch (error) {
+      console.log(`Error fetching charter ${error}`);
+    }
+  }, [client]);
+
+  return { getMembers, getNews, getRanking, getCharter };
 };
 
 export default useContentful;

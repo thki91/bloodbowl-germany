@@ -34,6 +34,7 @@ Member.propTypes = {
 
 function Team() {
   const [teamData, setTeamData] = useState();
+  const [teamSection, setTeamSection] = useState("");
   const [modalContent, setModalContent] = useState();
   const { getMembers } = useContentful();
 
@@ -41,6 +42,7 @@ function Team() {
     const getTeamMembers = async () => {
       const data = await getMembers();
       setTeamData(data);
+      setTeamSection(Object.keys(data)[0]);
     };
     getTeamMembers();
   }, []);
@@ -72,14 +74,32 @@ function Team() {
     );
   };
 
+  if (!teamData) {
+    return null;
+  }
+
   return (
     <section
       id="team"
-      className="pt-12 pb-5 px-2 md:px-10 md:pt-24 md:pb-20 bg-stone-900 -mx-4 sm:-mx-10 bg-[url('/bg_team_mobile.png')] sm:bg-[url('/bg_team.png')] bg-center bg-fixed bg-no-repeat"
+      className="relative pb-5 px-2 md:px-10 pt-24 md:pb-20 bg-stone-900 -mx-4 sm:-mx-10 bg-[url('/bg_team_mobile.png')] sm:bg-[url('/bg_team.png')] bg-center bg-fixed bg-no-repeat"
       style={{
         backgroundSize: "100% 100%",
       }}
     >
+      <div className="absolute bg-stone-200 rounded-bl-md px-1.5 sm:px-3 py-2 sm:p-3 top-0 right-0 text-sm">
+        {Object.keys(teamData).map((key, index) => (
+          <a
+            className={`py-2 px-4 ${
+              teamSection === key || (index === 0 && !teamSection)
+                ? "border-t-2 border-red-600"
+                : "text-stone-400"
+            }`}
+            onClick={() => setTeamSection(key)}
+          >
+            {key}
+          </a>
+        ))}
+      </div>
       <Modal show={!!modalContent} handleClose={() => setModalContent(null)}>
         {modalContent}
       </Modal>
@@ -87,11 +107,11 @@ function Team() {
         <Heading title="Amtierendes Team" />
       </div>
       <div className="overflow-x-auto overflow-y-hidden px-5 pt-3 pb-6 sm:py-6 scrollbar-transparent">
-        <div className="flex items-start gap-x-3 sm:gap-x-5 gap-y-24 justify-center min-w-[1200px] w-full">
-          {teamData?.map((member) => (
+        <div className="flex items-start gap-x-3 sm:gap-x-5 gap-y-24 justify-start xl:justify-center min-w-[1200px] w-full">
+          {teamData[teamSection]?.map((member) => (
             <div
               key={member.name}
-              className="p-2 sm:p-3 relative bg-stone-200 rounded-md transform hover:scale-110 transition cursor-pointer flex-1"
+              className="p-2 sm:p-3 relative bg-stone-200 rounded-md transform hover:scale-110 transition cursor-pointer flex-1 max-w-[150px]"
               onClick={() => handleReadMore(member)}
             >
               <Member member={member} />
