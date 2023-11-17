@@ -81,7 +81,7 @@ function Team() {
   return (
     <section
       id="team"
-      className="relative pb-5 px-2 md:px-10 pt-24 md:pb-20 bg-stone-900 -mx-4 sm:-mx-10 bg-[url('/bg_team_mobile.png')] sm:bg-[url('/bg_team.png')] bg-center bg-fixed bg-no-repeat"
+      className="relative pb-5 px-2 md:px-10 pt-20 md:pb-20 bg-stone-900 -mx-4 sm:-mx-10 bg-[url('/bg_team_mobile.png')] sm:bg-[url('/bg_team.png')] bg-center bg-fixed bg-no-repeat"
       style={{
         backgroundSize: "100% 100%",
       }}

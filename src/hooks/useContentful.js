@@ -104,7 +104,10 @@ const useContentful = () => {
         content_type: "accordion",
         "fields.type": "Charter",
       });
-      return entries.items.map((entry) => mapCharter(entry));
+      return _.sortBy(
+        entries.items.map((entry) => mapCharter(entry)),
+        "order"
+      );
     } catch (error) {
       console.log(`Error fetching charter ${error}`);
     }

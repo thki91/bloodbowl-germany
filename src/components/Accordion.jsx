@@ -7,11 +7,11 @@ const Accordion = ({ title, description, children, isLastItem }) => {
     <>
       <div
         onClick={() => setIsExpanded(!isExpanded)}
-        className={`font-semibold cursor-pointer flex justify-between items-center ${
+        className={`font-semibold cursor-pointer flex justify-between items-center -mt-[1px] ${
           children
             ? "bg-stone-300 rounded-md p-2.5"
-            : " border-b-stone-300 text-red-600 border-b px-3 py-2.5"
-        } ${isLastItem ? "border-none" : ""}`}
+            : "border-b-stone-200 text-red-600 border-b px-3 py-2.5"
+        }`}
       >
         {title}
         <div className={children ? "" : "text-red-600"}>
@@ -25,7 +25,7 @@ const Accordion = ({ title, description, children, isLastItem }) => {
       <div
         className={`bg-stone-100 transition-[max-height] rounded-md ${
           isExpanded ? "max-h-[99%]" : "!max-h-0 overflow-hidden"
-        }`}
+        } ${isLastItem && isExpanded ? "pb-2" : "pb-0"}`}
       >
         {description && (
           <div
