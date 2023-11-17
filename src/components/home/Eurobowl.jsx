@@ -81,26 +81,24 @@ const Eurobowl = () => {
           </div>
         </div>
       </div>
-      {!readMore && (
-        <div className="my-5 md:mb-0">
-          <Accordion
-            title="Charter"
-            children={
-              <>
-                {charterData?.map(({ title, description }, index) => (
-                  <div>
-                    <Accordion
-                      title={title}
-                      description={description}
-                      isLastItem={charterData.length - 1 === index}
-                    />
-                  </div>
-                ))}
-              </>
-            }
-          />
-        </div>
-      )}
+      <div className="my-5 md:mb-0">
+        <Accordion
+          title="Charter"
+          children={
+            <>
+              {charterData?.map(({ title, description }, index) => (
+                <div>
+                  <Accordion
+                    title={title}
+                    description={description}
+                    isLastItem={charterData.length - 1 === index}
+                  />
+                </div>
+              ))}
+            </>
+          }
+        />
+      </div>
     </section>
   );
 };
