@@ -34,7 +34,7 @@ const Table = ({ data, columns, limit, className }) => {
                     <div
                       {...{
                         className: header.column.getCanSort()
-                          ? "cursor-pointer select-none whitespace-nowrap"
+                          ? "cursor-pointer select-none"
                           : "",
                         onClick: header.column.getToggleSortingHandler(),
                       }}
