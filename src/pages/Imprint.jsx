@@ -5,16 +5,16 @@ function Imprint() {
   return (
     <Layout>
       <section className="pt-6 sm:pt-8 text-sm sm:text-base">
-        <Heading title="Impressum & Disclaimer" variant="small" />
         <div>
-          Postadresse: DBBC e.V., Damaschkeweg 5a, 33332 Gütersloh
+          <strong>Postadresse:</strong> DBBC e.V., Damaschkeweg 5a, 33332
+          Gütersloh
           <br />
-          Kontakt:{" "}
+          <strong>Kontakt:</strong>{" "}
           <a href="mailto:kontakt[at]dbbc-ev.de">kontakt[at]dbbc-ev.de</a>
           <br />
-          Entwicklung und Co-Design: Thea Kitzinger
+          <strong>Entwicklung und Co-Design:</strong> Thea Kitzinger
           <br />
-          Design und Inhalt: Stephan Löbel
+          <strong>Design und Inhalt:</strong> Stephan Löbel
         </div>
       </section>
 
