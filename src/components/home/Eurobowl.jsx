@@ -93,7 +93,7 @@ const Eurobowl = () => {
           children={
             <>
               {charterData?.map(({ title, description }, index) => (
-                <div>
+                <div key={title}>
                   <Accordion
                     title={title}
                     description={description}

@@ -42,12 +42,6 @@ function Imprint() {
           <a href="https://www.flaticon.com/free-icons/out" title="out icons">
             Out icons created by Freepik - Flaticon
           </a>
-          <a
-            href="https://www.flaticon.com/free-icons/down-arrow"
-            title="down arrow icons"
-          >
-            Down arrow icons created by Smashicons - Flaticon
-          </a>
         </div>
       </section>
     </Layout>

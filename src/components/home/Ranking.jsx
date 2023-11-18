@@ -122,7 +122,7 @@ function Ranking() {
             image={ExternalLinkIcon}
             items={dropdownRankingLinks}
             iconClasses="!mr-0 !w-4 !h-4 mb-5"
-            containerClasses="-right-2.5"
+            containerClasses="!-right-2.5"
           />
         </div>
       </div>

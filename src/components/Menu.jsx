@@ -95,9 +95,9 @@ const Menu = () => {
         <DropdownMenu
           icon={
             <div className="hamburger mt-1">
-              <div class="hamburger-bar1"></div>
-              <div class="hamburger-bar2"></div>
-              <div class="hamburger-bar3"></div>
+              <div className="hamburger-bar1"></div>
+              <div className="hamburger-bar2"></div>
+              <div className="hamburger-bar3"></div>
             </div>
           }
           items={dropdownMenuMobile}
