@@ -49,6 +49,12 @@ const Eurobowl = () => {
                 teil. Parallel zum Eurobowl finden die Europen statt, ein
                 Teamturnier ohne nationale Beschränkungen für Teams mit 4
                 Coaches.
+                <a
+                  onClick={() => setReadMore(!readMore)}
+                  className={`sm:hidden ml-0.5 ${readMore ? "hidden" : ""}`}
+                >
+                  Mehr lesen
+                </a>
               </p>
             </div>
             <div
@@ -69,14 +75,14 @@ const Eurobowl = () => {
                 und die darin enthaltenen einzelnen Coaches nach dem
                 Schweizer-System gepaart, was bedeutet, dass die stärksten
                 Coaches gegen die stärksten Coaches der gegnerischen Mannschaft
-                spielen. 
+                spielen.
+                <a
+                  onClick={() => setReadMore(!readMore)}
+                  className={`sm:hidden ml-0.5 ${!readMore ? "hidden" : ""}`}
+                >
+                  Weniger lesen
+                </a>
               </p>
-            </div>
-
-            <div className="sm:hidden">
-              <a onClick={() => setReadMore(!readMore)}>
-                {readMore ? "Weniger" : "Mehr"} lesen
-              </a>
             </div>
           </div>
         </div>

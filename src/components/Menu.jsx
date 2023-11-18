@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import Instagram from "../assets/instagram.png";
 import Discord from "../assets/discord.png";
 import LinkIcon from "../assets/linkIcon.png";
+import DiceIcon from "../assets/dice-1.png";
 import Logo from "../assets/logo.png";
 import { useScrollDirection } from "../hooks/useScrollDirection";
 import DropdownMenu from "./DropdownMenu";
@@ -33,6 +34,10 @@ const dropdownMenuLinks = [
     link: "http://dbbcev.de/joomla/index.php/forum/index",
   },
   { text: "Eurobowl", link: "http://www.eurobowl.eu" },
+  {
+    text: "Talk Fantasy Football",
+    link: "https://www.talkfantasyfootball.org",
+  },
   { text: "The Naf", link: "https://www.thenaf.net/" },
 ];
 
@@ -56,6 +61,16 @@ const dropdownDiscordLinks = [
   { text: "Berlin Open Discord Server", link: "https://discord.gg/dXG9KcNR" },
   { text: "Eurobowl Discord Server", link: "https://discord.gg/NnH3yXFm" },
   { text: "NAF Discord Server", link: "https://discord.gg/8EwNFD5r" },
+];
+
+const dropdownDiceLinks = [
+  {
+    text: "Teamübersicht",
+    link: "https://public.tableau.com/app/profile/mike.sann0638.davies/viz/NAFTournamentList/ROWMap",
+  },
+  { text: "BB Strategies", link: "https://bloodbowlstrategies.com/en/" },
+  { text: "Fumbbl", link: "https://fumbbl.com/p/news" },
+  { text: "BB3", link: "https://www.bloodbowl-thegame.com/home" },
 ];
 
 const Menu = () => {
@@ -115,6 +130,11 @@ const Menu = () => {
       <div className="ml-auto flex items-center">
         <DropdownMenu image={LinkIcon} items={dropdownMenuLinks} />
         <DropdownMenu image={Discord} items={dropdownDiscordLinks} />
+        <DropdownMenu
+          image={DiceIcon}
+          items={dropdownDiceLinks}
+          containerClasses="top-5"
+        />
         <a
           href="https://www.instagram.com/team_germany_bb/"
           target="_blank"

@@ -2,10 +2,12 @@ import { useEffect, useState, useMemo } from "react";
 import useContentful from "../../hooks/useContentful";
 import Table from "../Table";
 import Heading from "../Heading";
+import ExternalLinkIcon from "../../assets/external-link.png";
+import DropdownMenu from "../DropdownMenu";
 
 const Pagination = ({ numbers, handleSetRowsToShow, currentRowsToShow }) => {
   return (
-    <div className="flex justify-end ml-auto mt-4 gap-x-1.5">
+    <div className="flex justify-end ml-auto gap-x-1.5">
       {numbers.map((number) => (
         <a
           className={`w-6 h-6 border rounded-md flex items-center justify-center text-xs ${
@@ -23,15 +25,28 @@ const Pagination = ({ numbers, handleSetRowsToShow, currentRowsToShow }) => {
   );
 };
 
+const dropdownRankingLinks = [
+  {
+    text: "Norddeutsche BB Meisterschaft",
+    link: "http://nbbm.dbbc-ev.de",
+  },
+  {
+    text: "Süddeutsche BB Meisterschaft",
+    link: "http://www.sbbm-turniere.com",
+  },
+  { text: "Dach Meisterschaft", link: "http://sbbm.dbbc-ev.de/dach_winners" },
+];
+
 function Ranking() {
   const [rankingData, setRankingData] = useState();
-  const [rowsToShow, setRowsToShow] = useState(10);
+  const [rankingUpdatedAt, setRankingUpdatedAt] = useState();
+  const [rowsToShow, setRowsToShow] = useState(12);
   const { getRanking } = useContentful();
 
   useEffect(() => {
     const getRankings = async () => {
       const data = await getRanking();
-      const dataWithLinks = data?.map((col) => {
+      const dataWithLinks = data?.rankingTable?.map((col) => {
         let name = Object.values(col)[1];
         name = (
           <a
@@ -47,6 +62,7 @@ function Ranking() {
         return col;
       });
       setRankingData(dataWithLinks);
+      setRankingUpdatedAt(data.updatedAt);
     };
     getRankings();
   }, []);
@@ -66,7 +82,7 @@ function Ranking() {
       className="py-6 sm:py-10 px-6 sm:px-14 bg-stone-200 -mx-4 sm:-mx-10"
     >
       <div className="flex items-center gap-x-3 justify-center sm:justify-start">
-        <Heading title="Ranking" />
+        <Heading title="Community Ranking" />
         <div className="group relative">
           <div className="rounded-full w-4 h-4 flex items-center justify-center text-stone-500 hover:text-stone-600 font-semibold border border-stone-500 text-xs mb-[18px] cursor-pointer hover:border-stone-600 transition">
             i
@@ -101,6 +117,14 @@ function Ranking() {
             </ul>
           </div>
         </div>
+        <div className="ml-auto">
+          <DropdownMenu
+            image={ExternalLinkIcon}
+            items={dropdownRankingLinks}
+            iconClasses="!mr-0 !w-4 !h-4 mb-5"
+            containerClasses="-right-2.5"
+          />
+        </div>
       </div>
       {rankingData?.length && (
         <>
@@ -112,11 +136,19 @@ function Ranking() {
               className="min-w-[900px]"
             />
           </div>
-          <Pagination
-            numbers={[10, 25, 50]}
-            handleSetRowsToShow={(number) => setRowsToShow(number)}
-            currentRowsToShow={rowsToShow}
-          />
+          <div className="flex items-center justify-between mt-4">
+            {rankingUpdatedAt && (
+              <div className="text-xs italic text-stone-500">
+                Zuletzt aktualisiert am{" "}
+                {new Date(rankingUpdatedAt)?.toLocaleDateString("de-DE")}
+              </div>
+            )}
+            <Pagination
+              numbers={[12, 25, 40]}
+              handleSetRowsToShow={(number) => setRowsToShow(number)}
+              currentRowsToShow={rowsToShow}
+            />
+          </div>
         </>
       )}
     </section>

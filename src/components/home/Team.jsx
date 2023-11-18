@@ -86,20 +86,22 @@ function Team() {
         backgroundSize: "100% 100%",
       }}
     >
-      <div className="absolute bg-stone-200 rounded-bl-md px-1.5 sm:px-3 py-2 sm:p-3 top-0 right-0 text-sm">
-        {Object.keys(teamData).map((key, index) => (
-          <a
-            className={`py-2 px-4 ${
-              teamSection === key || (index === 0 && !teamSection)
-                ? "border-t-2 border-red-600"
-                : "text-stone-400"
-            }`}
-            onClick={() => setTeamSection(key)}
-          >
-            {key}
-          </a>
-        ))}
-      </div>
+      {Object.keys(teamData)?.length > 1 && (
+        <div className="absolute px-1.5 sm:px-3 py-2 sm:p-3 top-0 right-0 text-sm">
+          {Object.keys(teamData).map((key, index) => (
+            <a
+              className={`py-2 px-4 ${
+                teamSection === key || (index === 0 && !teamSection)
+                  ? "border-b-2 border-red-600"
+                  : "text-stone-400"
+              }`}
+              onClick={() => setTeamSection(key)}
+            >
+              {key}
+            </a>
+          ))}
+        </div>
+      )}
       <Modal show={!!modalContent} handleClose={() => setModalContent(null)}>
         {modalContent}
       </Modal>

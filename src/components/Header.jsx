@@ -27,8 +27,8 @@ const Header = () => {
         <h3 className="relative uppercase font-semibold mb-1 tracking-widest bg-clip-text text-transparent bg-gradient-to-r from-black via-red-500 to-yellow-400 w-[150px] text-xl sm:text-2xl">
           Eurobowl
         </h3>
-        <h3 className="relative uppercase font-semibold bg-clip-text text-transparent bg-gradient-to-r from-black via-red-500 to-yellow-400 w-[270px] sm:w-[450px] text-2xl sm:text-4xl">
-          Team Deutschland
+        <h3 className="relative uppercase font-semibold bg-clip-text text-transparent bg-gradient-to-r from-black via-red-500 to-yellow-400 w-[220px] sm:w-[320px] text-2xl sm:text-4xl">
+          BB Deutschland
         </h3>
         <News />
       </div>

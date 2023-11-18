@@ -145,6 +145,12 @@ const Bloodbowl = () => {
             des Gegners zu befördern, um so{" "}
             <span className="italic">Touchdowns</span> zu erzielen bzw. dies zu
             verhindern.
+            <a
+              onClick={() => setReadMore(!readMore)}
+              className={`ml-0.5 ${readMore ? "hidden" : ""}`}
+            >
+              Mehr lesen
+            </a>
           </p>
           {readMore && (
             <>
@@ -186,12 +192,15 @@ const Bloodbowl = () => {
                 Wochenende mit 6 Partien im Schweizer System ausgetragen werden
                 und durchaus ein überregionales, bisweilen sogar internationales
                 Publikum ansprechen.
+                <a
+                  onClick={() => setReadMore(!readMore)}
+                  className={`ml-0.5 ${!readMore ? "hidden" : ""}`}
+                >
+                  Weniger lesen
+                </a>
               </p>
             </>
           )}
-          <a onClick={() => setReadMore(!readMore)}>
-            {readMore ? "Weniger" : "Mehr"} lesen
-          </a>
         </div>
       </div>
     </section>

@@ -92,7 +92,8 @@ const useContentful = () => {
   const getRanking = useCallback(async () => {
     try {
       const asset = await client.getAsset("4QbbhyoSHk3gPwESRCxOFv");
-      return await parseCSVFile(asset.fields.file.url);
+      const rankingTable = await parseCSVFile(asset.fields.file.url);
+      return { rankingTable, updatedAt: asset.sys.updatedAt };
     } catch (error) {
       console.log(`Error fetching ranking ${error}`);
     }

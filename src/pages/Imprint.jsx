@@ -6,36 +6,50 @@ function Imprint() {
     <Layout>
       <section className="py-10">
         <Heading title="Impressum" />
-        In Bearbeitung...
+        <div className="mb-5">In Bearbeitung...</div>
+        <Heading title="Ressourcen" />
+        <div className="flex flex-col items-start text-sm gap-y-1.5">
+          <a href="https://www.flaticon.com/free-icons/dice" title="dice icons">
+            Dice icons created by Freepik - Flaticon
+          </a>
+          <a
+            href="https://www.flaticon.com/free-icons/world"
+            title="world icons"
+          >
+            World icons created by turkkub - Flaticon
+          </a>
+          <a href="https://www.flaticon.com/free-icons/dice" title="dice icons">
+            Dice icons created by Dimi Kazak - Flaticon
+          </a>
+          <a href="https://www.flaticon.com/free-icons/time" title="time icons">
+            Time icons created by Freepik - Flaticon
+          </a>
+          <a
+            href="https://www.flaticon.com/free-icons/trophy"
+            title="trophy icons"
+          >
+            Trophy icons created by Freepik - Flaticon
+          </a>
+          <a href="https://www.flaticon.com/free-icons/pray" title="pray icons">
+            Pray icons created by Freepik - Flaticon
+          </a>
+          <a
+            href="https://www.flaticon.com/free-icons/population"
+            title="population icons"
+          >
+            Population icons created by Gajah Mada - Flaticon
+          </a>
+          <a href="https://www.flaticon.com/free-icons/out" title="out icons">
+            Out icons created by Freepik - Flaticon
+          </a>
+          <a
+            href="https://www.flaticon.com/free-icons/down-arrow"
+            title="down arrow icons"
+          >
+            Down arrow icons created by Smashicons - Flaticon
+          </a>
+        </div>
       </section>
-      {/* <div className="absolute top-0 left-0 bg-stone-900 h-full w-full">
-        <div
-          className="absolute w-[1200px] h-[200%]  -left-20"
-          style={{
-            background:
-              "radial-gradient(circle, rgba(220 38 38) 0%, transparent 50%)",
-          }}
-        />
-        <div
-          className="absolute w-[1200px] h-[200%] -top-0 right-0"
-          style={{
-            background: "radial-gradient(circle, #fcd34d 0%, transparent 50%)",
-          }}
-        />
-        <div
-          className="absolute w-[500px] h-[150%] -top-0 right-1/2 opacity-30"
-          style={{
-            background: "radial-gradient(circle, #fcd34d 0%, transparent 20%)",
-          }}
-        />
-        <div
-          className="absolute w-[500px] h-[100%] -top-0 right-0 opacity-30"
-          style={{
-            background:
-              "radial-gradient(circle, rgba(220 38 38) 0%, transparent 50%)",
-          }}
-        />
-      </div> */}
     </Layout>
   );
 }
