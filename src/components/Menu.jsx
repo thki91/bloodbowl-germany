@@ -11,7 +11,7 @@ import DropdownMenu from "./DropdownMenu";
 
 const MenuLink = ({ text, url, isActive }) => {
   let menuLinkClasses =
-    "px-6 h-full text-zinc-300 hover:bg-zinc-700 block transition hover:text-zinc-200 flex items-center hidden sm:flex";
+    "px-6 h-full text-stone-300 hover:bg-stone-700 block transition hover:text-stone-200 flex items-center hidden sm:flex";
   if (isActive) {
     menuLinkClasses = `${menuLinkClasses} bg-gradient-to-t from-amber-300 from-0% via-50% to-amber-600 !text-black`;
   }
@@ -88,19 +88,19 @@ const Menu = () => {
   const isScrollingDown = scrollDirection === "down";
 
   let headerClasses =
-    "sm:bg-zinc-800 flex items-center absolute sm:fixed duration-600 top-0 z-30 w-full h-[70px] transition-[transform]";
+    "sm:bg-stone-800 flex items-center absolute sm:fixed duration-600 top-0 z-30 w-full h-[70px] transition-[transform]";
 
   if (isScrollingDown) {
     headerClasses = `${headerClasses} transform sm:-translate-y-[70px]`;
   }
 
   if (!isScrollingDown && scrollPosition > 70) {
-    headerClasses = `${headerClasses} !fixed bg-zinc-800`;
+    headerClasses = `${headerClasses} !fixed bg-stone-800`;
   }
 
   return (
     <div className={headerClasses}>
-      <div className="sm:hidden pl-6">
+      <div className="sm:hidden pl-6 flex gap-x-6">
         <DropdownMenu
           icon={
             <div className="hamburger mt-1">
@@ -113,6 +113,7 @@ const Menu = () => {
           containerClasses="!left-0 !top-7"
           iconClasses="!w-10 !h-auto ml-4"
         />
+        <img src={Logo} className="w-10 h-auto hover:scale-105 transition" />
       </div>
       <div className="flex-shrink-0 h-full">
         <MenuLink

@@ -5,6 +5,7 @@ import Heading from "../Heading";
 import ExternalLinkIcon from "../../assets/external-link.png";
 import DropdownMenu from "../DropdownMenu";
 import Pagination from "../Pagination";
+import { mapTableMemberLink } from "../../helper/table";
 
 const dropdownRankingLinks = [
   {
@@ -27,22 +28,7 @@ function Ranking() {
   useEffect(() => {
     const getRankings = async () => {
       const data = await getRanking();
-      const dataWithLinks = data?.rankingTable?.map((col) => {
-        let name = Object.values(col)[1];
-        name = (
-          <a
-            href={`https://member.thenaf.net/index.php?module=NAF&type=coachpage&coach=${name}`}
-            target="_blank"
-            rel="noreferrer"
-          >
-            {name}
-          </a>
-        );
-        const keyToUpdate = Object.keys(col)[1];
-        col[keyToUpdate] = name;
-        return col;
-      });
-      setRankingData(dataWithLinks);
+      setRankingData(mapTableMemberLink(data?.rankingTable, 1));
       setRankingUpdatedAt(data.updatedAt);
     };
     getRankings();
@@ -68,34 +54,49 @@ function Ranking() {
           <div className="rounded-full w-4 h-4 flex items-center justify-center text-stone-500 hover:text-stone-600 font-semibold border border-stone-500 text-xs mb-[18px] cursor-pointer hover:border-stone-600 transition">
             i
           </div>
-          <div className="opacity-0 pointer-events-none group-hover:opacity-100 absolute -right-0 sm:left-0 sm:translate-x-0 top-5 bg-stone-600 p-4 rounded-md text-xs text-white transition w-[280px] sm:w-[350px] z-10">
-            <p>
-              * min. 50% NAF-Winrate, 20 BB-2020 NAF Spiele, 165 NAF-Rating,
-              1150 Glicko-Rating, 170 Danish Coach Rating und 180 Danish Year.
-            </p>
-            <p> **Berechnung des Rankings</p>
-            <ul className="list-disc ml-2.5">
+          <div className="opacity-0 pointer-events-none group-hover:opacity-100 absolute -right-0 sm:left-0 sm:translate-x-0 top-5 bg-stone-600 p-4 rounded-md text-xs text-white transition w-[300px] sm:w-[400px] z-10">
+            <p> *Berechnung des Rankings</p>
+            <ul className="list-disc ml-2.5 mb-2">
               <li>
-                Glicko NAF zu 35% (Spielstärke über Zeit) im internen
-                Rankingvergleich
+                <strong>
+                  Beste 8 NAF-Turniere 2023 (Swedish System) zu 25%
+                </strong>{" "}
+                (Mittelfristige Form) im internen Rankingvergleich
               </li>
               <li>
-                Danish Coach Rating zu 17,5% (Kurzfristige Form) im internen
-                Rankingvergleich
+                <strong>Siegquote NAF BB2020 zu 20%</strong> (Spielstärke über
+                Rassen) im internen Rankingvergleich
               </li>
               <li>
-                Danish Coach Rating Year zu 17,5% (Mittelfristige Form) im
+                <strong>Danish Coach Rating Year zu 20%</strong> (Mittelfristige
+                Form) im internen Rankingvergleich
+              </li>
+              <li>
+                <strong>Danish Coach Rating zu 15%</strong> (Kurzfristige Form)
+                im internen Rankingvergleich
+              </li>
+              <li>
+                <strong>Glicko NAF zu 15%</strong> (Spielstärke über Zeit) im
                 internen Rankingvergleich
               </li>
               <li>
-                Siegquote NAF BB2020 zu 25% (Spielstärke über Rassen) im
-                internen Rankingvergleich{" "}
-              </li>
-              <li>
-                Höchste NAF-Wertung zu 5% (Spielstärke) im internen
-                Rankingvergleich
+                <strong>Höchste NAF-Wertung zu 5%</strong> (Spielstärke) im
+                internen Rankingvergleich
               </li>
             </ul>
+            <p>
+              ** Gerankt werden nur Coaches mit min. 53% NAF-Winrate, mind. 28
+              BB-2020 NAF Spielen, 170 NAF-Rating, 1150 Glicko-Rating, 175
+              Danish Coach Rating und 190 Danish Year Rating, sowie mit
+              Spielberechtigung für Deutschland.
+            </p>
+            <p>
+              ***Negative Ausreißer wurden nicht gewertet; teilweise weniger als
+              8 Turniere in der Wertung. Nur Turniere mit mind. 5 Spielen.
+              Letztes EB-Ergebnis wird gewertet. Formel des schwedischen System
+              richtet sich nach ELO (y = 4155,9x5 - 10625x4 + 10186x3 - 4496,9x2
+              + 1009x - 120).
+            </p>
           </div>
         </div>
         <div className="sm:ml-auto absolute right-0 top-1.5 sm:relative sm:top-0">

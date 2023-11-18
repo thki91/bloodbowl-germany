@@ -19,7 +19,11 @@
 
 td,
 th {
-  @apply px-4 py-1.5 border-b border-stone-300 text-left text-xs sm:text-sm;
+  @apply px-4 py-2 text-left text-xs sm:text-sm;
+}
+
+tr:nth-child(even) {
+  @apply bg-stone-300;
 }
 
 p {
@@ -58,15 +62,23 @@ th:first-child {
   @apply left-0 bg-stone-300 sticky sm:relative;
 }
 
-td:first-child {
-  @apply sticky left-0 bg-stone-200 sm:bg-transparent border-b border-b-stone-300 sm:relative;
-}
-
 th:nth-child(2) {
   @apply left-[74px] sm:left-0 bg-stone-300 sticky sm:relative;
 }
 
-td:nth-child(2) {
+tr:nth-child(even) td:first-child {
+  @apply sticky left-0 bg-stone-300 sm:bg-transparent sm:relative;
+}
+
+tr:nth-child(odd) td:first-child {
+  @apply sticky left-0 bg-stone-200 sm:bg-transparent sm:relative;
+}
+
+tr:nth-child(even) td:nth-child(2) {
+  @apply sticky left-[74px] sm:left-0 bg-stone-300 sm:bg-transparent sm:relative;
+}
+
+tr:nth-child(odd) td:nth-child(2) {
   @apply sticky left-[74px] sm:left-0 bg-stone-200 sm:bg-transparent sm:relative;
 }
 

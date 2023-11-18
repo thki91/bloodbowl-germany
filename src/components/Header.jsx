@@ -68,8 +68,8 @@ const Header = () => {
         isHomepage ? "sm:min-h-[480px]" : "sm:min-h-[300px]"
       } bg-center bg-cover bg-no-repeat relative flex items-center transition-[background-image] duration-200 ease-in-out`}
     >
-      <div className="absolute bg-zinc-800 bg-opacity-80 sm:bg-opacity-50 w-full h-full top-0 left-0" />
-      <div className="absolute bg-gradient-to-r from-zinc-600 from-10% via-1% to-transparent w-1/2 h-full top-0 left-0" />
+      <div className="absolute bg-stone-800 bg-opacity-80 sm:bg-opacity-50 w-full h-full top-0 left-0" />
+      <div className="absolute bg-gradient-to-r from-stone-600 from-10% via-1% to-transparent w-1/2 h-full top-0 left-0" />
       <div className="transition flex flex-col justify-center">
         <h3 className="relative uppercase font-semibold mb-1 tracking-widest bg-clip-text text-transparent bg-gradient-to-r from-black via-red-500 to-yellow-400 w-[150px] text-xl sm:text-2xl">
           Eurobowl

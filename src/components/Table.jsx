@@ -5,6 +5,8 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 import PropTypes from "prop-types";
+import SortAscIcon from "../assets/sort-asc.png";
+import SortDescIcon from "../assets/sort-desc.png";
 
 const Table = ({ data, columns, limit, className }) => {
   const table = useReactTable({
@@ -32,7 +34,7 @@ const Table = ({ data, columns, limit, className }) => {
                     <div
                       {...{
                         className: header.column.getCanSort()
-                          ? "cursor-pointer select-none"
+                          ? "cursor-pointer select-none whitespace-nowrap"
                           : "",
                         onClick: header.column.getToggleSortingHandler(),
                       }}
@@ -42,8 +44,12 @@ const Table = ({ data, columns, limit, className }) => {
                         header.getContext()
                       )}
                       {{
-                        asc: " 🔼",
-                        desc: " 🔽",
+                        asc: (
+                          <img src={SortAscIcon} className="w-4 inline ml-2" />
+                        ),
+                        desc: (
+                          <img src={SortDescIcon} className="w-4 inline ml-2" />
+                        ),
                       }[header.column.getIsSorted()] ?? null}
                     </div>
                   )}

@@ -5,6 +5,7 @@ import Table from "../components/Table";
 import ExternalLinkIcon from "../assets/external-link.png";
 import PropTypes from "prop-types";
 import useContentful from "../hooks/useContentful";
+import { mapTableMemberLink } from "../helper/table";
 
 const HistoryItem = ({ historyItem }) => {
   const columns = useMemo(() => {
@@ -12,14 +13,15 @@ const HistoryItem = ({ historyItem }) => {
     const resultTableColumns = Object.keys(historyItem.resultTable[0]);
     return resultTableColumns.map((col, index) => ({
       accessorKey: col,
-      enableSorting: index !== 1,
     }));
   }, [historyItem]);
 
+  const tableData = mapTableMemberLink(historyItem.resultTable, 0);
+
   return (
-    <div className="bg-zinc-100 rounded-sm p-3 relative">
+    <div className="bg-stone-200 rounded-md p-3 sm:p-4 relative">
       <a href={historyItem.resultsLink} target="_blank" rel="noreferrer">
-        <div className="absolute right-0 top-0 bg-stone-200 p-3 rounded-bl-md opacity-80">
+        <div className="absolute right-0 top-0 hover:bg-stone-300 transition p-3 rounded-bl-md rounded-tr-md opacity-80">
           <img src={ExternalLinkIcon} className="w-4" />
         </div>
       </a>
@@ -40,11 +42,7 @@ const HistoryItem = ({ historyItem }) => {
       </div>
       <div className="flex items-start overflow-x-auto">
         <div className="flex-1">
-          <Table
-            data={historyItem.resultTable}
-            columns={columns}
-            className="min-w-[500px]"
-          />
+          <Table data={tableData} columns={columns} className="min-w-[500px]" />
         </div>
       </div>
     </div>

@@ -5,7 +5,7 @@ const Heading = ({ title, subtitle, variant }) => {
     return (
       <div className="bg-red-600 rounded-sm px-2 py-1.5 text-white w-auto">
         {subtitle && (
-          <h4 className="font-semibold uppercase tracking-widest text-sm text-zinc-200">
+          <h4 className="font-semibold uppercase tracking-widest text-sm text-stone-200">
             {subtitle}
           </h4>
         )}
@@ -17,11 +17,19 @@ const Heading = ({ title, subtitle, variant }) => {
   return (
     <>
       {subtitle && (
-        <h4 className="font-semibold uppercase tracking-widest text-sm text-zinc-700 mb-1">
+        <h4 className="font-semibold uppercase tracking-widest text-sm text-stone-700 mb-1">
           {subtitle}
         </h4>
       )}
-      <h2 className="text-xl sm:text-2xl font-semibold mb-5">{title}</h2>
+      <h2
+        className={`${
+          variant === "small"
+            ? "text-lg sm:text-xl mb-3"
+            : "text-xl sm:text-2xl mb-5"
+        } font-semibold`}
+      >
+        {title}
+      </h2>
     </>
   );
 };
