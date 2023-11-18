@@ -36,7 +36,7 @@ const Member = ({ member, isEmpty }) => {
           👑
         </div>
       )}
-      <div className="text-center font-bold">{member.name}</div>
+      <div className="text-sm text-center font-bold">{member.name}</div>
     </>
   );
 };
