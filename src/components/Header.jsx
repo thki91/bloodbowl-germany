@@ -26,28 +26,28 @@ const Header = () => {
       <header className="relative pt-24 pb-10 sm:pt-32 sm:pb-16 overflow-hidden rounded-br-[40px]">
         <div className="absolute top-0 left-0 bg-stone-900 h-full w-full">
           <div
-            className="absolute w-[1200px] h-[200%] -left-20 animate-[pulse_4s_ease-in-out_infinite]"
+            className="absolute w-[700px] sm:w-[1200px] h-[200%] -left-1/4 sm:-left-20 animate-[pulse_4s_ease-in-out_infinite]"
             style={{
               background:
                 "radial-gradient(circle, rgba(220 38 38) 0%, transparent 50%)",
             }}
           />
           <div
-            className="absolute w-[1200px] h-[200%] -top-0 right-0 animate-[pulse_4s_ease-in-out_infinite]"
+            className="absolute w-[1000px] sm:w-[1200px] h-[200%] -top-0 sm:right-0 animate-[pulse_4s_ease-in-out_infinite]"
             style={{
               background:
                 "radial-gradient(circle, #fcd34d 0%, transparent 50%)",
             }}
           />
           <div
-            className="absolute w-[700px] h-[200%] -top-0 right-1/2 opacity-30 animate-[pulse_4s_ease-in-out_infinite]"
+            className="absolute w-[400px] sm:w-[700px] h-[200%] -top-0 sm:right-1/2 opacity-30 animate-[pulse_4s_ease-in-out_infinite]"
             style={{
               background:
                 "radial-gradient(circle, #fcd34d 0%, transparent 20%)",
             }}
           />
           <div
-            className="absolute w-[500px] h-[100%] -top-0 right-0 opacity-30 animate-[pulse_4s_ease-in-out_infinite]"
+            className="absolute w-[300px] sm:w-[500px] h-[100%] -top-0 right-0 opacity-30 animate-[pulse_4s_ease-in-out_infinite]"
             style={{
               background:
                 "radial-gradient(circle, rgba(220 38 38) 0%, transparent 50%)",
