@@ -9,14 +9,14 @@ import VoteIcon from "../../assets/vote.png";
 const Member = ({ member, isEmpty }) => {
   if (isEmpty) {
     return (
-      <div>
-        <div className="mx-auto w-28 h-28 bg-stone-800 flex items-center justify-center rounded-full mb-3 relative max-w-[100px] sm:max-w-none max-h-[100px] sm:max-h-none">
+      <>
+        <div className="flex-shrink-0 mx-auto w-28 h-28 bg-stone-800 flex items-center justify-center rounded-full mb-3 relative max-w-[100px] sm:max-w-none max-h-[100px] sm:max-h-none">
           <img src={AnonymousIcon} className="w-12" />
         </div>
         <div className="text-center font-bold text-sm whitespace-nowrap">
           Nicht nominiert
         </div>
-      </div>
+      </>
     );
   }
   return (
@@ -109,7 +109,7 @@ function Team() {
         {modalContent}
       </Modal>
       <div className="text-white text-center -mt-5">
-        <Heading title={`Aktuelles ${teamSection} Team`} />
+        <Heading title={`Aktuelles Team`} />
         {hasMoreTeamSections && (
           <div className="pb-4 text-sm -mt-3">
             {["Eurobowl", "EurOpen"].map((key, index) => (
@@ -117,7 +117,7 @@ function Team() {
                 className={`py-2 px-4 ${
                   teamSection === key || (index === 0 && !teamSection)
                     ? "border-b-2 border-red-600"
-                    : "text-stone-200"
+                    : "text-stone-100"
                 }`}
                 onClick={() => setTeamSection(key)}
               >
@@ -148,7 +148,7 @@ function Team() {
               return (
                 <div
                   key={`emptyMember${index}`}
-                  className="p-2 sm:p-3 relative bg-stone-200 rounded-md transform hover:scale-110 transition flex-1 max-w-[140px] self-stretch opacity-80 flex items-center"
+                  className="p-2 sm:p-3 relative bg-stone-200 rounded-md transform hover:scale-110 transition flex-1 max-w-[140px] self-stretch opacity-80"
                 >
                   <Member isEmpty={true} />
                 </div>

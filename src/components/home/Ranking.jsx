@@ -4,26 +4,7 @@ import Table from "../Table";
 import Heading from "../Heading";
 import ExternalLinkIcon from "../../assets/external-link.png";
 import DropdownMenu from "../DropdownMenu";
-
-const Pagination = ({ numbers, handleSetRowsToShow, currentRowsToShow }) => {
-  return (
-    <div className="flex justify-end ml-auto gap-x-1.5">
-      {numbers.map((number) => (
-        <a
-          className={`w-6 h-6 border rounded-md flex items-center justify-center text-xs ${
-            currentRowsToShow === number
-              ? "border-red-500 text-red-500"
-              : "border-stone-300 text-stone-600 "
-          }`}
-          onClick={() => handleSetRowsToShow(number)}
-          key={`pagination-${number}`}
-        >
-          {number}
-        </a>
-      ))}
-    </div>
-  );
-};
+import Pagination from "../Pagination";
 
 const dropdownRankingLinks = [
   {
@@ -144,7 +125,7 @@ function Ranking() {
               </div>
             )}
             <Pagination
-              numbers={[12, 25, 40]}
+              numbers={[12, 25, 50]}
               handleSetRowsToShow={(number) => setRowsToShow(number)}
               currentRowsToShow={rowsToShow}
             />

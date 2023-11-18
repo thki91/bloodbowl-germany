@@ -23,12 +23,40 @@ const Header = () => {
 
   if (!isHomepage) {
     return (
-      <header
-        className={`min-h-[150px] relative pb-5 px-2 md:px-10 pt-16 md:pb-16 md:pt-24 bg-stone-900 -mx-4 sm:-mx-10 bg-[url('/bg_team_mobile.png')] sm:bg-[url('/bg_team.png')] bg-center bg-fixed bg-no-repeat bg-contain rounded-br-3xl`}
-      >
-        <h3 className="pb-8 sm:pb-0 pt-10 pl-10 relative uppercase font-semibold bg-clip-text text-transparent bg-gradient-to-r from-black via-red-500 to-yellow-400 w-[220px] sm:w-[320px] text-2xl sm:text-4xl !text-white">
+      <header className="relative pt-24 pb-10 sm:pt-32 sm:pb-16 overflow-hidden rounded-br-[40px]">
+        <div className="absolute top-0 left-0 bg-stone-900 h-full w-full">
+          <div
+            className="absolute w-[1200px] h-[200%] -left-20 animate-[pulse_5s_ease-in-out_infinite]"
+            style={{
+              background:
+                "radial-gradient(circle, rgba(220 38 38) 0%, transparent 50%)",
+            }}
+          />
+          <div
+            className="absolute w-[1200px] h-[200%] -top-0 right-0 animate-[pulse_5s_ease-in-out_infinite]"
+            style={{
+              background:
+                "radial-gradient(circle, #fcd34d 0%, transparent 50%)",
+            }}
+          />
+          <div
+            className="absolute w-[700px] h-[200%] -top-0 right-1/2 opacity-30 animate-[pulse_5s_ease-in-out_infinite]"
+            style={{
+              background:
+                "radial-gradient(circle, #fcd34d 0%, transparent 20%)",
+            }}
+          />
+          <div
+            className="absolute w-[500px] h-[100%] -top-0 right-0 opacity-30 animate-[pulse_5s_ease-in-out_infinite]"
+            style={{
+              background:
+                "radial-gradient(circle, rgba(220 38 38) 0%, transparent 50%)",
+            }}
+          />
+        </div>
+        <h2 className="text-2xl sm:text-4xl ml-6 sm:ml-10 uppercase font-semibold tracking-wide text-white relative">
           {title}
-        </h3>
+        </h2>
       </header>
     );
   }

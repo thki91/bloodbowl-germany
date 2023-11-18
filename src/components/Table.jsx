@@ -58,7 +58,11 @@ const Table = ({ data, columns, limit, className }) => {
           return (
             <tr key={row.id}>
               {row.getAllCells().map((cell) => {
-                return <td key={cell.id}>{cell.getValue()}</td>;
+                let cellValue = cell.getValue();
+                if (typeof cellValue === "string") {
+                  cellValue = cellValue.replace("__", "👑");
+                }
+                return <td key={cell.id}>{cellValue}</td>;
               })}
             </tr>
           );

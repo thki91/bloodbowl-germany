@@ -34,11 +34,25 @@ const mapCharter = (contentEntry) => {
   };
 };
 
-const mapFacts = (contentEntry) => {
+const mapFact = (contentEntry) => {
   return {
     description: contentEntry.fields.description,
     icon: contentEntry.fields.icon?.fields?.file?.url,
     order: contentEntry.fields?.order,
+  };
+};
+
+const mapEurobowlResult = async (contentEntry) => {
+  const resultTable = await parseCSVFile(
+    contentEntry.fields.resultTableCsv?.fields?.file?.url
+  );
+  return {
+    title: contentEntry.fields.title,
+    logo: contentEntry.fields.logo?.fields?.file?.url,
+    year: contentEntry.fields?.year,
+    endResult: contentEntry.fields?.endResult,
+    resultsLink: contentEntry.fields?.resultsLink,
+    resultTable,
   };
 };
 
@@ -108,6 +122,21 @@ const useContentful = () => {
     }
   }, [client]);
 
+  const getEurobowlResults = useCallback(async () => {
+    try {
+      const entries = await client.getEntries({
+        content_type: "eurobowlResult",
+      });
+      const entriesMapped = await Promise.all(
+        entries.items.map(async (entry) => await mapEurobowlResult(entry))
+      );
+
+      return _.orderBy(entriesMapped, "year", "desc");
+    } catch (error) {
+      console.log(`Error fetching eurobowl results ${error}`);
+    }
+  }, [client]);
+
   const getCharter = useCallback(async () => {
     try {
       const entries = await client.getEntries({
@@ -129,7 +158,7 @@ const useContentful = () => {
         content_type: "fact",
       });
       return _.sortBy(
-        entries.items.map((entry) => mapFacts(entry)),
+        entries.items.map((entry) => mapFact(entry)),
         "order"
       );
     } catch (error) {
@@ -137,7 +166,14 @@ const useContentful = () => {
     }
   }, [client]);
 
-  return { getMembers, getNews, getRanking, getCharter, getFacts };
+  return {
+    getMembers,
+    getNews,
+    getRanking,
+    getCharter,
+    getFacts,
+    getEurobowlResults,
+  };
 };
 
 export default useContentful;
