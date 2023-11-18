@@ -1,10 +1,9 @@
 import Layout from "../Layout";
-import Heading from "../components/Heading";
 import { useEffect, useState } from "react";
 import useContentful from "../hooks/useContentful";
 import Modal, { ModalTitle } from "../components/Modal";
 
-function News() {
+function Archive() {
   const [newsData, setNewsData] = useState();
   const [modalContent, setModalContent] = useState();
   const { getNews } = useContentful();
@@ -57,7 +56,7 @@ function News() {
         {modalContent}
       </Modal>
       <section className="py-6 sm:py-10 mb-[300px]">
-        <Heading title="Newsarchiv" />
+        {/* <Heading title="Newsarchiv" /> */}
         <div className="sm:flex items-start justify-start gap-x-5 gap-y-5 flex-wrap">
           {newsData?.map((news) => (
             <NewsItem news={news} />
@@ -68,4 +67,4 @@ function News() {
   );
 }
 
-export default News;
+export default Archive;

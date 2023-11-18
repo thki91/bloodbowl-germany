@@ -81,7 +81,7 @@ function Ranking() {
       id="ranking"
       className="py-6 sm:py-10 px-6 sm:px-14 bg-stone-200 -mx-4 sm:-mx-10"
     >
-      <div className="flex items-center gap-x-3 justify-center sm:justify-start">
+      <div className="relative flex items-center gap-x-3 justify-center sm:justify-start">
         <Heading title="Community Ranking" />
         <div className="group relative">
           <div className="rounded-full w-4 h-4 flex items-center justify-center text-stone-500 hover:text-stone-600 font-semibold border border-stone-500 text-xs mb-[18px] cursor-pointer hover:border-stone-600 transition">
@@ -117,7 +117,7 @@ function Ranking() {
             </ul>
           </div>
         </div>
-        <div className="ml-auto">
+        <div className="sm:ml-auto absolute right-0 top-1.5 sm:relative sm:top-0">
           <DropdownMenu
             image={ExternalLinkIcon}
             items={dropdownRankingLinks}

@@ -222,7 +222,6 @@ function History() {
   return (
     <Layout>
       <section className="py-10">
-        <Heading title="Eurobowl" subtitle="Historie Team Deutschland" />
         <div className="mb-10">
           Die Spieldaten wurden der NAF-DB und aus den persönlichen Unterlagen
           die Spieler entnommen. Insbesondere bei den ersten Eurobowls gab es

@@ -45,11 +45,14 @@ Member.propTypes = {
   member: PropTypes.object,
 };
 
-const MIN_MEMBERS_TO_SHOW = 9;
+const MIN_MEMBERS_TO_SHOW = {
+  Eurobowl: 9,
+  EurOpen: 4,
+};
 
 function Team() {
   const [teamData, setTeamData] = useState();
-  const [teamSection, setTeamSection] = useState("");
+  const [teamSection, setTeamSection] = useState("Eurobowl");
   const [modalContent, setModalContent] = useState();
   const { getMembers } = useContentful();
 
@@ -57,7 +60,6 @@ function Team() {
     const getTeamMembers = async () => {
       const data = await getMembers();
       setTeamData(data);
-      setTeamSection(Object.keys(data)[0]);
     };
     getTeamMembers();
   }, []);
@@ -98,36 +100,32 @@ function Team() {
   return (
     <section
       id="team"
-      className={`relative pb-5 px-2 md:px-10 ${
-        hasMoreTeamSections
-          ? "pt-20 md:pb-20 md:pt-24"
-          : "pt-16 md:pb-16 md:pt-20"
-      } bg-stone-900 -mx-4 sm:-mx-10 bg-[url('/bg_team_mobile.png')] sm:bg-[url('/bg_team.png')] bg-center bg-fixed bg-no-repeat`}
+      className={`relative pb-8 px-2 md:px-10 pt-16 md:pb-16 md:pt-20 bg-stone-900 -mx-4 sm:-mx-10 bg-[url('/bg_team_mobile.png')] sm:bg-[url('/bg_team.png')] bg-center bg-fixed bg-no-repeat`}
       style={{
         backgroundSize: "100% 100%",
       }}
     >
-      {hasMoreTeamSections && (
-        <div className="absolute px-1.5 sm:px-3 py-2 sm:p-3 top-0 right-0 text-sm">
-          {Object.keys(teamData).map((key, index) => (
-            <a
-              className={`py-2 px-4 ${
-                teamSection === key || (index === 0 && !teamSection)
-                  ? "border-b-2 border-red-600"
-                  : "text-stone-400"
-              }`}
-              onClick={() => setTeamSection(key)}
-            >
-              {key}
-            </a>
-          ))}
-        </div>
-      )}
       <Modal show={!!modalContent} handleClose={() => setModalContent(null)}>
         {modalContent}
       </Modal>
       <div className="text-white text-center -mt-5">
-        <Heading title="Amtierendes Team" />
+        <Heading title={`Aktuelles ${teamSection} Team`} />
+        {hasMoreTeamSections && (
+          <div className="pb-4 text-sm -mt-3">
+            {["Eurobowl", "EurOpen"].map((key, index) => (
+              <a
+                className={`py-2 px-4 ${
+                  teamSection === key || (index === 0 && !teamSection)
+                    ? "border-b-2 border-red-600"
+                    : "text-stone-200"
+                }`}
+                onClick={() => setTeamSection(key)}
+              >
+                {key}
+              </a>
+            ))}
+          </div>
+        )}
       </div>
       <div className="overflow-x-auto overflow-y-hidden px-5 pt-3 pb-6 sm:py-6 scrollbar-transparent">
         <div className="flex items-start gap-x-3 sm:gap-x-5 gap-y-24 justify-start xl:justify-center min-w-[1200px] w-full">
@@ -141,16 +139,16 @@ function Team() {
             </div>
           ))}
           {teamData[teamSection]?.length &&
-            teamData[teamSection].length < MIN_MEMBERS_TO_SHOW &&
+            teamData[teamSection].length < MIN_MEMBERS_TO_SHOW[teamSection] &&
             Array(
               ...Array(
-                MIN_MEMBERS_TO_SHOW - teamData[teamSection]?.length
+                MIN_MEMBERS_TO_SHOW[teamSection] - teamData[teamSection]?.length
               ).keys()
             ).map((index) => {
               return (
                 <div
                   key={`emptyMember${index}`}
-                  className="p-2 sm:p-3 relative bg-stone-200 rounded-md transform hover:scale-110 transition flex-1 max-w-[150px] self-stretch opacity-80 flex items-center"
+                  className="p-2 sm:p-3 relative bg-stone-200 rounded-md transform hover:scale-110 transition flex-1 max-w-[140px] self-stretch opacity-80 flex items-center"
                 >
                   <Member isEmpty={true} />
                 </div>
