@@ -113,7 +113,6 @@ const Menu = () => {
           containerClasses="!left-0 !top-7"
           iconClasses="!w-10 !h-auto ml-4"
         />
-        <img src={Logo} className="w-10 h-auto hover:scale-105 transition" />
       </div>
       <div className="flex-shrink-0 h-full">
         <MenuLink

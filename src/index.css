@@ -71,7 +71,7 @@ th:first-child {
 }
 
 th:nth-child(2) {
-  @apply left-[74px] sm:left-0 bg-stone-300 sticky sm:relative;
+  @apply left-[60px] sm:left-0 bg-stone-300 sticky sm:relative;
 }
 
 tr:nth-child(even) td:first-child {
@@ -83,11 +83,11 @@ tr:nth-child(odd) td:first-child {
 }
 
 tr:nth-child(even) td:nth-child(2) {
-  @apply sticky left-[74px] sm:left-0 bg-stone-300 sm:bg-transparent sm:relative;
+  @apply sticky left-[60px] sm:left-0 bg-stone-300 sm:bg-transparent sm:relative;
 }
 
 tr:nth-child(odd) td:nth-child(2) {
-  @apply sticky left-[74px] sm:left-0 bg-stone-200 sm:bg-transparent sm:relative;
+  @apply sticky left-[60px] sm:left-0 bg-stone-200 sm:bg-transparent sm:relative;
 }
 
 .hamburger {
