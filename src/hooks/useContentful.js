@@ -65,6 +65,7 @@ const useContentful = () => {
     try {
       const entries = await client.getEntries({
         content_type: "teamMember",
+        "fields.hidden": false,
         select: "fields",
       });
 

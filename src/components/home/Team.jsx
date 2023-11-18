@@ -4,8 +4,19 @@ import PropTypes from "prop-types";
 import useContentful from "../../hooks/useContentful";
 import Modal, { ModalTitle } from "../Modal";
 import AnonymousIcon from "../../assets/anonymous.png";
+import VoteIcon from "../../assets/vote.png";
 
-const Member = ({ member }) => {
+const Member = ({ member, isEmpty }) => {
+  if (isEmpty) {
+    return (
+      <div>
+        <div className="mx-auto w-28 h-28 bg-stone-800 flex items-center justify-center rounded-full mb-3 relative max-w-[100px] sm:max-w-none max-h-[100px] sm:max-h-none">
+          <img src={AnonymousIcon} className="w-12" />
+        </div>
+        <div className="text-center font-bold text-sm">Nicht nominiert</div>
+      </div>
+    );
+  }
   return (
     <>
       {member.picture ? (
@@ -15,7 +26,7 @@ const Member = ({ member }) => {
         />
       ) : (
         <div className="mx-auto w-28 h-28 bg-stone-800 flex items-center justify-center rounded-full mb-3 relative max-w-[100px] sm:max-w-none max-h-[100px] sm:max-h-none">
-          <img src={AnonymousIcon} className="w-12" />
+          <img src={VoteIcon} className="w-12" />
         </div>
       )}
       {member.captain && (
@@ -31,6 +42,8 @@ const Member = ({ member }) => {
 Member.propTypes = {
   member: PropTypes.object,
 };
+
+const MIN_MEMBERS_TO_SHOW = 9;
 
 function Team() {
   const [teamData, setTeamData] = useState();
@@ -63,7 +76,7 @@ function Team() {
           />
         ) : (
           <div className="float-left clear-left w-28 h-28 bg-stone-800 flex items-center justify-center rounded-full mr-4">
-            <img src={AnonymousIcon} className="w-16" />
+            <img src={VoteIcon} className="w-16" />
           </div>
         )}
         <div
@@ -119,6 +132,22 @@ function Team() {
               <Member member={member} />
             </div>
           ))}
+          {teamData[teamSection]?.length &&
+            teamData[teamSection].length < MIN_MEMBERS_TO_SHOW &&
+            Array(
+              ...Array(
+                MIN_MEMBERS_TO_SHOW - teamData[teamSection]?.length
+              ).keys()
+            ).map((index) => {
+              return (
+                <div
+                  key={`emptyMember${index}`}
+                  className="p-2 sm:p-3 relative bg-stone-200 rounded-md transform hover:scale-110 transition flex-1 max-w-[150px] self-stretch opacity-80 flex items-center"
+                >
+                  <Member isEmpty={true} />
+                </div>
+              );
+            })}
         </div>
       </div>
     </section>
