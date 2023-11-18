@@ -55,7 +55,7 @@ function Archive() {
       <Modal show={!!modalContent} handleClose={() => setModalContent(null)}>
         {modalContent}
       </Modal>
-      <section className="py-6 sm:py-10 mb-[300px]">
+      <section className="py-6 sm:py-10 mb-[150px] xl:mb-[300px]">
         {/* <Heading title="Newsarchiv" /> */}
         <div className="sm:flex items-start justify-start gap-x-5 gap-y-5 flex-wrap">
           {newsData?.map((news) => (

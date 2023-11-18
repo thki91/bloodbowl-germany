@@ -54,7 +54,7 @@ function Ranking() {
           <div className="rounded-full w-4 h-4 flex items-center justify-center text-stone-500 hover:text-stone-600 font-semibold border border-stone-500 text-xs mb-[18px] cursor-pointer hover:border-stone-600 transition">
             i
           </div>
-          <div className="opacity-0 pointer-events-none group-hover:opacity-100 absolute -right-0 sm:left-0 sm:translate-x-0 top-5 bg-stone-600 p-4 rounded-md text-xs text-white transition w-[300px] sm:w-[400px] z-10">
+          <div className="opacity-0 pointer-events-none group-hover:opacity-100 absolute -right-0 sm:left-0 sm:translate-x-0 top-5 bg-stone-700 p-4 rounded-md text-xs text-white transition w-[300px] sm:w-[400px] z-10">
             <p> *Berechnung des Rankings</p>
             <ul className="list-disc ml-2.5 mb-2">
               <li>
