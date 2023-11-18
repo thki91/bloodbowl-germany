@@ -74,7 +74,7 @@ const dropdownPodcastLinks = [
 
 const dropdownDiceLinks = [
   {
-    text: "Teamübersicht",
+    text: "Turnierübersicht",
     link: "https://public.tableau.com/app/profile/mike.sann0638.davies/viz/NAFTournamentList/ROWMap",
   },
   { text: "BB Strategies", link: "https://bloodbowlstrategies.com/en/" },

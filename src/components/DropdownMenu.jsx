@@ -5,7 +5,7 @@ const DropdownMenu = ({
   containerClasses,
   iconClasses,
 }) => {
-  let dropdownContainerClasses = `opacity-0 group-hover:opacity-100 pointer-events-none min-w-[100px] group-hover:pointer-events-auto transition absolute top-4 pt-3 right-4 ${containerClasses}`;
+  let dropdownContainerClasses = `z-10 opacity-0 group-hover:opacity-100 pointer-events-none min-w-[100px] group-hover:pointer-events-auto transition absolute top-4 pt-3 right-4 ${containerClasses}`;
   return (
     <div className="relative group cursor-pointer">
       {image && (
@@ -16,7 +16,7 @@ const DropdownMenu = ({
       )}
       {icon && icon}
       <div className={dropdownContainerClasses}>
-        <ul className="z-10 bg-zinc-700 divide-y divide-zinc-600 rounded-lg shadow overflow-hidden">
+        <ul className="bg-zinc-700 divide-y divide-zinc-600 rounded-lg shadow overflow-hidden">
           {items.map((item) => (
             <li key={item.link}>
               <a

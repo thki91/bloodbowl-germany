@@ -13,7 +13,9 @@ const Member = ({ member, isEmpty }) => {
         <div className="mx-auto w-28 h-28 bg-stone-800 flex items-center justify-center rounded-full mb-3 relative max-w-[100px] sm:max-w-none max-h-[100px] sm:max-h-none">
           <img src={AnonymousIcon} className="w-12" />
         </div>
-        <div className="text-center font-bold text-sm">Nicht nominiert</div>
+        <div className="text-center font-bold text-sm whitespace-nowrap">
+          Nicht nominiert
+        </div>
       </div>
     );
   }
@@ -91,15 +93,21 @@ function Team() {
     return null;
   }
 
+  const hasMoreTeamSections = Object.keys(teamData)?.length > 1;
+
   return (
     <section
       id="team"
-      className="relative pb-5 px-2 md:px-10 pt-20 md:pb-20 bg-stone-900 -mx-4 sm:-mx-10 bg-[url('/bg_team_mobile.png')] sm:bg-[url('/bg_team.png')] bg-center bg-fixed bg-no-repeat"
+      className={`relative pb-5 px-2 md:px-10 ${
+        hasMoreTeamSections
+          ? "pt-20 md:pb-20 md:pt-24"
+          : "pt-16 md:pb-16 md:pt-20"
+      } bg-stone-900 -mx-4 sm:-mx-10 bg-[url('/bg_team_mobile.png')] sm:bg-[url('/bg_team.png')] bg-center bg-fixed bg-no-repeat`}
       style={{
         backgroundSize: "100% 100%",
       }}
     >
-      {Object.keys(teamData)?.length > 1 && (
+      {hasMoreTeamSections && (
         <div className="absolute px-1.5 sm:px-3 py-2 sm:p-3 top-0 right-0 text-sm">
           {Object.keys(teamData).map((key, index) => (
             <a
