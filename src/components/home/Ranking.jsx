@@ -87,7 +87,7 @@ function Ranking() {
           <div className="rounded-full w-4 h-4 flex items-center justify-center text-stone-500 hover:text-stone-600 font-semibold border border-stone-500 text-xs mb-[18px] cursor-pointer hover:border-stone-600 transition">
             i
           </div>
-          <div className="opacity-0 pointer-events-none group-hover:opacity-100 absolute -left-1/2 -translate-x-1/2 sm:left-0 sm:translate-x-0 top-5 bg-stone-600 p-4 rounded-md text-xs text-white transition w-[280px] sm:w-[350px] z-10">
+          <div className="opacity-0 pointer-events-none group-hover:opacity-100 absolute -right-0 sm:left-0 sm:translate-x-0 top-5 bg-stone-600 p-4 rounded-md text-xs text-white transition w-[280px] sm:w-[350px] z-10">
             <p>
               * min. 50% NAF-Winrate, 20 BB-2020 NAF Spiele, 165 NAF-Rating,
               1150 Glicko-Rating, 170 Danish Coach Rating und 180 Danish Year.
