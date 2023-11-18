@@ -42,6 +42,12 @@ function Imprint() {
           <a href="https://www.flaticon.com/free-icons/out" title="out icons">
             Out icons created by Freepik - Flaticon
           </a>
+          <a
+            href="https://www.flaticon.com/free-icons/podcast"
+            title="podcast icons"
+          >
+            Podcast icons created by Pixel perfect - Flaticon
+          </a>
         </div>
       </section>
     </Layout>

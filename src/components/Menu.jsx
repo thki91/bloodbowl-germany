@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import { useLocation } from "react-router-dom";
 import Instagram from "../assets/instagram.png";
 import Discord from "../assets/discord.png";
+import PodcastIcon from "../assets/podcast.png";
 import LinkIcon from "../assets/linkIcon.png";
 import DiceIcon from "../assets/dice-1.png";
 import Logo from "../assets/logo.png";
@@ -61,6 +62,14 @@ const dropdownDiscordLinks = [
   { text: "Berlin Open Discord Server", link: "https://discord.gg/dXG9KcNR" },
   { text: "Eurobowl Discord Server", link: "https://discord.gg/NnH3yXFm" },
   { text: "NAF Discord Server", link: "https://discord.gg/8EwNFD5r" },
+];
+
+const dropdownPodcastLinks = [
+  { text: "2 Trolle eine Meinung", link: "https://anchor.fm/2t1m" },
+  {
+    text: "Hau wech das Leder",
+    link: "https://podcasters.spotify.com/pod/show/mario-brutschin",
+  },
 ];
 
 const dropdownDiceLinks = [
@@ -134,6 +143,13 @@ const Menu = () => {
           image={DiceIcon}
           items={dropdownDiceLinks}
           containerClasses="top-5"
+          iconClasses="!w-5"
+        />
+        <DropdownMenu
+          image={PodcastIcon}
+          items={dropdownPodcastLinks}
+          containerClasses="top-5"
+          iconClasses="!w-5"
         />
         <a
           href="https://www.instagram.com/team_germany_bb/"
