@@ -19,7 +19,15 @@
 
 td,
 th {
-  @apply px-4 py-2 text-left text-xs sm:text-sm;
+  @apply px-4 py-2 text-left text-xs sm:text-sm max-w-[125px];
+}
+
+td:nth-child(n + 3) {
+  @apply text-center;
+}
+
+th:nth-child(n + 3) {
+  @apply text-center;
 }
 
 tr:nth-child(even) {
