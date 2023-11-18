@@ -34,6 +34,14 @@ const mapCharter = (contentEntry) => {
   };
 };
 
+const mapFacts = (contentEntry) => {
+  return {
+    description: contentEntry.fields.description,
+    icon: contentEntry.fields.icon?.fields?.file?.url,
+    order: contentEntry.fields?.order,
+  };
+};
+
 const parseCSVFile = async (fileUrl) => {
   return new Promise((resolve) => {
     Papa.parse(fileUrl, {
@@ -114,7 +122,21 @@ const useContentful = () => {
     }
   }, [client]);
 
-  return { getMembers, getNews, getRanking, getCharter };
+  const getFacts = useCallback(async () => {
+    try {
+      const entries = await client.getEntries({
+        content_type: "fact",
+      });
+      return _.sortBy(
+        entries.items.map((entry) => mapFacts(entry)),
+        "order"
+      );
+    } catch (error) {
+      console.log(`Error fetching facts ${error}`);
+    }
+  }, [client]);
+
+  return { getMembers, getNews, getRanking, getCharter, getFacts };
 };
 
 export default useContentful;
