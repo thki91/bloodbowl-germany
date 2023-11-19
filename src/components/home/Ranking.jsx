@@ -81,7 +81,7 @@ function Ranking() {
             <p>
               <strong> *** Das Schwedische System </strong> wertet die Spiele von Turnieren mit mind. 5 Spielen 
               – ausgenommen Stunty oder Multiple Races Spiele es sei denn sie verbessern die Wertung 
-              – nach der ELO-Formel (y = 4155,9x5 - 10625x4 + 10186x3 - 4496,9x2 + 1009x - 120).</p>
+              – nach der ELO-Formel (y = 4155,9x5 - 10625x4 + 10186x3 - 4496,9x2 + 1009x - 120).
             </p>
             <p>
               <strong> *** Das Dänische System </strong> **** setzt alle Rassen gleich (z.B. so als ob alle nur Menschen spielen) 
