@@ -85,7 +85,7 @@ function Ranking() {
             </p>
             <p>
               <strong> *** Das Dänische System </strong> **** setzt alle Rassen gleich (z.B. so als ob alle nur Menschen spielen) 
-              und wendet dann NAF-ELO an.</p>
+              und wendet dann NAF-ELO an.
             </p>
           </div>
         </div>
