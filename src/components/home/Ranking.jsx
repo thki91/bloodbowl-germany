@@ -53,47 +53,54 @@ function Ranking() {
             i
           </div>
           <div className="opacity-0 pointer-events-none group-hover:opacity-100 absolute -right-16 sm:left-0 sm:translate-x-0 top-5 bg-stone-700 p-4 rounded-md text-xs text-white transition w-[350px] sm:w-[400px] z-10">
-            <p> *Berechnung des Rankings</p>
+            <p>
+              {" "}
+              <strong>*Aufgeführte Coaches: </strong> Gerankt werden nur Coaches
+              der deutschen Community mit mind. 53% NAF-Winrate, 28 BB-2020 NAF
+              Spielen, 170 NAF-Rating, 1150 Glicko-Rating, 175 Danish Rating und
+              190 Danish Year Rating.
+            </p>
+            <p>
+              {" "}
+              <strong> ** Berechnung der Performance Wertung </strong>(y =
+              (0,3*a/240) + (0,3*b/1730) + (0,15*c1/330) + (0,15*c2/330) +
+              (0,075*d1/75%) + (0,025*d2/300))
+            </p>
             <ul className="list-disc ml-6 mb-2">
               <li>
-                <strong>
-                  Beste 8 NAF-Turniere 2023 (Swedish System) zu 25%
-                </strong>{" "}
-                (Mittelfristige Form) im internen Rankingvergleich
+                Schwedische Wertung zu 30% (Update Nov. 2023) -> a (max = 240)
               </li>
               <li>
-                <strong>Siegquote NAF BB2020 zu 20%</strong> (Spielstärke über
-                Rassen) im internen Rankingvergleich
+                NAF Global Glicko Wertung zu 30% (Update Aug. 2023) -> b (max =
+                1730)
               </li>
               <li>
-                <strong>Danish Coach Rating Year zu 20%</strong> (Mittelfristige
-                Form) im internen Rankingvergleich
+                Dänische Coach Wertung Jahr zu 15% (Update Okt. 2023) -> c1 (max
+                = 330)
               </li>
               <li>
-                <strong>Danish Coach Rating zu 15%</strong> (Kurzfristige Form)
-                im internen Rankingvergleich
+                Dänische Coach Wertung zu 15% (Update Okt. 2023) -> c2 (max =
+                330)
               </li>
               <li>
-                <strong>Glicko NAF zu 15%</strong> (Spielstärke über Zeit) im
-                internen Rankingvergleich
+                NAF Siegquote BB2020 zu 7,5% (Update Nov. 2023) -> d1 (max =
+                75%)
               </li>
               <li>
-                <strong>Höchste NAF-Wertung zu 5%</strong> (Spielstärke) im
-                internen Rankingvergleich
+                Höchste NAF-Wertung zu 2,5% (Update Nov. 2023) -> d2 (max = 300)
               </li>
             </ul>
             <p>
-              ** Gerankt werden nur Coaches mit min. 53% NAF-Winrate, mind. 28
-              BB-2020 NAF Spielen, 170 NAF-Rating, 1150 Glicko-Rating, 175
-              Danish Coach Rating und 190 Danish Year Rating, sowie mit
-              Spielberechtigung für Deutschland.
+              <strong> *** Das Schwedische System </strong> wertet die Spiele
+              von Turnieren mit mind. 5 Spielen – ausgenommen Stunty oder
+              Multiple Races Spiele es sei denn sie verbessern die Wertung –
+              nach der ELO-Formel (y = 4155,9x5 - 10625x4 + 10186x3 - 4496,9x2 +
+              1009x - 120).
             </p>
             <p>
-              ***Negative Ausreißer wurden nicht gewertet; teilweise weniger als
-              8 Turniere in der Wertung. Nur Turniere mit mind. 5 Spielen.
-              Letztes EB-Ergebnis wird gewertet. Formel des schwedischen System
-              richtet sich nach ELO (y = 4155,9x5 - 10625x4 + 10186x3 - 4496,9x2
-              + 1009x - 120).
+              <strong> *** Das Dänische System </strong> setzt alle Rassen
+              gleich (z.B. so als ob alle nur Menschen spielen) und wendet dann
+              NAF-ELO an.
             </p>
           </div>
         </div>
