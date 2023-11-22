@@ -6,12 +6,13 @@ import ExternalLinkIcon from "../assets/external-link.png";
 import PropTypes from "prop-types";
 import useContentful from "../hooks/useContentful";
 import { mapTableMemberLink } from "../helper/table";
+import Heading from "../components/Heading";
 
 const HistoryItem = ({ historyItem }) => {
   const columns = useMemo(() => {
     if (!historyItem.resultTable?.length) return [];
     const resultTableColumns = Object.keys(historyItem.resultTable[0]);
-    return resultTableColumns.map((col, index) => ({
+    return resultTableColumns.map((col) => ({
       accessorKey: col,
     }));
   }, [historyItem]);
@@ -55,15 +56,47 @@ HistoryItem.propTypes = {
 
 function History() {
   const [eurobowlResultsData, setEurobowlResultsData] = useState();
-  const { getEurobowlResults } = useContentful();
+  const [nationalOverviewData, setNationalOverviewData] = useState();
+  const [nationalPlayersData, setNationalPlayersData] = useState();
+  const { getEurobowlResults, getNationalOverview, getNationalPlayers } =
+    useContentful();
 
   useEffect(() => {
     const getEurobowlResultsData = async () => {
       const data = await getEurobowlResults();
       setEurobowlResultsData(data);
     };
+
+    const getNationalOverviewData = async () => {
+      const data = await getNationalOverview();
+      setNationalOverviewData(data);
+    };
+
+    const getNationalPlayersData = async () => {
+      const data = await getNationalPlayers();
+      setNationalPlayersData(data);
+    };
+
     getEurobowlResultsData();
+    getNationalOverviewData();
+    getNationalPlayersData();
   }, []);
+
+  const nationalOverviewColumns = useMemo(() => {
+    if (!nationalOverviewData?.table?.length) return [];
+    const tableColumns = Object.keys(nationalOverviewData.table[0]);
+    return tableColumns.map((col) => ({
+      accessorKey: col,
+    }));
+  }, [nationalOverviewData]);
+
+  const nationalPlayersColumns = useMemo(() => {
+    if (!nationalPlayersData?.table?.length) return [];
+    const tableColumns = Object.keys(nationalPlayersData.table[0]);
+    return tableColumns.map((col) => ({
+      accessorKey: col,
+    }));
+  }, [nationalPlayersData]);
 
   return (
     <Layout>
@@ -78,7 +111,7 @@ function History() {
             return (
               <div
                 key={item.title}
-                className="overflow-hidden flex-1 mb-6 lg:mb-0"
+                className="overflow-hidden lg:max-w-[48%] lg:flex-[48%] xl:max-w-[30%] xl:flex-[30%] mb-6 lg:mb-0"
               >
                 <HistoryItem historyItem={item} />
               </div>
@@ -86,6 +119,28 @@ function History() {
           })}
         </div>
       </section>
+      {nationalOverviewData && (
+        <section className="py-5">
+          <Heading title={nationalOverviewData?.title} />
+          <Table
+            data={nationalOverviewData?.table}
+            columns={nationalOverviewColumns}
+            className="min-w-[500px]"
+            paginationNumbers={[10, 25]}
+          />
+        </section>
+      )}
+
+      {nationalPlayersData && (
+        <section className="py-10">
+          <Heading title={nationalPlayersData?.title} />
+          <Table
+            data={nationalPlayersData?.table}
+            columns={nationalPlayersColumns}
+            className="min-w-[500px]"
+          />
+        </section>
+      )}
     </Layout>
   );
 }

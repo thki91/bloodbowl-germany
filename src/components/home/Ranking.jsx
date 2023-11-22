@@ -4,7 +4,6 @@ import Table from "../Table";
 import Heading from "../Heading";
 import ExternalLinkIcon from "../../assets/external-link.png";
 import DropdownMenu from "../DropdownMenu";
-import Pagination from "../Pagination";
 import { mapTableMemberLink } from "../../helper/table";
 
 const dropdownRankingLinks = [
@@ -22,13 +21,12 @@ const dropdownRankingLinks = [
 function Ranking() {
   const [rankingData, setRankingData] = useState();
   const [rankingUpdatedAt, setRankingUpdatedAt] = useState();
-  const [rowsToShow, setRowsToShow] = useState(12);
   const { getRanking } = useContentful();
 
   useEffect(() => {
     const getRankings = async () => {
       const data = await getRanking();
-      setRankingData(mapTableMemberLink(data?.rankingTable, 1));
+      setRankingData(mapTableMemberLink(data?.rankingTable, 0));
       setRankingUpdatedAt(data.updatedAt);
     };
     getRankings();
@@ -54,9 +52,9 @@ function Ranking() {
           <div className="rounded-full w-4 h-4 flex items-center justify-center text-stone-500 hover:text-stone-600 font-semibold border border-stone-500 text-xs mb-[18px] cursor-pointer hover:border-stone-600 transition">
             i
           </div>
-          <div className="opacity-0 pointer-events-none group-hover:opacity-100 absolute -right-0 sm:left-0 sm:translate-x-0 top-5 bg-stone-700 p-4 rounded-md text-xs text-white transition w-[300px] sm:w-[400px] z-10">
+          <div className="opacity-0 pointer-events-none group-hover:opacity-100 absolute -right-16 sm:left-0 sm:translate-x-0 top-5 bg-stone-700 p-4 rounded-md text-xs text-white transition w-[350px] sm:w-[400px] z-10">
             <p> *Berechnung des Rankings</p>
-            <ul className="list-disc ml-2.5 mb-2">
+            <ul className="list-disc ml-6 mb-2">
               <li>
                 <strong>
                   Beste 8 NAF-Turniere 2023 (Swedish System) zu 25%
@@ -114,21 +112,8 @@ function Ranking() {
             <Table
               columns={columns}
               data={rankingData}
-              limit={rowsToShow}
               className="min-w-[900px]"
-            />
-          </div>
-          <div className="flex items-center justify-between mt-4">
-            {rankingUpdatedAt && (
-              <div className="text-xs italic text-stone-500">
-                Zuletzt aktualisiert am{" "}
-                {new Date(rankingUpdatedAt)?.toLocaleDateString("de-DE")}
-              </div>
-            )}
-            <Pagination
-              numbers={[12, 25, 50]}
-              handleSetRowsToShow={(number) => setRowsToShow(number)}
-              currentRowsToShow={rowsToShow}
+              updatedAt={rankingUpdatedAt}
             />
           </div>
         </>

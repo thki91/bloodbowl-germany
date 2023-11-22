@@ -25,7 +25,7 @@ const mapNewsArticle = (contentEntry) => {
   };
 };
 
-const mapCharter = (contentEntry) => {
+const mapCharta = (contentEntry) => {
   return {
     description: documentToHtmlString(contentEntry.fields.description),
     title: contentEntry.fields.title,
@@ -112,11 +112,42 @@ const useContentful = () => {
     }
   }, [client]);
 
+  const getNationalPlayers = useCallback(async () => {
+    try {
+      const asset = await client.getAsset("14g2fq3GXun3VmsBqnYSWR");
+      const table = await parseCSVFile(asset.fields.file.url);
+      return {
+        table,
+        updatedAt: asset.sys.updatedAt,
+        title: asset.fields.title,
+      };
+    } catch (error) {
+      console.log(`Error fetching ranking ${error}`);
+    }
+  }, [client]);
+
+  const getNationalOverview = useCallback(async () => {
+    try {
+      const asset = await client.getAsset("5TbYW5QyG4VHxom6k6G3Gz");
+      const table = await parseCSVFile(asset.fields.file.url);
+      return {
+        table,
+        updatedAt: asset.sys.updatedAt,
+        title: asset.fields.title,
+      };
+    } catch (error) {
+      console.log(`Error fetching ranking ${error}`);
+    }
+  }, [client]);
+
   const getRanking = useCallback(async () => {
     try {
       const asset = await client.getAsset("4QbbhyoSHk3gPwESRCxOFv");
       const rankingTable = await parseCSVFile(asset.fields.file.url);
-      return { rankingTable, updatedAt: asset.sys.updatedAt };
+      return {
+        rankingTable,
+        updatedAt: asset.sys.updatedAt,
+      };
     } catch (error) {
       console.log(`Error fetching ranking ${error}`);
     }
@@ -137,18 +168,18 @@ const useContentful = () => {
     }
   }, [client]);
 
-  const getCharter = useCallback(async () => {
+  const getCharta = useCallback(async () => {
     try {
       const entries = await client.getEntries({
         content_type: "accordion",
-        "fields.type": "Charter",
+        "fields.type": "Eurobowl Charta",
       });
       return _.sortBy(
-        entries.items.map((entry) => mapCharter(entry)),
+        entries.items.map((entry) => mapCharta(entry)),
         "order"
       );
     } catch (error) {
-      console.log(`Error fetching charter ${error}`);
+      console.log(`Error fetching charta ${error}`);
     }
   }, [client]);
 
@@ -170,9 +201,11 @@ const useContentful = () => {
     getMembers,
     getNews,
     getRanking,
-    getCharter,
+    getCharta,
     getFacts,
     getEurobowlResults,
+    getNationalOverview,
+    getNationalPlayers,
   };
 };
 

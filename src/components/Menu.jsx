@@ -31,15 +31,11 @@ MenuLink.propTypes = {
 
 const dropdownMenuLinks = [
   {
-    text: "Deutsche BB Community",
-    link: "http://dbbcev.de/joomla/index.php/forum/index",
+    text: "Deutsche BB Community Forum",
+    link: "http://dbbcev.de/joomla/index.php/forum/deutscher-pavillion",
   },
-  { text: "Eurobowl", link: "http://www.eurobowl.eu" },
-  {
-    text: "Talk Fantasy Football",
-    link: "https://www.talkfantasyfootball.org",
-  },
-  { text: "The Naf", link: "https://www.thenaf.net/" },
+  { text: "Eurobowl Homepage", link: "http://www.eurobowl.eu/2024/" },
+  { text: "The Naf Homepage", link: "https://www.thenaf.net" },
 ];
 
 const dropdownMenuMobile = [
@@ -58,10 +54,22 @@ const dropdownMenuMobile = [
 ];
 
 const dropdownDiscordLinks = [
-  { text: "DBBC eV Discord Server", link: "https://discord.gg/dPuEY35v42" },
-  { text: "Berlin Open Discord Server", link: "https://discord.gg/dXG9KcNR" },
-  { text: "Eurobowl Discord Server", link: "https://discord.gg/NnH3yXFm" },
-  { text: "NAF Discord Server", link: "https://discord.gg/8EwNFD5r" },
+  {
+    text: "DBBC Discord #Eurobowl",
+    link: "https://discord.com/channels/259586290142412800/889188324504404008",
+  },
+  {
+    text: "Berlin Open Discord #Eurobowl",
+    link: "https://discord.com/channels/484314766224130050/1159188115437658182",
+  },
+  {
+    text: "NAF Discord #Eurobowl",
+    link: "https://discord.com/channels/368441333745975306/1159758186656583742",
+  },
+  {
+    text: "Eurobowl Discord #General",
+    link: "https://discord.com/channels/1021362702700003420/1043193689503174737",
+  },
 ];
 
 const dropdownPodcastLinks = [
@@ -101,18 +109,9 @@ const Menu = () => {
   return (
     <div className={headerClasses}>
       <div className="sm:hidden pl-6 flex gap-x-6">
-        <DropdownMenu
-          icon={
-            <div className="hamburger mt-1">
-              <div className="hamburger-bar1"></div>
-              <div className="hamburger-bar2"></div>
-              <div className="hamburger-bar3"></div>
-            </div>
-          }
-          items={dropdownMenuMobile}
-          containerClasses="!left-0 !top-7"
-          iconClasses="!w-10 !h-auto ml-4"
-        />
+        <a href="/">
+          <img src={Logo} className="w-10 h-auto hover:scale-105 transition" />
+        </a>
       </div>
       <div className="flex-shrink-0 h-full">
         <MenuLink
@@ -138,19 +137,19 @@ const Menu = () => {
       />
       <div className="ml-auto flex items-center">
         <DropdownMenu image={LinkIcon} items={dropdownMenuLinks} />
-        <DropdownMenu
+        {/* <DropdownMenu
           image={DiceIcon}
           items={dropdownDiceLinks}
           containerClasses="top-5"
           iconClasses="!w-5"
-        />
+        /> */}
         <DropdownMenu image={Discord} items={dropdownDiscordLinks} />
-        <DropdownMenu
+        {/* <DropdownMenu
           image={PodcastIcon}
           items={dropdownPodcastLinks}
           containerClasses="top-5"
           iconClasses="!w-5"
-        />
+        /> */}
         <a
           href="https://www.instagram.com/team_germany_bb/"
           target="_blank"
@@ -158,10 +157,24 @@ const Menu = () => {
         >
           <img
             src={Instagram}
-            className="w-5 opacity-80 hover:opacity-100 transition mr-4"
+            className="w-5 opacity-80 hover:opacity-100 transition sm:mr-4"
             alt="Instagram"
           />
         </a>
+        <div className="sm:hidden pl-6 flex gap-x-6 mr-4">
+          <DropdownMenu
+            icon={
+              <div className="hamburger mt-1">
+                <div className="hamburger-bar1"></div>
+                <div className="hamburger-bar2"></div>
+                <div className="hamburger-bar3"></div>
+              </div>
+            }
+            items={dropdownMenuMobile}
+            containerClasses="!right-0 !top-7"
+            iconClasses="!w-10 !h-auto ml-4"
+          />
+        </div>
       </div>
     </div>
   );
