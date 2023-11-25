@@ -47,7 +47,7 @@ Member.propTypes = {
 
 const MIN_MEMBERS_TO_SHOW = {
   Eurobowl: 9,
-  EurOpen: 4,
+  "Eur'Open": 4,
 };
 
 function Team() {
@@ -112,7 +112,7 @@ function Team() {
         <Heading title={`Aktuelles Team`} />
         {hasMoreTeamSections && (
           <div className="pb-4 text-sm -mt-3">
-            {["Eurobowl", "EurOpen"].map((key, index) => (
+            {["Eurobowl", "Eur'Open"].map((key, index) => (
               <a
                 className={`py-2 px-4 ${
                   teamSection === key || (index === 0 && !teamSection)

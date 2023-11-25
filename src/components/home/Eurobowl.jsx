@@ -48,9 +48,9 @@ const Eurobowl = () => {
                 Teams mit 8 Coaches. Traditionell handelt es um eine
                 Europameisterschaft, doch seit 2022 dürfen auch andere
                 Nationalmannschaften teilnehmen. Parallel zum Eurobowl finden
-                die Europen statt, ein Teamturnier ohne nationale Beschränkungen
-                für Teams mit 4 Coaches. Sowohl beim Eurobowl als auch der
-                EurOpen spielt jede Mannschaft 6 Runden Blood Bowl.
+                die Eur'Open statt, ein Teamturnier ohne nationale
+                Beschränkungen für Teams mit 4 Coaches. Sowohl beim Eurobowl als
+                auch der Eur'Open spielt jede Mannschaft 6 Runden Blood Bowl.
                 <a
                   onClick={() => setReadMore(!readMore)}
                   className={`md:hidden ml-0.5 ${readMore ? "hidden" : ""}`}
