@@ -21,11 +21,13 @@ const HistoryItem = ({ historyItem }) => {
 
   return (
     <div className="bg-stone-200 rounded-md p-3 sm:p-4 relative">
-      <a href={historyItem.resultsLink} target="_blank" rel="noreferrer">
-        <div className="absolute right-0 top-0 hover:bg-stone-300 transition p-3 rounded-bl-md rounded-tr-md opacity-80">
-          <img src={ExternalLinkIcon} className="w-4" />
-        </div>
-      </a>
+      {historyItem.resultsLink && (
+        <a href={historyItem.resultsLink} target="_blank" rel="noreferrer">
+          <div className="absolute right-0 top-0 hover:bg-stone-300 transition p-3 rounded-bl-md rounded-tr-md opacity-80">
+            <img src={ExternalLinkIcon} className="w-4" />
+          </div>
+        </a>
+      )}
       <div className="flex items-center mb-5">
         <img
           src={historyItem.logo}
@@ -37,7 +39,7 @@ const HistoryItem = ({ historyItem }) => {
             {historyItem.title}
           </h3>
           <div className="font-semibold text-sm sm:text-base">
-            Endergebnis: {historyItem.endResult}
+            Ergebnis: {historyItem.endResult}
           </div>
         </div>
       </div>
@@ -58,8 +60,13 @@ function History() {
   const [eurobowlResultsData, setEurobowlResultsData] = useState();
   const [nationalOverviewData, setNationalOverviewData] = useState();
   const [nationalPlayersData, setNationalPlayersData] = useState();
-  const { getEurobowlResults, getNationalOverview, getNationalPlayers } =
-    useContentful();
+  const [balanceSheetData, setBalanceSheetData] = useState();
+  const {
+    getEurobowlResults,
+    getNationalOverview,
+    getNationalPlayers,
+    getGermanBalanceSheet,
+  } = useContentful();
 
   useEffect(() => {
     const getEurobowlResultsData = async () => {
@@ -77,9 +84,15 @@ function History() {
       setNationalPlayersData(data);
     };
 
+    const getGermanBalanceSheetData = async () => {
+      const data = await getGermanBalanceSheet();
+      setBalanceSheetData(data);
+    };
+
     getEurobowlResultsData();
     getNationalOverviewData();
     getNationalPlayersData();
+    getGermanBalanceSheetData();
   }, []);
 
   const nationalOverviewColumns = useMemo(() => {
@@ -89,6 +102,14 @@ function History() {
       accessorKey: col,
     }));
   }, [nationalOverviewData]);
+
+  const balanceSheetColumns = useMemo(() => {
+    if (!balanceSheetData?.table?.length) return [];
+    const tableColumns = Object.keys(balanceSheetData.table[0]);
+    return tableColumns.map((col) => ({
+      accessorKey: col,
+    }));
+  }, [balanceSheetData]);
 
   const nationalPlayersColumns = useMemo(() => {
     if (!nationalPlayersData?.table?.length) return [];
@@ -111,7 +132,7 @@ function History() {
             return (
               <div
                 key={item.title}
-                className="overflow-hidden lg:max-w-[48%] lg:flex-[48%] xl:max-w-[30%] xl:flex-[30%] mb-6 lg:mb-0"
+                className="overflow-hidden lg:max-w-[49%] lg:flex-[48%] mb-6 lg:mb-0"
               >
                 <HistoryItem historyItem={item} />
               </div>
@@ -119,17 +140,31 @@ function History() {
           })}
         </div>
       </section>
-      {nationalOverviewData && (
-        <section className="py-5">
-          <Heading title={nationalOverviewData?.title} />
-          <Table
-            data={nationalOverviewData?.table}
-            columns={nationalOverviewColumns}
-            className="min-w-[500px]"
-            paginationNumbers={[10, 25]}
-          />
-        </section>
-      )}
+
+      <section className="py-5 flex items-start gap-x-10">
+        {nationalOverviewData && (
+          <div className="flex-1 pr-10 border-r border-r-stone-300">
+            <Heading title={nationalOverviewData?.title} />
+            <Table
+              data={nationalOverviewData?.table}
+              columns={nationalOverviewColumns}
+              className="min-w-[500px]"
+              paginationNumbers={[12, 25]}
+            />
+          </div>
+        )}
+        {balanceSheetData && (
+          <div className="">
+            <Heading title={balanceSheetData?.title} />
+            <Table
+              data={balanceSheetData?.table}
+              columns={balanceSheetColumns}
+              className="min-w-[500px]"
+              paginationNumbers={[12, 25]}
+            />
+          </div>
+        )}
+      </section>
 
       {nationalPlayersData && (
         <section className="py-10">

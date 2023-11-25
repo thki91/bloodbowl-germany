@@ -136,7 +136,23 @@ const useContentful = () => {
         title: asset.fields.title,
       };
     } catch (error) {
-      console.log(`Error fetching ranking ${error}`);
+      console.log(`Error fetching national overview ${error}`);
+    }
+  }, [client]);
+
+  const getGermanBalanceSheet = useCallback(async () => {
+    try {
+      const asset = await client.getAsset("2C8AUsqpCvUBJGAzWod3pO");
+      const table = await parseCSVFile(asset.fields.file.url);
+
+      console.log(asset.fields);
+      return {
+        table,
+        updatedAt: asset.sys.updatedAt,
+        title: asset.fields.title,
+      };
+    } catch (error) {
+      console.log(`Error fetching german balance sheet ${error}`);
     }
   }, [client]);
 
@@ -206,6 +222,7 @@ const useContentful = () => {
     getEurobowlResults,
     getNationalOverview,
     getNationalPlayers,
+    getGermanBalanceSheet,
   };
 };
 

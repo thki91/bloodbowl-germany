@@ -37,7 +37,7 @@ function Ranking() {
     const rankingColumns = Object.keys(rankingData[0]);
     return rankingColumns.map((col, index) => ({
       accessorKey: col,
-      enableSorting: index !== 1,
+      enableSorting: index !== 0,
     }));
   }, [rankingData]);
 

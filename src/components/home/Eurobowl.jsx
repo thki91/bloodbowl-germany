@@ -74,9 +74,7 @@ const Eurobowl = () => {
                 Sieg-Unentschieden-Niederlagen-Quote angeht, gewählt werden.
                 Während des Turniers werden die Paarungen beider Mannschaften
                 und die darin enthaltenen einzelnen Coaches nach dem
-                Schweizer-System gepaart. Das heißt die stärksten Coaches einer
-                Mannschaft spielen gegen die stärksten Coaches der gegnerischen
-                Mannschaft.
+                Schweizer-System gepaart.
                 <a
                   onClick={() => setReadMore(!readMore)}
                   className={`md:hidden ml-0.5 ${!readMore ? "hidden" : ""}`}
