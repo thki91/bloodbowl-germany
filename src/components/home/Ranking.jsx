@@ -67,26 +67,28 @@ function Ranking() {
             </p>
             <ul className="list-disc ml-6 mb-2">
               <li>
-                Schwedische Wertung zu 30% (Update Nov. 2023) -> a (max = 240)
+                Schwedische Wertung zu 30% (Update Nov. 2023) -&gt; a (max =
+                240)
               </li>
               <li>
-                NAF Global Glicko Wertung zu 30% (Update Aug. 2023) -> b (max =
-                1730)
+                NAF Global Glicko Wertung zu 30% (Update Aug. 2023) -&gt; b (max
+                = 1730)
               </li>
               <li>
-                Dänische Coach Wertung Jahr zu 15% (Update Okt. 2023) -> c1 (max
-                = 330)
+                Dänische Coach Wertung Jahr zu 15% (Update Okt. 2023) -&gt; c1
+                (max = 330)
               </li>
               <li>
-                Dänische Coach Wertung zu 15% (Update Okt. 2023) -> c2 (max =
+                Dänische Coach Wertung zu 15% (Update Okt. 2023) -&gt; c2 (max =
                 330)
               </li>
               <li>
-                NAF Siegquote BB2020 zu 7,5% (Update Nov. 2023) -> d1 (max =
+                NAF Siegquote BB2020 zu 7,5% (Update Nov. 2023) -&gt; d1 (max =
                 75%)
               </li>
               <li>
-                Höchste NAF-Wertung zu 2,5% (Update Nov. 2023) -> d2 (max = 300)
+                Höchste NAF-Wertung zu 2,5% (Update Nov. 2023) -&gt; d2 (max =
+                300)
               </li>
             </ul>
             <p>

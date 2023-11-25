@@ -23,7 +23,7 @@ const EurobowlResult = ({ result }) => {
   }, [result?.resultTable]);
 
   return (
-    <div className="bg-stone-200 rounded-md p-3 sm:p-4 relative text-sm sm:text-base">
+    <div>
       {result.resultsLink && (
         <a href={result.resultsLink} target="_blank" rel="noreferrer">
           <div className="absolute right-0 top-0 hover:bg-stone-300 transition p-3 rounded-bl-md rounded-tr-md opacity-80">
@@ -44,11 +44,11 @@ const EurobowlResult = ({ result }) => {
           <div className="font-semibold">Ergebnis: {result.endResult}</div>
         </div>
       </div>
-      <div className="flex items-start overflow-x-auto">
-        <div className="flex-1">
-          <Table data={tableData} columns={columns} className="min-w-[500px]" />
-        </div>
-      </div>
+      <Table
+        data={tableData}
+        columns={columns}
+        className="min-w-[500px] !w-full"
+      />
     </div>
   );
 };
@@ -129,14 +129,14 @@ const EurobowlResults = () => {
         </div>
       </div>
 
-      <div className="lg:flex items-start flex-wrap gap-6">
+      <div className="lg:flex items-start flex-wrap gap-4 xl:gap-6">
         {eurobowlResultsData
           ?.filter((item) => item.year && isInYearSelection(item.year))
           ?.map((item) => {
             return (
               <div
                 key={item.title}
-                className="overflow-hidden lg:max-w-[49%] lg:flex-[48%] mb-6 lg:mb-0"
+                className="lg:max-w-[49%] lg:flex-[49%] mb-6 lg:mb-0 bg-stone-200 rounded-md p-3 sm:p-4 relative text-sm sm:text-base"
               >
                 <EurobowlResult result={item} />
               </div>

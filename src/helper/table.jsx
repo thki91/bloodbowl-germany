@@ -10,9 +10,9 @@ export const mapTableMemberLink = (tableData, colIndex) => {
     if (nameIsString) {
       name = (
         <a
-          href={`https://member.thenaf.net/index.php?module=NAF&type=coachpage&coach=${formatName(
-            name
-          )}`}
+          href={`https://member.thenaf.net/index.php?module=NAF&type=coachpage&coach=${name
+            .replace("__", "")
+            .replace("*", "")}`}
           target="_blank"
           rel="noreferrer"
         >

@@ -30,7 +30,7 @@ const Table = ({
 
   return (
     <>
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto w-full">
         <table className={`w-full ${className}`}>
           <thead>
             {table.getHeaderGroups().map((headerGroup) => (
