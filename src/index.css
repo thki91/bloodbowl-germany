@@ -67,15 +67,15 @@ a {
 }
 
 th:first-child {
-  @apply left-0 bg-stone-300 sticky sm:relative;
+  @apply left-0 bg-stone-300 sticky;
 }
 
 tr:nth-child(even) td:first-child {
-  @apply sticky left-0 bg-stone-300 sm:bg-transparent sm:relative;
+  @apply sticky left-0 bg-stone-300;
 }
 
 tr:nth-child(odd) td:first-child {
-  @apply sticky left-0 bg-stone-200 sm:bg-transparent sm:relative;
+  @apply sticky left-0 bg-stone-200;
 }
 
 .hamburger {

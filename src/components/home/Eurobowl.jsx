@@ -43,14 +43,14 @@ const Eurobowl = () => {
               <p>
                 Der Eurobowl ist eines der am längsten laufenden Turniere in der
                 Geschichte des Blood Bowl. Er findet seit 2003 jährlich, mit
-                Ausnahme der World-Cup-Jahre und den Covid-Jahren, statt. Der
-                Eurobowl ist ein nationenübergreifendes Mannschaftsturnier für
-                Teams mit 8 Coaches. Traditionell handelt es um eine
-                Europameisterschaft, doch seit 2022 dürfen auch andere
-                Nationalmannschaften teilnehmen. Parallel zum Eurobowl finden
-                die Eur'Open statt, ein Teamturnier ohne nationale
-                Beschränkungen für Teams mit 4 Coaches. Sowohl beim Eurobowl als
-                auch der Eur'Open spielt jede Mannschaft 6 Runden Blood Bowl.
+                Ausnahme der World-Cup und Covid-Jahren, statt. Als
+                nationenübergreifendes Teamturnier handelt es sich beim Eurobowl
+                traditionell um eine Europameisterschaft, doch seit 2022 dürfen
+                auch andere Nationalteams teilnehmen. Ein Nationalteam besteht
+                dabei aus 8 Coaches. Parallel zum Eurobowl finden die Eur’Open
+                statt, ein Teamturnier ohne nationale Beschränkungen für Teams
+                mit 4 Coaches. Sowohl beim Eurobowl als auch der Eur’Open spielt
+                jedes Team 6 Runden Blood Bowl.
                 <a
                   onClick={() => setReadMore(!readMore)}
                   className={`md:hidden ml-0.5 ${readMore ? "hidden" : ""}`}
@@ -65,16 +65,15 @@ const Eurobowl = () => {
               }`}
             >
               <p>
-                Da es sich um ein Mannschaftsturnier handelt, basiert der Sieg
-                in jedem Match auf den kombinierten Ergebnissen der gesamten
-                Mannschaft. Dies führt tendenziell zu einem etwas anderen Meta
-                als bei Einzelspielturnieren, nicht nur weil die Coaches
-                unterschiedliche Rassen wählen müssen, sondern auch weil bei
-                einem Teamturnier häufig "solidere Rassen" was die
-                Sieg-Unentschieden-Niederlagen-Quote angeht, gewählt werden.
-                Während des Turniers werden die Paarungen beider Mannschaften
-                und die darin enthaltenen einzelnen Coaches nach dem
-                Schweizer-System gepaart.
+                Der Sieg in jeder Runde basiert auf den kombinierten Ergebnissen
+                aller Coaches des Teams. Dies führt tendenziell zu einem etwas
+                anderen Meta als bei Einzelspielturnieren, nicht nur weil die 8
+                Coaches unterschiedliche Rassen wählen müssen, sondern auch weil
+                bei Teamturnieren häufig "solidere Rassen" was die
+                Sieg/Unentschieden zu Niederlagen Quote angeht, gewählt werden.
+                Während des Turniers werden die Paarungen beider Teams und die
+                darin enthaltenen einzelnen Coaches nach dem Schweizer-System
+                gepaart. So spielen die stärksten Teams/Coaches gegeneinander.
                 <a
                   onClick={() => setReadMore(!readMore)}
                   className={`md:hidden ml-0.5 ${!readMore ? "hidden" : ""}`}
@@ -87,22 +86,17 @@ const Eurobowl = () => {
         </div>
       </div>
       <div className="my-5 md:mb-0">
-        <Accordion
-          title="Eurobowl Charta"
-          children={
-            <>
-              {chartaData?.map(({ title, description }, index) => (
-                <div key={title}>
-                  <Accordion
-                    title={title}
-                    description={description}
-                    isLastItem={chartaData.length - 1 === index}
-                  />
-                </div>
-              ))}
-            </>
-          }
-        />
+        <>
+          {chartaData?.map(({ title, description }, index) => (
+            <div key={title} className="mb-3">
+              <Accordion
+                title={title}
+                description={description}
+                isLastItem={chartaData.length - 1 === index}
+              />
+            </div>
+          ))}
+        </>
       </div>
     </section>
   );

@@ -46,15 +46,14 @@ function Ranking() {
       id="ranking"
       className="py-6 sm:py-10 px-6 sm:px-14 bg-stone-200 -mx-4 sm:-mx-10"
     >
-      <div className="relative flex items-center gap-x-3 justify-center sm:justify-start">
+      <div className="relative flex items-center gap-x-3 justify-center sm:mb-2">
         <Heading title="Community Ranking" />
         <div className="group relative">
           <div className="rounded-full w-4 h-4 flex items-center justify-center text-stone-500 hover:text-stone-600 font-semibold border border-stone-500 text-xs mb-[18px] cursor-pointer hover:border-stone-600 transition">
             i
           </div>
-          <div className="opacity-0 pointer-events-none group-hover:opacity-100 absolute -right-16 sm:left-0 sm:translate-x-0 top-5 bg-stone-700 p-4 rounded-md text-xs text-white transition w-[350px] sm:w-[400px] z-10">
+          <div className="opacity-0 pointer-events-none group-hover:opacity-100 absolute -right-16 top-5 bg-stone-700 p-4 rounded-md text-xs text-white transition w-[350px] sm:w-[400px] z-10">
             <p>
-              {" "}
               <strong>*Aufgeführte Coaches: </strong> Gerankt werden nur Coaches
               der deutschen Community mit mind. 53% NAF-Winrate, 28 BB-2020 NAF
               Spielen, 170 NAF-Rating, 1150 Glicko-Rating, 175 Danish Rating und
@@ -104,7 +103,7 @@ function Ranking() {
             </p>
           </div>
         </div>
-        <div className="sm:ml-auto absolute right-0 top-1.5 sm:relative sm:top-0">
+        <div className="absolute right-0 top-1.5">
           <DropdownMenu
             image={ExternalLinkIcon}
             items={dropdownRankingLinks}

@@ -64,6 +64,7 @@ const parseCSVFile = async (fileUrl) => {
       complete: (results) => {
         resolve(results.data);
       },
+      skipEmptyLines: true,
     });
   });
 };
@@ -144,8 +145,6 @@ const useContentful = () => {
     try {
       const asset = await client.getAsset("2C8AUsqpCvUBJGAzWod3pO");
       const table = await parseCSVFile(asset.fields.file.url);
-
-      console.log(asset.fields);
       return {
         table,
         updatedAt: asset.sys.updatedAt,
@@ -188,7 +187,6 @@ const useContentful = () => {
     try {
       const entries = await client.getEntries({
         content_type: "accordion",
-        "fields.type": "Eurobowl Charta",
       });
       return _.sortBy(
         entries.items.map((entry) => mapCharta(entry)),

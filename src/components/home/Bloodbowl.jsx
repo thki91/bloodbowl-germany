@@ -5,10 +5,14 @@ const Bloodbowl = () => {
   const [readMore, setReadMore] = useState(false);
   return (
     <section
-      className="bg-stone-200 -mx-4 sm:-mx-10 px-6 sm:px-10 py-5 md:py-10 lg:py-14"
+      className="bg-stone-200 -mx-4 sm:-mx-10 px-6 sm:px-10 py-5 md:py-10 lg:py-10 xl:py-14"
       id="was-ist-bloodbowl"
     >
-      <div className="xl:flex xl:items-center mt-2 transition-all ease-in-out duration-700">
+      {/* mobile */}
+      <div className="sm:hidden text-center sm:text-left">
+        <Heading title="Was ist Bloodbowl?" />
+      </div>
+      <div className="xl:flex xl:items-center -mt-2 sm:mt-2 transition-all ease-in-out duration-700">
         <div
           className={`relative xl:min-w-[350px] transition-all duration-500 ${
             readMore ? "!min-w-0 !w-0" : ""
@@ -16,7 +20,7 @@ const Bloodbowl = () => {
         >
           <img
             src="/bloodbowl.jpeg"
-            className="hidden sm:block sm:flex-shrink-0 w-[100px] sm:w-[250px] xl:w-[350px] float-left clear-left xl:pr-10"
+            className="pr-3 md:pr-0 sm:block sm:flex-shrink-0 w-[120px] sm:w-[250px] xl:w-[350px] float-left clear-left xl:pr-10"
             style={{ mixBlendMode: "multiply" }}
           />
         </div>
@@ -27,7 +31,7 @@ const Bloodbowl = () => {
           }`}
         >
           <Heading title="Was ist Bloodbowl?" />
-          <div className="xl:flex sm:gap-x-7">
+          <div className="xl:flex sm:gap-x-7 text-sm md:text-base">
             <div className="flex-1 text-justify">
               <p>
                 Blood Bowl ist ein Brettspiel{" "}
@@ -125,9 +129,6 @@ const Bloodbowl = () => {
         </div>
         {/* mobile */}
         <div className="sm:hidden text-sm">
-          <div className="text-center">
-            <Heading title="Was ist Bloodbowl?" />
-          </div>
           <p>
             Blood Bowl ist ein Brettspiel{" "}
             <span className="italic">(Tabletop)</span>, bei dem sich zwei
