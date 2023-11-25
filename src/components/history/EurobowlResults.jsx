@@ -69,13 +69,14 @@ const EurobowlResults = () => {
         data?.map((data) => data.year),
         2
       );
-      setSortedEurobowlResults(
-        eurobowlYears.map((yearChunk, index) => ({
+      setSortedEurobowlResults([
+        ...eurobowlYears.map((yearChunk, index) => ({
           value: yearChunk,
           label: yearChunk.join(" / "),
           selected: index === 0,
-        }))
-      );
+        })),
+        { label: "Alle", value: data?.map((data) => data.year) },
+      ]);
       setEurobowlResultsData(data);
     };
 
@@ -104,7 +105,7 @@ const EurobowlResults = () => {
           <div className="rounded-full w-4 h-4 flex items-center justify-center text-stone-500 hover:text-stone-600 font-semibold border border-stone-500 text-xs mb-[18px] cursor-pointer hover:border-stone-600 transition">
             i
           </div>
-          <div className="opacity-0 pointer-events-none group-hover:opacity-100 absolute -right-16 top-5 bg-stone-700 p-4 rounded-md text-xs text-white transition w-[350px] sm:w-[400px] z-10">
+          <div className="opacity-0 pointer-events-none group-hover:opacity-100 absolute -right-0 top-5 bg-stone-700 p-4 rounded-md text-xs text-white transition w-[200px] sm:w-[300px] z-10">
             Die Spieldaten wurden der NAF-DB und aus den persönlichen Unterlagen
             die Spieler entnommen. Insbesondere bei den ersten Eurobowls gab es
             keine NAF-Pflicht, daher können einige Spiele in der Statistik
@@ -112,19 +113,22 @@ const EurobowlResults = () => {
           </div>
         </div>
       </div>
-      <div className="text-sm md:text-base flex items-center justify-center mb-6 gap-x-1.5">
-        {sortedEurobowlResults?.map(({ label, value, selected }) => (
-          <a
-            className={`py-2 px-1 sm:px-4 border-b-2 ${
-              selected ? "border-red-600" : "text-stone-400 border-white"
-            }`}
-            onClick={() => handleSortedEurobowlResultsSelection(value)}
-            key={label}
-          >
-            {label}
-          </a>
-        ))}
+      <div className="overflow-x-auto scrollbar-transparent">
+        <div className="text-xs sm:text-sm md:text-base flex items-center sm:justify-center mb-6 gap-x-1.5 min-w-[390px]">
+          {sortedEurobowlResults?.map(({ label, value, selected }) => (
+            <a
+              className={`py-2 px-1 sm:px-4 border-b-2 ${
+                selected ? "border-red-600" : "text-stone-400 border-white"
+              }`}
+              onClick={() => handleSortedEurobowlResultsSelection(value)}
+              key={label}
+            >
+              {label}
+            </a>
+          ))}
+        </div>
       </div>
+
       <div className="lg:flex items-start flex-wrap gap-6 mb-6">
         {eurobowlResultsData
           ?.filter((item) => item.year && isInYearSelection(item.year))
