@@ -7,6 +7,7 @@ import { mapTableMemberLink } from "../helper/table";
 import Heading from "../components/Heading";
 import _ from "lodash";
 import EurobowlResults from "../components/history/EurobowlResults";
+import Statistics from "../components/history/Statistics";
 
 function History() {
   const [nationalOverviewData, setNationalOverviewData] = useState();
@@ -31,7 +32,6 @@ function History() {
       const data = await getGermanBalanceSheet();
       setBalanceSheetData(data);
     };
-
     getNationalOverviewData();
     getNationalPlayersData();
     getGermanBalanceSheetData();
@@ -64,9 +64,10 @@ function History() {
   return (
     <Layout>
       <EurobowlResults />
-      <section className="py-5 xl:flex items-start gap-x-10">
+      <Statistics />
+      <section className="py-5 xl:flex items-start gap-x-10 bg-stone-200 -mx-4 sm:-mx-10 px-4 sm:px-10">
         {nationalOverviewData && (
-          <div className="flex-1 xl:pr-10 xl:border-r xl:border-r-stone-300">
+          <div className="mb-5 sm:mb-0 flex-1 xl:pr-10 xl:border-r xl:border-r-stone-400">
             <Heading title={nationalOverviewData?.title} />
             <Table
               data={nationalOverviewData?.table}
@@ -77,7 +78,7 @@ function History() {
           </div>
         )}
         {balanceSheetData && (
-          <div className="">
+          <div>
             <Heading title={balanceSheetData?.title} />
             <Table
               data={balanceSheetData?.table}

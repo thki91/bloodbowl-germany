@@ -2,9 +2,7 @@ import PropTypes from "prop-types";
 import { useLocation } from "react-router-dom";
 import Instagram from "../assets/instagram.png";
 import Discord from "../assets/discord.png";
-import PodcastIcon from "../assets/podcast.png";
 import LinkIcon from "../assets/linkIcon.png";
-import DiceIcon from "../assets/dice-1.png";
 import Logo from "../assets/logo.png";
 import { useScrollDirection } from "../hooks/useScrollDirection";
 import DropdownMenu from "./DropdownMenu";
@@ -72,24 +70,6 @@ const dropdownDiscordLinks = [
   },
 ];
 
-const dropdownPodcastLinks = [
-  { text: "2 Trolle eine Meinung", link: "https://anchor.fm/2t1m" },
-  {
-    text: "Hau wech das Leder",
-    link: "https://podcasters.spotify.com/pod/show/mario-brutschin",
-  },
-];
-
-const dropdownDiceLinks = [
-  {
-    text: "Turnierübersicht",
-    link: "https://public.tableau.com/app/profile/mike.sann0638.davies/viz/NAFTournamentList/ROWMap",
-  },
-  { text: "BB Strategies", link: "https://bloodbowlstrategies.com/en/" },
-  { text: "Fumbbl", link: "https://fumbbl.com/p/news" },
-  { text: "BB3", link: "https://www.bloodbowl-thegame.com/home" },
-];
-
 const Menu = () => {
   const location = useLocation();
   const { scrollDirection, scrollPosition } = useScrollDirection();
@@ -137,19 +117,7 @@ const Menu = () => {
       />
       <div className="ml-auto flex items-center">
         <DropdownMenu image={LinkIcon} items={dropdownMenuLinks} />
-        {/* <DropdownMenu
-          image={DiceIcon}
-          items={dropdownDiceLinks}
-          containerClasses="top-5"
-          iconClasses="!w-5"
-        /> */}
         <DropdownMenu image={Discord} items={dropdownDiscordLinks} />
-        {/* <DropdownMenu
-          image={PodcastIcon}
-          items={dropdownPodcastLinks}
-          containerClasses="top-5"
-          iconClasses="!w-5"
-        /> */}
         <a
           href="https://www.instagram.com/team_germany_bb/"
           target="_blank"

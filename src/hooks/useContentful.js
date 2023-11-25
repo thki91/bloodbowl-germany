@@ -1,8 +1,28 @@
 import { useCallback } from "react";
 import { createClient } from "contentful";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
+import { INLINES, BLOCKS } from "@contentful/rich-text-types";
 import Papa from "papaparse";
 import _ from "lodash";
+
+const optionsRichText = {
+  renderNode: {
+    [INLINES.ASSET_HYPERLINK]: (node) => {
+      return `<a target="_blank" rel="noopener noreferrer" href="/${node.data.target.fields?.file?.url}">${node.content[0].value}</a>`;
+    },
+    [INLINES.HYPERLINK]: (node) => {
+      return `<a target="_blank" rel="noopener noreferrer" href="${node.data.uri}">
+          ${node.content[0].value}
+        </a>`;
+    },
+    [BLOCKS.EMBEDDED_ASSET]: (node) => {
+      const imgUrl = node.data.target?.fields?.file?.url;
+      return imgUrl
+        ? `<img src=${imgUrl} style="height: 50px;margin:0 auto;margin-bottom:10px"/>`
+        : "";
+    },
+  },
+};
 
 const mapTeamMember = (contentEntry) => {
   return {
@@ -27,7 +47,10 @@ const mapNewsArticle = (contentEntry) => {
 
 const mapCharta = (contentEntry) => {
   return {
-    description: documentToHtmlString(contentEntry.fields.description),
+    description: documentToHtmlString(
+      contentEntry.fields.description,
+      optionsRichText
+    ),
     title: contentEntry.fields.title,
     order: contentEntry.fields?.order,
     type: contentEntry.fields?.type,
@@ -39,6 +62,35 @@ const mapFact = (contentEntry) => {
     description: contentEntry.fields.description,
     icon: contentEntry.fields.icon?.fields?.file?.url,
     order: contentEntry.fields?.order,
+  };
+};
+
+const mapStatistic = (contentEntry) => {
+  return {
+    frontTextBlack: documentToHtmlString(
+      contentEntry.fields.frontTextBlack,
+      optionsRichText
+    ),
+    backTextBlack: documentToHtmlString(
+      contentEntry.fields.backTextBlack,
+      optionsRichText
+    ),
+    frontTextRed: documentToHtmlString(
+      contentEntry.fields.frontTextRed,
+      optionsRichText
+    ),
+    backTextRed: documentToHtmlString(
+      contentEntry.fields.backTextRed,
+      optionsRichText
+    ),
+    frontTextYellow: documentToHtmlString(
+      contentEntry.fields.frontTextYellow,
+      optionsRichText
+    ),
+    backTextYellow: documentToHtmlString(
+      contentEntry.fields.backTextYellow,
+      optionsRichText
+    ),
   };
 };
 
@@ -211,6 +263,17 @@ const useContentful = () => {
     }
   }, [client]);
 
+  const getStatistics = useCallback(async () => {
+    try {
+      const entries = await client.getEntries({
+        content_type: "statistics",
+      });
+      return entries.items.map((entry) => mapStatistic(entry));
+    } catch (error) {
+      console.log(`Error fetching statistics ${error}`);
+    }
+  }, [client]);
+
   return {
     getMembers,
     getNews,
@@ -221,6 +284,7 @@ const useContentful = () => {
     getNationalOverview,
     getNationalPlayers,
     getGermanBalanceSheet,
+    getStatistics,
   };
 };
 

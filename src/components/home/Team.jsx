@@ -148,7 +148,7 @@ function Team() {
               return (
                 <div
                   key={`emptyMember${index}`}
-                  className="p-2 sm:p-3 relative bg-stone-200 rounded-md transform hover:scale-110 transition flex-1 max-w-[140px] self-stretch opacity-80"
+                  className="p-2 sm:p-3 relative bg-stone-200 rounded-md flex-1 max-w-[140px] self-stretch opacity-80"
                 >
                   <Member isEmpty={true} />
                 </div>

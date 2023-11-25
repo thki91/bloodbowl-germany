@@ -98,8 +98,8 @@ const EurobowlResults = () => {
   };
 
   return (
-    <section className="py-10">
-      <div className="relative flex items-center gap-x-3 justify-center sm:mb-2">
+    <section className="py-10 pb-5 md:pb-7">
+      <div className="relative flex items-center gap-x-3 justify-center">
         <Heading title="Vergangene Eurobowl Ergebnisse" />
         <div className="group relative">
           <div className="rounded-full w-4 h-4 flex items-center justify-center text-stone-500 hover:text-stone-600 font-semibold border border-stone-500 text-xs mb-[18px] cursor-pointer hover:border-stone-600 transition">
@@ -113,8 +113,8 @@ const EurobowlResults = () => {
           </div>
         </div>
       </div>
-      <div className="overflow-x-auto scrollbar-transparent">
-        <div className="text-xs sm:text-sm md:text-base flex items-center sm:justify-center mb-6 gap-x-1.5 min-w-[390px]">
+      <div className="overflow-x-auto scrollbar-transparent -mt-2">
+        <div className="text-xs sm:text-sm md:text-base flex items-center sm:justify-center mb-6 gap-x-1.5 whitespace-nowrap">
           {sortedEurobowlResults?.map(({ label, value, selected }) => (
             <a
               className={`py-2 px-1 sm:px-4 border-b-2 ${
@@ -129,7 +129,7 @@ const EurobowlResults = () => {
         </div>
       </div>
 
-      <div className="lg:flex items-start flex-wrap gap-6 mb-6">
+      <div className="lg:flex items-start flex-wrap gap-6">
         {eurobowlResultsData
           ?.filter((item) => item.year && isInYearSelection(item.year))
           ?.map((item) => {
