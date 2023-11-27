@@ -90,7 +90,7 @@ function Statistic() {
           </div>
         )}
       </section>
-      <section className="py-5 bg-stone-800 -mx-4 sm:-mx-10 px-4 sm:px-10">
+      <section className="pt-5 pb-6 sm:pt-8 sm:pb-10 bg-stone-800 -mx-4 sm:-mx-10 px-4 sm:px-10">
         <div class="collage-row">
           <div class="collage-column">
             <img src="/collage/1.png" className="w-full" />
