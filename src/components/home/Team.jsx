@@ -85,7 +85,7 @@ function Team() {
         )}
         <div
           dangerouslySetInnerHTML={{ __html: member.text }}
-          className="mt-8 text-sm sm:text-base"
+          className="mt-8 text-sm md:text-base"
         />
       </div>
     );

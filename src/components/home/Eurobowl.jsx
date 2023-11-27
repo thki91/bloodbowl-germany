@@ -18,7 +18,7 @@ const Eurobowl = () => {
 
   return (
     <section
-      className="bg-stone-200 -mx-4 sm:-mx-10 px-6 sm:px-10 py-5 md:py-10 lg:py-10 xl:py-14"
+      className="bg-stone-200 -mx-4 sm:-mx-10 px-6 sm:px-10 py-5 md:py-10 lg:py-10 xl:py-"
       id="was-ist-eurobowl"
     >
       {/* mobile */}

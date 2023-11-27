@@ -7,7 +7,7 @@ const Accordion = ({ title, description, isLastItem }) => {
     <>
       <div
         onClick={() => setIsExpanded(!isExpanded)}
-        className={`text-sm sm:text-base font-semibold cursor-pointer flex justify-between items-center -mt-[1px] bg-stone-300 rounded-md p-2.5 ${
+        className={`text-sm md:text-base font-semibold cursor-pointer flex justify-between items-center -mt-[1px] bg-stone-300 rounded-md p-2.5 ${
           isExpanded ? " rounded-b-none" : ""
         }`}
       >

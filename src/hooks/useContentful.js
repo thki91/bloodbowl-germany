@@ -104,6 +104,7 @@ const mapEurobowlResult = async (contentEntry) => {
     year: contentEntry.fields?.year,
     endResult: contentEntry.fields?.endResult,
     resultsLink: contentEntry.fields?.resultsLink,
+    reportLink: contentEntry.fields?.reportLink,
     resultTable,
   };
 };
@@ -173,6 +174,7 @@ const useContentful = () => {
         table,
         updatedAt: asset.sys.updatedAt,
         title: asset.fields.title,
+        description: asset.fields.description,
       };
     } catch (error) {
       console.log(`Error fetching ranking ${error}`);

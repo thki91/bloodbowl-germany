@@ -30,7 +30,7 @@ function Archive() {
 
   const NewsItem = ({ news }) => {
     return (
-      <div className="self-stretch rounded-md p-3 sm:p-4 flex-[48%] sm:max-w-[48%] xl:max-w-[32%] xl:flex-[32%] mb-4 sm:mb-0 text-sm sm:text-base bg-stone-200">
+      <div className="self-stretch rounded-md p-3 sm:p-4 flex-[48%] sm:max-w-[48%] xl:max-w-[32%] xl:flex-[32%] mb-4 sm:mb-0 text-sm md:text-base bg-stone-200">
         <h3 className="font-semibold mb-2 ">
           <span className="">
             {new Date(news?.publishedAt)?.toLocaleDateString("de-DE")} |{" "}

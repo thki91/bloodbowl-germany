@@ -38,12 +38,12 @@ const dropdownMenuLinks = [
 
 const dropdownMenuMobile = [
   {
-    text: "Home",
+    text: "Start",
     link: "/",
   },
   {
-    text: "Historie",
-    link: "/historie",
+    text: "Statistik",
+    link: "/statistik",
   },
   {
     text: "Archiv",
@@ -106,9 +106,9 @@ const Menu = () => {
         />
       </div>
       <MenuLink
-        url="/historie"
-        text="Historie"
-        isActive={location.pathname === "/historie"}
+        url="/statistik"
+        text="Statistik"
+        isActive={location.pathname === "/statistik"}
       />
       <MenuLink
         url="/archiv"

@@ -30,7 +30,7 @@ const News = ({}) => {
 
   const NewsItem = ({ news }) => {
     return (
-      <div className="rounded-sm flex-[45%] mb-8 md:mb-10 text-white text-sm sm:text-base">
+      <div className="rounded-sm flex-[45%] mb-8 md:mb-10 text-white text-sm md:text-base">
         <h3 className="font-semibold mb-2 text-stone-200">
           <span className="text-stone-200">
             {new Date(news?.publishedAt)?.toLocaleDateString("de-DE")} |{" "}

@@ -4,7 +4,7 @@ import Heading from "../components/Heading";
 function Imprint() {
   return (
     <Layout>
-      <section className="pt-6 sm:pt-8 text-sm sm:text-base">
+      <section className="pt-6 sm:pt-8 text-sm md:text-base">
         <div>
           <strong>Postadresse:</strong> DBBC e.V., Damaschkeweg 5a, 33332
           Gütersloh
@@ -18,7 +18,7 @@ function Imprint() {
         </div>
       </section>
 
-      <section className="pt-6 sm:pt-8 text-sm sm:text-base">
+      <section className="pt-6 sm:pt-8 text-sm md:text-base">
         <Heading title="Inhalt des Onlineangebotes" variant="small" />
         <p>
           Der Autor übernimmt keinerlei Gewähr für die Aktualität, Korrektheit,
@@ -37,7 +37,7 @@ function Imprint() {
         </p>
       </section>
 
-      <section className="pt-6 sm:pt-8 text-sm sm:text-base">
+      <section className="pt-6 sm:pt-8 text-sm md:text-base">
         <Heading title="Verweise und Links" variant="small" />
         <p>
           Bei direkten oder indirekten Verweisen auf fremde Webseiten
@@ -61,7 +61,7 @@ function Imprint() {
         </p>
       </section>
 
-      <section className="pt-6 sm:pt-8 text-sm sm:text-base">
+      <section className="pt-6 sm:pt-8 text-sm md:text-base">
         <Heading title="Urheber- und Kennzeichenrecht" variant="small" />
         <p>
           Die Inhalte dieser Website unterliegen dem deutschen Urheberrecht. Das
@@ -91,7 +91,7 @@ function Imprint() {
           Inhalte umgehend entfernen.
         </p>
 
-        <div className="font-semibold text-sm sm:text-base py-2">
+        <div className="font-semibold text-sm md:text-base py-2">
           Verwendete Ressourcen:
         </div>
         <div className="flex flex-col items-start text-sm gap-y-1.5">
@@ -129,12 +129,6 @@ function Imprint() {
             Out icons created by Freepik - Flaticon
           </a>
           <a
-            href="https://www.flaticon.com/free-icons/podcast"
-            title="podcast icons"
-          >
-            Podcast icons created by Pixel perfect - Flaticon
-          </a>
-          <a
             href="https://www.flaticon.com/free-icons/anonymous"
             title="anonymous icons"
           >
@@ -155,10 +149,40 @@ function Imprint() {
           >
             Ascending icons created by Saepul Nahwan - Flaticon
           </a>
+          <a
+            href="https://www.flaticon.com/de/kostenlose-icons/gewinner"
+            title="gewinner Icons"
+          >
+            Gewinner Icons erstellt von Freepik - Flaticon
+          </a>
+          <a
+            href="https://www.flaticon.com/de/kostenlose-icons/regen"
+            title="regen Icons"
+          >
+            Regen Icons erstellt von flatart_icons - Flaticon
+          </a>
+          <a
+            href="https://www.flaticon.com/free-icons/happy"
+            title="happy icons"
+          >
+            Happy icons created by Freepik - Flaticon
+          </a>
+          <a
+            href="https://www.flaticon.com/free-icons/loser"
+            title="loser icons"
+          >
+            Loser icons created by surang - Flaticon
+          </a>
+          <a href="https://www.flaticon.com/free-icons/fear" title="fear icons">
+            Fear icons created by Smashicons - Flaticon
+          </a>
+          <a href="https://www.flaticon.com/free-icons/luck" title="luck icons">
+            Luck icons created by Freepik - Flaticon
+          </a>
         </div>
       </section>
 
-      <section className="py-8 text-sm sm:text-base">
+      <section className="py-8 text-sm md:text-base">
         <Heading
           title="Rechtswirksamkeit dieses Haftungsausschlusses"
           variant="small"

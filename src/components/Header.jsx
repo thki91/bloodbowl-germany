@@ -18,7 +18,7 @@ const Header = () => {
 
   let title = "BB Deutschland";
   if (location.pathname === "/archiv") title = "Newsarchiv";
-  if (location.pathname === "/historie") title = "Historie";
+  if (location.pathname === "/statistik") title = "Statistik";
   if (location.pathname === "/impressum") title = "Impressum";
 
   if (!isHomepage) {

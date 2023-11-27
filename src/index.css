@@ -144,3 +144,23 @@ h4 {
   color: white;
   transform: rotateY(180deg);
 }
+
+.collage-row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  padding: 0 4px;
+  @apply max-h-[350px] xl:max-h-[450px] overflow-hidden;
+}
+
+.collage-column {
+  padding: 0 4px;
+  @apply flex-[50%] max-w-[50%] sm:flex-[33%] sm:max-w-[33%] xl:flex-[20%] xl:max-w-[20%];
+}
+
+.collage-column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
