@@ -4,7 +4,7 @@ import useContentful from "../hooks/useContentful";
 import Modal from "../components/Modal";
 import { NewsModalContent } from "../components/News";
 
-function Archive() {
+function News() {
   const [newsData, setNewsData] = useState();
   const [modalContent, setModalContent] = useState();
   const { getNews } = useContentful();
@@ -24,20 +24,25 @@ function Archive() {
   const NewsItem = ({ news }) => {
     return (
       <div className="self-stretch rounded-md p-3 sm:p-4 flex-[48%] sm:max-w-[48%] xl:max-w-[32%] xl:flex-[32%] mb-4 sm:mb-0 text-sm md:text-base bg-stone-200">
-        <h3 className="font-semibold mb-2 ">
-          <span className="">
-            {new Date(news?.publishedAt)?.toLocaleDateString("de-DE")} |{" "}
-          </span>
+        <h3 className="font-semibold mb-2">
+          {new Date(news?.publishedAt)?.toLocaleDateString("de-DE")} |{" "}
           {news?.title}
-        </h3>
-        <div>
-          {news?.previewText}
-          <a
-            className="text-red-600 hover:text-red-500 transition cursor-pointer ml-0.5"
-            onClick={() => handleClickReadMore(news)}
-          >
-            Weiterlesen
-          </a>
+        </h3>{" "}
+        <div className="flex">
+          {news.picture && (
+            <div className="float-left clear-left w-24 rounded-full h-24 overflow-hidden mr-2 mb-1 flex-shrink-0">
+              <img src={news.picture} className="max-w-full" />
+            </div>
+          )}
+          <div>
+            {news?.previewText}
+            <a
+              className="text-red-600 hover:text-red-500 transition cursor-pointer ml-0.5"
+              onClick={() => handleClickReadMore(news)}
+            >
+              Weiterlesen
+            </a>
+          </div>
         </div>
       </div>
     );
@@ -49,7 +54,6 @@ function Archive() {
         {modalContent}
       </Modal>
       <section className="py-6 sm:py-10 mb-[150px] xl:mb-[300px]">
-        {/* <Heading title="Newsarchiv" /> */}
         <div className="sm:flex items-start justify-start gap-x-5 gap-y-5 flex-wrap">
           {newsData?.map((news) => (
             <NewsItem news={news} />
@@ -60,4 +64,4 @@ function Archive() {
   );
 }
 
-export default Archive;
+export default News;

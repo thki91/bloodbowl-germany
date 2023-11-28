@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import Home from "./pages/Home.jsx";
-import Archive from "./pages/Archive.jsx";
+import News from "./pages/News.jsx";
 import Statistic from "./pages/Statistic.jsx";
 import Imprint from "./pages/Imprint.jsx";
 import "./index.css";
@@ -13,8 +13,8 @@ const router = createBrowserRouter([
     element: <Home />,
   },
   {
-    path: "/archiv",
-    element: <Archive />,
+    path: "/news",
+    element: <News />,
   },
   {
     path: "/statistik",
