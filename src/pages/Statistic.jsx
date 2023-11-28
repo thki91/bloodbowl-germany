@@ -69,7 +69,11 @@ function Statistic() {
       <section className="py-5 sm:py-10 xl:flex items-start gap-x-10 bg-stone-200 -mx-4 sm:-mx-10 px-4 sm:px-10">
         {nationalOverviewData && (
           <div className="mb-5 sm:mb-0 flex-1 xl:pr-10 xl:border-r xl:border-r-stone-400">
-            <Heading title={nationalOverviewData?.title} centered />
+            <Heading
+              title={nationalOverviewData?.title}
+              centered
+              description={nationalOverviewData?.description}
+            />
             <Table
               data={nationalOverviewData?.table}
               columns={nationalOverviewColumns}
@@ -80,7 +84,11 @@ function Statistic() {
         )}
         {balanceSheetData && (
           <div>
-            <Heading title={balanceSheetData?.title} centered />
+            <Heading
+              title={balanceSheetData?.title}
+              centered
+              description={balanceSheetData?.description}
+            />
             <Table
               data={balanceSheetData?.table}
               columns={balanceSheetColumns}
@@ -116,7 +124,11 @@ function Statistic() {
       </section>
       {nationalPlayersData?.table?.length > 0 && (
         <section className="py-5 sm:py-10 bg-stone-200 -mx-4 sm:-mx-10 px-4 sm:px-10">
-          <Heading title={nationalPlayersData?.title} centered />
+          <Heading
+            title={nationalPlayersData?.title}
+            centered
+            description={nationalPlayersData?.description}
+          />
 
           <div className="flex-1 pl-5">
             <Table

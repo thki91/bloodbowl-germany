@@ -3,6 +3,23 @@ import useContentful from "../hooks/useContentful";
 import CarouselDefault from "./Carousel";
 import Modal, { ModalTitle } from "./Modal";
 
+export const NewsModalContent = ({ news }) => {
+  return (
+    <div>
+      <ModalTitle title={news.title} />
+      {news.picture && (
+        <div className="float-left clear-left w-36 rounded-full h-36 overflow-hidden mr-2 mb-1">
+          <img src={news.picture} className="max-w-full" />
+        </div>
+      )}
+      <div
+        dangerouslySetInnerHTML={{ __html: news.text }}
+        className=" mt-10 text-sm md:text-base"
+      />
+    </div>
+  );
+};
+
 const News = ({}) => {
   const [newsData, setNewsData] = useState();
   const [modalContent, setModalContent] = useState();
@@ -17,15 +34,7 @@ const News = ({}) => {
   }, []);
 
   const handleClickReadMore = (news) => {
-    setModalContent(
-      <div>
-        <ModalTitle title={news.title} />
-        <div
-          dangerouslySetInnerHTML={{ __html: news.text }}
-          className="mt-10 text-sm md:text-base"
-        />
-      </div>
-    );
+    setModalContent(<NewsModalContent news={news} />);
   };
 
   const NewsItem = ({ news }) => {

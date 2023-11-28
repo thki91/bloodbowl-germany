@@ -194,6 +194,12 @@ function Imprint() {
           ihrer Gültigkeit davon unberührt.
         </p>
       </section>
+      <section className="pt-5 pb-10">
+        <p>
+          Diese Website ist in keiner Weise durch Games Workshop Ltd anerkannt.
+          Es werden keinerlei Warenzeichen der Firma Games Workshop benutzt.
+        </p>
+      </section>
     </Layout>
   );
 }

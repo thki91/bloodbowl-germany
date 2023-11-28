@@ -189,6 +189,7 @@ const useContentful = () => {
         table,
         updatedAt: asset.sys.updatedAt,
         title: asset.fields.title,
+        description: asset.fields.description,
       };
     } catch (error) {
       console.log(`Error fetching national overview ${error}`);
@@ -203,6 +204,7 @@ const useContentful = () => {
         table,
         updatedAt: asset.sys.updatedAt,
         title: asset.fields.title,
+        description: asset.fields.description,
       };
     } catch (error) {
       console.log(`Error fetching german balance sheet ${error}`);

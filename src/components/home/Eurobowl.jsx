@@ -43,7 +43,7 @@ const Eurobowl = () => {
               <p>
                 Der Eurobowl ist eines der am längsten laufenden Turniere in der
                 Geschichte des Blood Bowl. Er findet seit 2003 jährlich, mit
-                Ausnahme der World-Cup und Covid-Jahren, statt. Als
+                Ausnahme der World-Cup und Covid-Jahre, statt. Als
                 nationenübergreifendes Teamturnier handelt es sich beim Eurobowl
                 traditionell um eine Europameisterschaft, doch seit 2022 dürfen
                 auch andere Nationalteams teilnehmen. Ein Nationalteam besteht

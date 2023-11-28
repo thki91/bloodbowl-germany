@@ -12,6 +12,7 @@ import DropdownMenu from "../DropdownMenu";
 const EurobowlResultFilters = ({
   sortedEurobowlResults,
   handleSortedEurobowlResultsSelection,
+  shouldScrollToTop = false,
 }) => {
   return (
     <div className="overflow-x-auto scrollbar-transparent -mt-2">
@@ -21,7 +22,9 @@ const EurobowlResultFilters = ({
             className={`py-2 px-1 sm:px-4 border-b-2 ${
               selected ? "border-red-600" : "text-stone-400 border-white"
             }`}
-            onClick={() => handleSortedEurobowlResultsSelection(value)}
+            onClick={() =>
+              handleSortedEurobowlResultsSelection(value, shouldScrollToTop)
+            }
             key={label}
           >
             {label}
@@ -119,11 +122,20 @@ const EurobowlResults = () => {
     getEurobowlResultsData();
   }, []);
 
-  const handleSortedEurobowlResultsSelection = (yearsToShow) => {
+  const handleSortedEurobowlResultsSelection = (
+    yearsToShow,
+    shouldScrollToTop
+  ) => {
     const newSortedEurobowlReslts = [...sortedEurobowlResults].map(
       (result) => ({ ...result, selected: result.value === yearsToShow })
     );
     setSortedEurobowlResults(newSortedEurobowlReslts);
+    if (shouldScrollToTop) {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
   };
 
   const isInYearSelection = (year) => {
@@ -185,6 +197,7 @@ const EurobowlResults = () => {
             handleSortedEurobowlResultsSelection={
               handleSortedEurobowlResultsSelection
             }
+            shouldScrollToTop
           />
         </div>
       )}

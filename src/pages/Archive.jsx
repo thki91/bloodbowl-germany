@@ -1,7 +1,8 @@
 import Layout from "../Layout";
 import { useEffect, useState } from "react";
 import useContentful from "../hooks/useContentful";
-import Modal, { ModalTitle } from "../components/Modal";
+import Modal from "../components/Modal";
+import { NewsModalContent } from "../components/News";
 
 function Archive() {
   const [newsData, setNewsData] = useState();
@@ -17,15 +18,7 @@ function Archive() {
   }, []);
 
   const handleClickReadMore = (news) => {
-    setModalContent(
-      <div>
-        <ModalTitle title={news.title} />
-        <div
-          dangerouslySetInnerHTML={{ __html: news.text }}
-          className="mt-10 text-sm md:text-base"
-        />
-      </div>
-    );
+    setModalContent(<NewsModalContent news={news} />);
   };
 
   const NewsItem = ({ news }) => {
