@@ -8,8 +8,11 @@ export const NewsModalContent = ({ news }) => {
     <div>
       <ModalTitle title={news.title} />
       {news.picture && (
-        <div className="float-left clear-left w-36 rounded-full h-36 overflow-hidden mr-2 mb-1">
-          <img src={news.picture} className="max-w-full" />
+        <div className="float-left clear-left w-32 rounded-md h-32 overflow-hidden mr-2 mb-1 flex items-center">
+          <div
+            className="w-full h-full rounded-md overflow-hidden mr-5 md:mr-4 mb-1 flex-shrink-0 bg-contain bg-no-repeat bg-center"
+            style={{ backgroundImage: `url('${news.picture}')` }}
+          />
         </div>
       )}
       <div
@@ -28,7 +31,7 @@ const News = ({}) => {
   useEffect(() => {
     const getNewsArticles = async () => {
       const data = await getNews();
-      setNewsData(data);
+      setNewsData(data.slice(0, 3));
     };
     getNewsArticles();
   }, []);

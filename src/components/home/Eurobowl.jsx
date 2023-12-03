@@ -67,7 +67,7 @@ const Eurobowl = () => {
               <p>
                 Der Sieg in jeder Runde basiert auf den kombinierten Ergebnissen
                 aller Coaches des Teams. Dies führt tendenziell zu einem etwas
-                anderen Meta als bei Einzelspielturnieren, nicht nur weil die 8
+                anderen Meta als bei Einzelspielturnieren, nicht nur weil die
                 Coaches unterschiedliche Rassen wählen müssen, sondern auch weil
                 bei Teamturnieren häufig "solidere Rassen" was die
                 Sieg/Unentschieden zu Niederlagen Quote angeht, gewählt werden.

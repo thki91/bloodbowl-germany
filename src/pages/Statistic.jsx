@@ -8,6 +8,7 @@ import Heading from "../components/Heading";
 import _ from "lodash";
 import EurobowlResults from "../components/statistic/EurobowlResults";
 import Statistics from "../components/statistic/Statistics";
+import Facts from "../components/home/Facts";
 
 function Statistic() {
   const [nationalOverviewData, setNationalOverviewData] = useState();
@@ -66,7 +67,7 @@ function Statistic() {
     <Layout>
       <EurobowlResults />
       <Statistics />
-      <section className="py-5 sm:py-10 xl:flex items-start gap-x-10 bg-stone-200 -mx-4 sm:-mx-10 px-4 sm:px-10">
+      <section className="py-5 sm:py-10 xl:flex items-start bg-stone-200 -mx-4 sm:-mx-10 px-4 sm:px-10">
         {nationalOverviewData && (
           <div className="mb-5 sm:mb-0 flex-1 xl:pr-10 xl:border-r xl:border-r-stone-400">
             <Heading
@@ -83,7 +84,7 @@ function Statistic() {
           </div>
         )}
         {balanceSheetData && (
-          <div>
+          <div className="flex-1 xl:pl-10">
             <Heading
               title={balanceSheetData?.title}
               centered
@@ -130,7 +131,7 @@ function Statistic() {
             description={nationalPlayersData?.description}
           />
 
-          <div className="flex-1 pl-5">
+          <div className="flex-1">
             <Table
               data={nationalPlayersData?.table}
               columns={nationalPlayersColumns}
@@ -139,6 +140,7 @@ function Statistic() {
           </div>
         </section>
       )}
+      <Facts />
     </Layout>
   );
 }

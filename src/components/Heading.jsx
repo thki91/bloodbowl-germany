@@ -10,7 +10,7 @@ const Heading = ({ title, centered, description }) => {
           <div className="rounded-full w-4 h-4 flex items-center justify-center text-stone-500 hover:text-stone-600 font-semibold border border-stone-500 text-xs mb-[18px] cursor-pointer hover:border-stone-600 transition">
             i
           </div>
-          <div className="opacity-0 pointer-events-none group-hover:opacity-100 absolute -right-0 top-5 bg-stone-700 p-4 rounded-md text-xs text-white transition w-[200px] sm:w-[300px] z-10">
+          <div className="opacity-0 pointer-events-none group-hover:opacity-100 absolute -right-0 top-5 bg-stone-700 p-4 rounded-md text-xs text-white transition w-[260px] sm:w-[300px] z-10">
             {description}
           </div>
         </div>
