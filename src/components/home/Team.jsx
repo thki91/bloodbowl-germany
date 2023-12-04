@@ -22,10 +22,12 @@ const Member = ({ member, isEmpty }) => {
   return (
     <>
       {member.picture ? (
-        <img
-          src={member.picture}
-          className="mx-auto rounded-full w-28 text-center relative mb-3 max-w-[100px] sm:max-w-none"
-        />
+        <div className="flex-shrink-0 mx-auto rounded-full text-center relative mb-3 w-28 h-28 max-w-[100px] sm:max-w-none max-h-[100px] sm:max-h-none overflow-hidden flex items-center">
+          <div
+            className="w-full h-full rounded-full overflow-hidden flex-shrink-0 bg-cover bg-no-repeat bg-center"
+            style={{ backgroundImage: `url('${member.picture}')` }}
+          />
+        </div>
       ) : (
         <div className="mx-auto w-28 h-28 bg-stone-800 flex items-center justify-center rounded-full mb-3 relative max-w-[100px] sm:max-w-none max-h-[100px] sm:max-h-none">
           <img src={VoteIcon} className="w-12" />
@@ -74,10 +76,12 @@ function Team() {
           </div>
         )}
         {member.picture ? (
-          <img
-            src={member.picture}
-            className="float-left clear-left w-36 rounded-full pr-4 pb-4"
-          />
+          <div className="float-left clear-left w-32 h-32 overflow-hidden mr-2 flex items-center mt-[10px] sm:mt-0">
+            <div
+              className="w-full h-full rounded-full overflow-hidden mr-5 md:mr-4 flex-shrink-0 bg-cover bg-no-repeat bg-center"
+              style={{ backgroundImage: `url('${member.picture}')` }}
+            />
+          </div>
         ) : (
           <div className="float-left clear-left w-28 h-28 bg-stone-800 flex items-center justify-center rounded-full mr-4">
             <img src={VoteIcon} className="w-16" />

@@ -65,6 +65,16 @@ const mapFact = (contentEntry) => {
   };
 };
 
+const mapGallery = (contentEntry) => {
+  return {
+    image1: contentEntry.fields.image1?.fields?.file?.url,
+    image2: contentEntry.fields.image2?.fields?.file?.url,
+    image3: contentEntry.fields.image3?.fields?.file?.url,
+    image4: contentEntry.fields.image4?.fields?.file?.url,
+    image5: contentEntry.fields.image5?.fields?.file?.url,
+  };
+};
+
 const mapStatistic = (contentEntry) => {
   return {
     frontTextBlack: documentToHtmlString(
@@ -177,7 +187,7 @@ const useContentful = () => {
         description: asset.fields.description,
       };
     } catch (error) {
-      console.log(`Error fetching ranking ${error}`);
+      console.log(`Error fetching national players ${error}`);
     }
   }, [client]);
 
@@ -218,6 +228,8 @@ const useContentful = () => {
       return {
         rankingTable,
         updatedAt: asset.sys.updatedAt,
+        title: asset.fields.title,
+        description: asset.fields.description,
       };
     } catch (error) {
       console.log(`Error fetching ranking ${error}`);
@@ -278,6 +290,17 @@ const useContentful = () => {
     }
   }, [client]);
 
+  const getGallery = useCallback(async () => {
+    try {
+      const entries = await client.getEntries({
+        content_type: "gallery",
+      });
+      return entries.items.map((entry) => mapGallery(entry));
+    } catch (error) {
+      console.log(`Error fetching gallery ${error}`);
+    }
+  }, [client]);
+
   return {
     getMembers,
     getNews,
@@ -289,6 +312,7 @@ const useContentful = () => {
     getNationalPlayers,
     getGermanBalanceSheet,
     getStatistics,
+    getGallery,
   };
 };
 

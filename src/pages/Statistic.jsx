@@ -8,6 +8,7 @@ import Heading from "../components/Heading";
 import _ from "lodash";
 import EurobowlResults from "../components/statistic/EurobowlResults";
 import Statistics from "../components/statistic/Statistics";
+import Collage from "../components/statistic/Collage";
 import Facts from "../components/home/Facts";
 
 function Statistic() {
@@ -34,6 +35,7 @@ function Statistic() {
       const data = await getGermanBalanceSheet();
       setBalanceSheetData(data);
     };
+
     getNationalOverviewData();
     getNationalPlayersData();
     getGermanBalanceSheetData();
@@ -99,30 +101,7 @@ function Statistic() {
           </div>
         )}
       </section>
-      <section className="pt-5 pb-6 sm:pt-8 sm:pb-10 bg-stone-800 -mx-4 sm:-mx-10 px-4 sm:px-10">
-        <div class="collage-row">
-          <div class="collage-column">
-            <img src="/collage/1.png" className="w-full" />
-            <img src="/collage/10.png" className="w-full" />
-          </div>
-          <div class="collage-column">
-            <img src="/collage/3.png" className="w-full" />
-            <img src="/collage/5.png" className="w-full" />
-          </div>
-          <div class="collage-column">
-            <img src="/collage/6.png" className="w-full" />
-            <img src="/collage/2.jpg" className="w-full" />
-          </div>
-          <div class="collage-column">
-            <img src="/collage/7.png" className="w-full" />
-            <img src="/collage/11.png" className="w-full" />
-          </div>
-          <div class="collage-column">
-            <img src="/collage/9.png" className="w-full" />
-            <img src="/collage/4.png" className="w-full" />
-          </div>
-        </div>
-      </section>
+      <Collage />
       {nationalPlayersData?.table?.length > 0 && (
         <section className="py-5 sm:py-10 bg-stone-200 -mx-4 sm:-mx-10 px-4 sm:px-10">
           <Heading

@@ -147,13 +147,10 @@ const EurobowlResults = () => {
 
   return (
     <section className="py-10 pb-5 md:pb-7">
-      <div className="relative flex items-center gap-x-3 justify-center">
-        <Heading title="Eurobowl Ergebnisse Deutschland" />
-        <div className="group relative">
-          <div className="rounded-full w-4 h-4 flex items-center justify-center text-stone-500 hover:text-stone-600 font-semibold border border-stone-500 text-xs mb-[18px] cursor-pointer hover:border-stone-600 transition">
-            i
-          </div>
-          <div className="opacity-0 pointer-events-none group-hover:opacity-100 absolute -right-0 top-5 bg-stone-700 p-4 rounded-md text-xs text-white transition w-[280px] sm:w-[300px] z-10">
+      <Heading
+        title="Eurobowl Ergebnisse Deutschland"
+        description={
+          <>
             <p>
               Die Spieldaten wurden der NAF-DB und aus den persönlichen
               Unterlagen die Spieler entnommen. Insbesondere bei den ersten
@@ -162,10 +159,9 @@ const EurobowlResults = () => {
             </p>
             <p>🌐 Journeyman, der das Team verstärkt hat</p>
             <p>👑 Kapitän des jeweiligen Eurobowlteams</p>
-          </div>
-        </div>
-      </div>
-
+          </>
+        }
+      />
       <EurobowlResultFilters
         sortedEurobowlResults={sortedEurobowlResults}
         handleSortedEurobowlResultsSelection={
