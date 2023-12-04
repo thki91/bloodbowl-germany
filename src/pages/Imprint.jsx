@@ -10,7 +10,7 @@ function Imprint() {
           Gütersloh
           <br />
           <strong>Kontakt:</strong>{" "}
-          <a href="mailto:kontakt[at]dbbc-ev.de">kontakt[at]dbbc-ev.de</a>
+          <a href="mailto:kontakt@dbbc-ev.de">kontakt@dbbc-ev.de</a>
           <br />
           <strong>Entwicklung und Co-Design:</strong> Thea Kitzinger
           <br />
@@ -89,6 +89,10 @@ function Imprint() {
           Urheberrechtsverletzung aufmerksam werden, bitten wir um einen
           entsprechenden Hinweis. Bei Rechtsverletzungen werden wir derartige
           Inhalte umgehend entfernen.
+        </p>
+        <p>
+          Diese Website ist in keiner Weise durch Games Workshop Ltd anerkannt.
+          Es werden keinerlei Warenzeichen der Firma Games Workshop benutzt.
         </p>
 
         <div className="font-semibold text-sm md:text-base py-2">
@@ -179,6 +183,9 @@ function Imprint() {
           <a href="https://www.flaticon.com/free-icons/luck" title="luck icons">
             Luck icons created by Freepik - Flaticon
           </a>
+          <a href="http://midjourney.com" title="Midjounrey">
+            Grafiken von Midjourney - Erworben von Alexander Weiß
+          </a>
         </div>
       </section>
 
@@ -192,12 +199,6 @@ function Imprint() {
           Rechtslage nicht, nicht mehr oder nicht vollständig entsprechen
           sollten, bleiben die übrigen Teile des Dokumentes in ihrem Inhalt und
           ihrer Gültigkeit davon unberührt.
-        </p>
-      </section>
-      <section className="pt-5 pb-10">
-        <p>
-          Diese Website ist in keiner Weise durch Games Workshop Ltd anerkannt.
-          Es werden keinerlei Warenzeichen der Firma Games Workshop benutzt.
         </p>
       </section>
     </Layout>
