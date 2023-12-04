@@ -184,7 +184,7 @@ function Imprint() {
             Luck icons created by Freepik - Flaticon
           </a>
           <a href="http://midjourney.com" title="Midjounrey">
-            Grafiken von Midjourney - Erworben von Alexander Weiß
+            Grafiken von Midjourney - Erworben von Alexander Weiss
           </a>
         </div>
       </section>
