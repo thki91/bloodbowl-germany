@@ -83,7 +83,7 @@ function Team() {
             />
           </div>
         ) : (
-          <div className="float-left clear-left w-28 h-28 bg-stone-800 flex items-center justify-center rounded-full mr-4">
+          <div className="float-left clear-left w-28 h-28 bg-stone-800 flex items-center justify-center rounded-full mr-4 mt-[10px] sm:mt-0">
             <img src={VoteIcon} className="w-16" />
           </div>
         )}
