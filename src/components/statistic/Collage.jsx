@@ -16,7 +16,7 @@ const Collage = () => {
   }, []);
 
   const handleClickCollage = (image) => {
-    setModalContent(<img src={image} className="h-full p-2 pb-2.5" />);
+    setModalContent(<img src={image} className="h-full w-max p-2 pb-2.5" />);
   };
 
   const baseCollageClasses =

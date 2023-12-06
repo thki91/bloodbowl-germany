@@ -1,19 +1,30 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useInterval } from "../hooks/useInterval";
 import News from "../components/News";
 import { useLocation } from "react-router-dom";
-
-const headerImg1 = "/header.JPG";
-const headerImg2 = "/header2.JPG";
+import useContentful from "../hooks/useContentful";
 
 const Header = () => {
-  const [headerImg, setHeaderImg] = useState(headerImg1);
+  const [headerImg, setHeaderImg] = useState(null);
+  const [headerImageData, setHeaderImageData] = useState();
   const location = useLocation();
   const isHomepage = location.pathname === "/";
+  const { getHeaderImages } = useContentful();
+
+  useEffect(() => {
+    const fetchHeaderImages = async () => {
+      const data = await getHeaderImages();
+      setHeaderImg(data.image1);
+      setHeaderImageData(data);
+    };
+    fetchHeaderImages();
+  }, []);
 
   useInterval(() => {
-    if (headerImg === headerImg1) setHeaderImg(headerImg2);
-    if (headerImg === headerImg2) setHeaderImg(headerImg1);
+    if (headerImg === headerImageData.image1)
+      setHeaderImg(headerImageData.image2);
+    if (headerImg === headerImageData.image2)
+      setHeaderImg(headerImageData.image1);
   }, 10000);
 
   let title = "BB Deutschland";

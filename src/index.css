@@ -42,16 +42,8 @@ a {
   @apply font-semibold text-red-600 hover:text-red-500 transition cursor-pointer;
 }
 
-.react-multi-carousel-dot:nth-child(3n + 1) button {
+.react-multi-carousel-dot button {
   @apply bg-black;
-}
-
-.react-multi-carousel-dot:nth-child(3n + 2) button {
-  @apply bg-red-500;
-}
-
-.react-multi-carousel-dot:nth-child(3n) button {
-  @apply bg-yellow-500;
 }
 
 .react-multi-carousel-dot button {

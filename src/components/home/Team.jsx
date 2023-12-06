@@ -120,8 +120,8 @@ function Team() {
               <a
                 className={`py-2 px-4 ${
                   teamSection === key || (index === 0 && !teamSection)
-                    ? "border-b-2 border-red-600"
-                    : "text-stone-100"
+                    ? "border-b-2 border-red-600 !text-stone-100 hover:!text-white"
+                    : "text-stone-100 hover:!text-white opacity-90"
                 }`}
                 onClick={() => setTeamSection(key)}
               >

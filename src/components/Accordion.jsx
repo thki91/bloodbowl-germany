@@ -28,7 +28,7 @@ const Accordion = ({ title, description, isLastItem }) => {
         {description && (
           <div
             dangerouslySetInnerHTML={{ __html: description }}
-            className="text-sm md:text-base wrapper-list-decimal p-2.5 pb-1"
+            className="text-sm md:text-base wrapper-list-decimal px-2.5 py-1"
           />
         )}
       </div>

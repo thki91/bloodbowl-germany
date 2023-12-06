@@ -75,6 +75,13 @@ const mapGallery = (contentEntry) => {
   };
 };
 
+const mapHeaderImage = (contentEntry) => {
+  return {
+    image1: contentEntry.fields.image1?.fields?.file?.url,
+    image2: contentEntry.fields.image2?.fields?.file?.url,
+  };
+};
+
 const mapStatistic = (contentEntry) => {
   return {
     frontTextBlack: documentToHtmlString(
@@ -301,6 +308,17 @@ const useContentful = () => {
     }
   }, [client]);
 
+  const getHeaderImages = useCallback(async () => {
+    try {
+      const entry = await client.getEntry({
+        content_type: "headerImages",
+      });
+      return mapHeaderImage(entry);
+    } catch (error) {
+      console.log(`Error fetching header images ${error}`);
+    }
+  }, [client]);
+
   return {
     getMembers,
     getNews,
@@ -313,6 +331,7 @@ const useContentful = () => {
     getGermanBalanceSheet,
     getStatistics,
     getGallery,
+    getHeaderImages,
   };
 };
 

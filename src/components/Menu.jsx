@@ -42,8 +42,8 @@ const dropdownMenuMobile = [
     link: "/",
   },
   {
-    text: "Statistik",
-    link: "/statistik",
+    text: "Historie",
+    link: "/historie",
   },
   {
     text: "News",
@@ -106,14 +106,14 @@ const Menu = () => {
         />
       </div>
       <MenuLink
-        url="/statistik"
-        text="Statistik"
-        isActive={location.pathname === "/statistik"}
-      />
-      <MenuLink
         url="/news"
         text="News"
         isActive={location.pathname === "/news"}
+      />
+      <MenuLink
+        url="/historie"
+        text="Historie"
+        isActive={location.pathname === "/historie"}
       />
       <div className="ml-auto flex items-center">
         <DropdownMenu image={LinkIcon} items={dropdownMenuLinks} />

@@ -15,8 +15,8 @@ function Home() {
           <a
             className={`py-2 px-4 ${
               firstSection === "eurobowl"
-                ? "border-b-2 border-red-600"
-                : "text-stone-400"
+                ? "border-b-2 border-red-600 !text-stone-600 hover:!text-stone-500"
+                : "text-stone-400 hover:!text-stone-500"
             }`}
             onClick={() => setFirstSection("eurobowl")}
           >
@@ -25,8 +25,8 @@ function Home() {
           <a
             className={`py-2 px-4 ${
               firstSection === "bloodbowl"
-                ? "border-b-2 border-red-600"
-                : "text-stone-400"
+                ? "border-b-2 border-red-600 !text-stone-600 hover:!text-stone-500"
+                : "text-stone-400 hover:!text-stone-500"
             }`}
             onClick={() => setFirstSection("bloodbowl")}
           >

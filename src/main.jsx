@@ -17,7 +17,7 @@ const router = createBrowserRouter([
     element: <News />,
   },
   {
-    path: "/statistik",
+    path: "/historie",
     element: <Statistic />,
   },
   {
