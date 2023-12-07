@@ -104,7 +104,7 @@ function Team() {
   return (
     <section
       id="team"
-      className={`relative pb-8 px-2 md:px-10 pt-16 md:pb-16 md:pt-20 bg-stone-900 -mx-4 sm:-mx-10 bg-[url('/bg_team_mobile.png')] sm:bg-[url('/bg_team.png')] bg-center bg-fixed bg-no-repeat`}
+      className="relative pb-8 px-2 md:px-10 pt-16 md:pb-16 md:pt-20 bg-stone-900 -mx-4 sm:-mx-10 bg-[url('/bg_team_mobile.png')] sm:bg-[url('/bg_team.png')] bg-center bg-fixed bg-no-repeat"
       style={{
         backgroundSize: "100% 100%",
       }}
@@ -113,10 +113,10 @@ function Team() {
         {modalContent}
       </Modal>
       <div className="text-white text-center -mt-5">
-        <Heading title={`Aktuelles Team`} />
+        <Heading title="Aktuelles Team" />
         {hasMoreTeamSections && (
           <div className="pb-4 text-sm -mt-3">
-            {["Eurobowl", "Eur'Open"].map((key, index) => (
+            {Object.keys(teamData).map((key, index) => (
               <a
                 className={`py-2 px-4 ${
                   teamSection === key || (index === 0 && !teamSection)
@@ -132,8 +132,8 @@ function Team() {
           </div>
         )}
       </div>
-      <div className="overflow-x-auto overflow-y-hidden px-5 pt-3 pb-6 sm:py-6 scrollbar-transparent">
-        <div className="flex items-start gap-x-3 sm:gap-x-5 gap-y-24 justify-start xl:justify-center min-w-[1200px] w-full">
+      <div className="overflow-x-auto overflow-y-hidden px-5 xl:px-10 pt-3 pb-6 sm:py-6 scrollbar-transparent">
+        <div className="flex items-start gap-x-3 sm:gap-x-5 gap-y-24 justify-start xl:justify-center min-w-[1300px] w-full">
           {teamData[teamSection]?.map((member) => (
             <div
               key={member.name}
