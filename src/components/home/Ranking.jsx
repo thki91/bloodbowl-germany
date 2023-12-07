@@ -83,12 +83,14 @@ function Ranking() {
               className="min-w-[900px]"
               updatedAt={rankingUpdatedAt}
             />
-            <div className="mt-5">
-              <Accordion
-                title={rankingAccordion.title}
-                description={rankingAccordion.description}
-              />
-            </div>
+            {rankingAccordion && (
+              <div className="mt-5">
+                <Accordion
+                  title={rankingAccordion.title}
+                  description={rankingAccordion.description}
+                />
+              </div>
+            )}
           </div>
         </>
       )}
