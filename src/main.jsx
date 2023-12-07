@@ -4,6 +4,7 @@ import Home from "./pages/Home.jsx";
 import News from "./pages/News.jsx";
 import Statistic from "./pages/Statistic.jsx";
 import Imprint from "./pages/Imprint.jsx";
+import Blog from "./pages/Blog.jsx";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: "/impressum",
     element: <Imprint />,
+  },
+  {
+    path: "/blog",
+    element: <Blog />,
   },
 ]);
 

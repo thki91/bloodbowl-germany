@@ -37,7 +37,7 @@ const mapTeamMember = (contentEntry) => {
 
 const mapNewsArticle = (contentEntry) => {
   return {
-    text: documentToHtmlString(contentEntry.fields.text),
+    text: documentToHtmlString(contentEntry.fields.text, optionsRichText),
     title: contentEntry.fields.title,
     previewText: contentEntry.fields.previewText,
     publishedAt: contentEntry.fields.publishedAt,

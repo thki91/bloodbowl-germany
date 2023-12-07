@@ -54,10 +54,6 @@ a {
   @apply border-stone-300 border-[1px];
 }
 
-#news-carousel .react-multi-carousel-dot-list {
-  @apply hidden lg:flex;
-}
-
 .scrollbar-transparent::-webkit-scrollbar {
   @apply hidden;
 }
@@ -87,6 +83,10 @@ tr:nth-child(odd) td:first-child {
 
 ol {
   @apply list-decimal pl-10;
+}
+
+ul {
+  @apply list-disc pl-8;
 }
 
 h1 {
