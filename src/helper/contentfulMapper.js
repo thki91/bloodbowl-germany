@@ -1,5 +1,6 @@
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import { optionsRichText } from "./richText";
+import { parseCSVFile } from "./parseCsvFile";
 
 export const mapTeamMember = (contentEntry) => {
   return {

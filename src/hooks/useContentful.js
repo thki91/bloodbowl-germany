@@ -1,6 +1,5 @@
 import { useCallback } from "react";
 import { createClient } from "contentful";
-import Papa from "papaparse";
 import { getWithExpiry, setWithExpiry } from "../helper/localStorage";
 import _ from "lodash";
 import {
@@ -13,19 +12,7 @@ import {
   mapStatistic,
   mapTeamMember,
 } from "../helper/contentfulMapper";
-
-const parseCSVFile = async (fileUrl) => {
-  return new Promise((resolve) => {
-    Papa.parse(fileUrl, {
-      download: true,
-      header: true,
-      complete: (results) => {
-        resolve(results.data);
-      },
-      skipEmptyLines: true,
-    });
-  });
-};
+import { parseCSVFile } from "../helper/parseCsvFile";
 
 const useContentful = () => {
   const client = createClient({
@@ -34,7 +21,7 @@ const useContentful = () => {
     environment: "master", // defaults to 'master' if not set
   });
 
-  const getMembers = useCallback(async () => {
+  const getTeam = useCallback(async () => {
     const localStorageValue = getWithExpiry("members");
     if (localStorageValue) return localStorageValue;
 
@@ -44,7 +31,7 @@ const useContentful = () => {
         "fields.hidden": false,
         select: "fields",
       });
-      const mappedItemsSortedByOrder = _.groupBy(
+      const data = _.groupBy(
         entries.items
           .map((entry) => mapTeamMember(entry))
           .sort((a, b) => {
@@ -54,8 +41,8 @@ const useContentful = () => {
           }),
         "teamType"
       );
-      setWithExpiry("members", mappedItemsSortedByOrder);
-      return _.groupBy(mappedItemsSortedByOrder, "teamType");
+      setWithExpiry("members", data);
+      return data;
     } catch (error) {
       console.log(`Error fetching team members ${error}`);
     }
@@ -263,7 +250,7 @@ const useContentful = () => {
   }, [client]);
 
   return {
-    getMembers,
+    getTeam,
     getNews,
     getRanking,
     getAccordions,

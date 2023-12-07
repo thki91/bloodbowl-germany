@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import useContentful from "../hooks/useContentful";
 import CarouselDefault from "./Carousel";
 import Modal, { ModalTitle } from "./Modal";
+import Loader from "./Loader";
+import Spinner from "./Spinner";
 
 export const NewsModalContent = ({ news }) => {
   return (
@@ -26,6 +28,7 @@ export const NewsModalContent = ({ news }) => {
 const News = ({}) => {
   const [newsData, setNewsData] = useState();
   const [modalContent, setModalContent] = useState();
+  const [showNews, setShowNews] = useState(false);
   const { getNews } = useContentful();
 
   useEffect(() => {
@@ -34,6 +37,11 @@ const News = ({}) => {
       setNewsData(data.slice(0, 3));
     };
     getNewsArticles();
+
+    window &&
+      window.setTimeout(() => {
+        setShowNews(true);
+      }, [800]);
   }, []);
 
   const handleClickReadMore = (news) => {
@@ -67,8 +75,15 @@ const News = ({}) => {
       <Modal show={!!modalContent} handleClose={() => setModalContent(null)}>
         {modalContent}
       </Modal>
+      {!showNews && (
+        <div className="absolute opacity-100 top-20 md:top-32 w-[350px] sm:w-[450px] md:w-[500px] flex items-center justify-center">
+          <Spinner />
+        </div>
+      )}
       <div
-        className="max-w-[350px] sm:max-w-[450px] md:max-w-[500px] mt-4 md:mt-8 mb-8 sm:mb-0 pr-5 sm:pr-0"
+        className={`relative max-w-[350px] sm:max-w-[450px] md:max-w-[500px] mt-4 md:mt-8 mb-8 sm:mb-0 pr-5 sm:pr-0 h-[156px] ${
+          showNews ? "opacity-100" : "opacity-0"
+        }`}
         id="news-carousel"
       >
         <CarouselDefault

@@ -56,11 +56,11 @@ function Team() {
   const [teamData, setTeamData] = useState();
   const [teamSection, setTeamSection] = useState("Eurobowl");
   const [modalContent, setModalContent] = useState();
-  const { getMembers } = useContentful();
+  const { getTeam } = useContentful();
 
   useEffect(() => {
     const getTeamMembers = async () => {
-      const data = await getMembers();
+      const data = await getTeam();
       setTeamData(data);
     };
     getTeamMembers();
@@ -124,6 +124,7 @@ function Team() {
                     : "text-stone-100 hover:!text-white opacity-90"
                 }`}
                 onClick={() => setTeamSection(key)}
+                key={key}
               >
                 {key}
               </a>
