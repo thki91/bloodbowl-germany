@@ -32,6 +32,7 @@ const mapTeamMember = (contentEntry) => {
     captain: !!contentEntry.fields?.captain,
     order: contentEntry.fields?.order,
     teamType: contentEntry.fields?.teamType,
+    role: contentEntry.fields?.role,
   };
 };
 

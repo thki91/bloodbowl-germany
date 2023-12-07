@@ -33,9 +33,9 @@ const Member = ({ member, isEmpty }) => {
           <img src={VoteIcon} className="w-12" />
         </div>
       )}
-      {member.captain && (
-        <div className="absolute top-2 bg-stone-100 border-2 border-amber-500 z-1 rounded-full w-8 h-8 text-md flex items-center justify-center">
-          👑
+      {member.role && (
+        <div className="absolute top-3 bg-stone-100 border-2 border-amber-500 z-1 rounded-full w-8 h-8 text-md flex items-center justify-center">
+          {member.role}
         </div>
       )}
       <div className="text-sm text-center font-bold">{member.name}</div>
@@ -70,9 +70,9 @@ function Team() {
     setModalContent(
       <div>
         <ModalTitle title={member.name} />
-        {member.captain && (
+        {member.role && (
           <div className="absolute top-14 bg-stone-100 border-2 border-amber-500 z-1 rounded-full w-8 h-8 text-md flex items-center justify-center">
-            👑
+            {member.role}
           </div>
         )}
         {member.picture ? (
