@@ -45,7 +45,7 @@ const mapNewsArticle = (contentEntry) => {
   };
 };
 
-const mapCharta = (contentEntry) => {
+const mapAccordions = (contentEntry) => {
   return {
     description: documentToHtmlString(
       contentEntry.fields.description,
@@ -236,7 +236,6 @@ const useContentful = () => {
         rankingTable,
         updatedAt: asset.sys.updatedAt,
         title: asset.fields.title,
-        description: asset.fields.description,
       };
     } catch (error) {
       console.log(`Error fetching ranking ${error}`);
@@ -258,17 +257,17 @@ const useContentful = () => {
     }
   }, [client]);
 
-  const getCharta = useCallback(async () => {
+  const getAccordions = useCallback(async () => {
     try {
       const entries = await client.getEntries({
         content_type: "accordion",
       });
       return _.sortBy(
-        entries.items.map((entry) => mapCharta(entry)),
+        entries.items.map((entry) => mapAccordions(entry)),
         "order"
       );
     } catch (error) {
-      console.log(`Error fetching charta ${error}`);
+      console.log(`Error fetching accordions ${error}`);
     }
   }, [client]);
 
@@ -310,10 +309,11 @@ const useContentful = () => {
 
   const getHeaderImages = useCallback(async () => {
     try {
-      const entry = await client.getEntry({
+      const entries = await client.getEntries({
         content_type: "headerImages",
       });
-      return mapHeaderImage(entry);
+      if (!entries?.items?.length) return null;
+      return mapHeaderImage(entries.items[0]);
     } catch (error) {
       console.log(`Error fetching header images ${error}`);
     }
@@ -323,7 +323,7 @@ const useContentful = () => {
     getMembers,
     getNews,
     getRanking,
-    getCharta,
+    getAccordions,
     getFacts,
     getEurobowlResults,
     getNationalOverview,

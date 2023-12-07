@@ -4,6 +4,7 @@ import Table from "../Table";
 import Heading from "../Heading";
 import ExternalLinkIcon from "../../assets/external-link.png";
 import DropdownMenu from "../DropdownMenu";
+import Accordion from "../Accordion";
 import { mapTableMemberLink } from "../../helper/table";
 
 const dropdownRankingLinks = [
@@ -23,7 +24,8 @@ function Ranking() {
   const [rankingUpdatedAt, setRankingUpdatedAt] = useState();
   const [rankingTitle, setRankingTitle] = useState();
   const [rankingDescription, setRankingDescription] = useState();
-  const { getRanking } = useContentful();
+  const [rankingAccordion, setRankingAccordion] = useState();
+  const { getRanking, getAccordions } = useContentful();
 
   useEffect(() => {
     const getRankings = async () => {
@@ -34,6 +36,19 @@ function Ranking() {
       setRankingDescription(data.description);
     };
     getRankings();
+  }, []);
+
+  useEffect(() => {
+    const getCommunityRankingAccordion = async () => {
+      const data = await getAccordions();
+      const communityRankingAccordion = data.find(
+        (entry) => entry.type === "Community Ranking"
+      );
+      if (communityRankingAccordion) {
+        setRankingAccordion(communityRankingAccordion);
+      }
+    };
+    getCommunityRankingAccordion();
   }, []);
 
   const columns = useMemo(() => {
@@ -50,11 +65,7 @@ function Ranking() {
       id="ranking"
       className="relative py-6 sm:py-10 px-6 sm:px-14 bg-stone-200 -mx-4 sm:-mx-10"
     >
-      <Heading
-        title={rankingTitle}
-        description={rankingDescription}
-        tooltipClasses="md:!w-[550px]"
-      />
+      <Heading title={rankingTitle} centered />
       <div className="absolute right-4 top-7 sm:right-14 sm:top-12">
         <DropdownMenu
           image={ExternalLinkIcon}
@@ -72,6 +83,12 @@ function Ranking() {
               className="min-w-[900px]"
               updatedAt={rankingUpdatedAt}
             />
+            <div className="mt-5">
+              <Accordion
+                title={rankingAccordion.title}
+                description={rankingAccordion.description}
+              />
+            </div>
           </div>
         </>
       )}

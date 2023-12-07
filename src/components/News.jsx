@@ -42,7 +42,7 @@ const News = ({}) => {
 
   const NewsItem = ({ news }) => {
     return (
-      <div className="rounded-sm flex-[45%] mb-7 sm:mb-6 lg:mb-10 text-white text-sm md:text-base">
+      <div className="rounded-sm flex-[45%] mb-7 sm:mb-6 text-white text-sm md:text-base">
         <h3 className="font-semibold mb-2 text-stone-200">
           <span className="text-stone-200">
             {new Date(news?.publishedAt)?.toLocaleDateString("de-DE")} |{" "}
@@ -68,7 +68,7 @@ const News = ({}) => {
         {modalContent}
       </Modal>
       <div
-        className="max-w-[350px] sm:max-w-[450px] md:max-w-[500px] mt-5 md:mt-10 mb-8 sm:mb-0 pr-5 sm:pr-0"
+        className="max-w-[350px] sm:max-w-[450px] md:max-w-[500px] mt-4 md:mt-8 mb-8 sm:mb-0 pr-5 sm:pr-0"
         id="news-carousel"
       >
         <CarouselDefault

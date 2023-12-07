@@ -5,15 +5,15 @@ import useContentful from "../../hooks/useContentful";
 
 const Eurobowl = () => {
   const [readMore, setReadMore] = useState(false);
-  const [chartaData, setChartaData] = useState();
-  const { getCharta } = useContentful();
+  const [accordionsData, setAccordionsData] = useState();
+  const { getAccordions } = useContentful();
 
   useEffect(() => {
-    const getChartaData = async () => {
-      const data = await getCharta();
-      setChartaData(data);
+    const getAccordionsData = async () => {
+      const data = await getAccordions();
+      setAccordionsData(data.filter((entry) => entry.type === "Eurobowl"));
     };
-    getChartaData();
+    getAccordionsData();
   }, []);
 
   return (
@@ -87,12 +87,12 @@ const Eurobowl = () => {
       </div>
       <div className="my-5 md:mb-0">
         <>
-          {chartaData?.map(({ title, description }, index) => (
+          {accordionsData?.map(({ title, description }, index) => (
             <div key={title} className="mb-3">
               <Accordion
                 title={title}
                 description={description}
-                isLastItem={chartaData.length - 1 === index}
+                isLastItem={accordionsData.length - 1 === index}
               />
             </div>
           ))}
