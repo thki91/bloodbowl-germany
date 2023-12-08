@@ -50,11 +50,26 @@ export const mapFact = (contentEntry) => {
 
 export const mapGallery = (contentEntry) => {
   return {
-    image1: contentEntry.fields.image1?.fields?.file?.url,
-    image2: contentEntry.fields.image2?.fields?.file?.url,
-    image3: contentEntry.fields.image3?.fields?.file?.url,
-    image4: contentEntry.fields.image4?.fields?.file?.url,
-    image5: contentEntry.fields.image5?.fields?.file?.url,
+    image1: {
+      url: contentEntry.fields.image1?.fields?.file?.url,
+      description: contentEntry.fields.image1?.fields?.description,
+    },
+    image2: {
+      url: contentEntry.fields.image2?.fields?.file?.url,
+      description: contentEntry.fields.image2?.fields?.description,
+    },
+    image3: {
+      url: contentEntry.fields.image3?.fields?.file?.url,
+      description: contentEntry.fields.image3?.fields?.description,
+    },
+    image4: {
+      url: contentEntry.fields.image4?.fields?.file?.url,
+      description: contentEntry.fields.image4?.fields?.description,
+    },
+    image5: {
+      url: contentEntry.fields.image5?.fields?.file?.url,
+      description: contentEntry.fields.image5?.fields?.description,
+    },
   };
 };
 

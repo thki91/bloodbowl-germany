@@ -15,8 +15,13 @@ const Collage = () => {
     getGalleryData();
   }, []);
 
-  const handleClickCollage = (image) => {
-    setModalContent(<img src={image} className="h-full w-max p-2 pb-2.5" />);
+  const handleClickCollage = ({ url, description }) => {
+    setModalContent(
+      <div>
+        <img src={url} className="h-full w-max p-2 pb-2.5" />
+        <div className="text-center italic text-sm">{description}</div>
+      </div>
+    );
   };
 
   const baseCollageClasses =
@@ -38,33 +43,33 @@ const Collage = () => {
         <div className="flex-1 md:flex-auto md:w-[150px] xl:w-[200px] flex gap-3">
           <div
             className={baseCollageClasses}
-            style={{ backgroundImage: `url('${galleryData?.image1}')` }}
+            style={{ backgroundImage: `url('${galleryData?.image1?.url}')` }}
             onClick={() => handleClickCollage(galleryData?.image1)}
           />
         </div>
         <div className="hidden xl:block md:w-[110px] xl:max-w-[250px] flex-1">
           <div
             className={baseCollageClasses}
-            style={{ backgroundImage: `url('${galleryData?.image2}')` }}
+            style={{ backgroundImage: `url('${galleryData?.image2?.url}')` }}
             onClick={() => handleClickCollage(galleryData?.image2)}
           />
         </div>
         <div className="flex-1 flex gap-3 flex-col">
           <div
             className={baseCollageClasses}
-            style={{ backgroundImage: `url('${galleryData?.image3}')` }}
+            style={{ backgroundImage: `url('${galleryData?.image3?.url}')` }}
             onClick={() => handleClickCollage(galleryData?.image3)}
           ></div>
           <div
             className={baseCollageClasses}
-            style={{ backgroundImage: `url('${galleryData?.image4}')` }}
+            style={{ backgroundImage: `url('${galleryData?.image4?.url}')` }}
             onClick={() => handleClickCollage(galleryData?.image4)}
           ></div>
         </div>
         <div className="hidden sm:block flex-1">
           <div
             className={baseCollageClasses}
-            style={{ backgroundImage: `url('${galleryData?.image5}')` }}
+            style={{ backgroundImage: `url('${galleryData?.image5?.url}')` }}
             onClick={() => handleClickCollage(galleryData?.image5)}
           ></div>
         </div>

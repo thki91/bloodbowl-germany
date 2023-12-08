@@ -71,7 +71,7 @@ function Statistic() {
       <Statistics />
       <section className="py-5 sm:py-10 xl:flex items-start bg-stone-200 -mx-4 sm:-mx-10 px-4 sm:px-10">
         {nationalOverviewData && (
-          <div className="mb-5 sm:mb-0 flex-[60%] xl:pr-10 xl:border-r xl:border-r-stone-400">
+          <div className="mb-5 sm:mb-0 flex-[60%] xl:pr-10 border-b border-b-stone-400 xl:border-b-0 xl:border-r xl:border-r-stone-400 pb-7 xl:pb-0">
             <Heading
               title={nationalOverviewData?.title}
               centered
@@ -86,7 +86,7 @@ function Statistic() {
           </div>
         )}
         {balanceSheetData && (
-          <div className="flex-[40%] xl:pl-10">
+          <div className="flex-[40%] xl:pl-10 mt-7 xl:mt-0">
             <Heading
               title={balanceSheetData?.title}
               centered

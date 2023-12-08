@@ -137,33 +137,37 @@ function Team() {
           </div>
         )}
       </div>
-      <div className="overflow-x-auto overflow-y-hidden px-5 xl:px-10 pt-3 pb-6 sm:py-6 scrollbar-transparent">
-        <div className="flex items-start gap-x-3 sm:gap-x-5 gap-y-24 justify-start xl:justify-center min-w-[1300px] w-full">
-          {teamData[teamSection]?.map((member) => (
-            <div
-              key={member.name}
-              className="p-2 sm:p-3 relative bg-stone-200 rounded-md transform hover:scale-110 transition cursor-pointer flex-1 max-w-[150px]"
-              onClick={() => handleReadMore(member)}
-            >
-              <Member member={member} />
-            </div>
-          ))}
-          {teamData[teamSection]?.length &&
-            teamData[teamSection].length < MIN_MEMBERS_TO_SHOW[teamSection] &&
-            Array(
-              ...Array(
-                MIN_MEMBERS_TO_SHOW[teamSection] - teamData[teamSection]?.length
-              ).keys()
-            ).map((index) => {
-              return (
-                <div
-                  key={`emptyMember${index}`}
-                  className="p-2 sm:p-3 relative bg-stone-200 rounded-md flex-1 max-w-[140px] self-stretch opacity-80"
-                >
-                  <Member isEmpty={true} />
-                </div>
-              );
-            })}
+      <div className="overflow-x-auto overflow-y-hidden px-5 md:px-0 pt-3 pb-6 sm:py-6 scrollbar-transparent">
+        <div className="flex items-center w-full">
+          <div className="mx-auto flex gap-x-3 sm:gap-x-5 gap-y-24">
+            {teamData[teamSection]?.map((member) => (
+              <div
+                key={member.name}
+                className="p-2 sm:p-3 relative bg-stone-200 rounded-md transform hover:scale-110 transition cursor-pointer flex-1 max-w-[150px]"
+                onClick={() => handleReadMore(member)}
+              >
+                <Member member={member} />
+              </div>
+            ))}
+
+            {teamData[teamSection]?.length &&
+              teamData[teamSection].length < MIN_MEMBERS_TO_SHOW[teamSection] &&
+              Array(
+                ...Array(
+                  MIN_MEMBERS_TO_SHOW[teamSection] -
+                    teamData[teamSection]?.length
+                ).keys()
+              ).map((index) => {
+                return (
+                  <div
+                    key={`emptyMember${index}`}
+                    className="p-2 sm:p-3 relative bg-stone-200 rounded-md flex-1 max-w-[140px] self-stretch opacity-80"
+                  >
+                    <Member isEmpty={true} />
+                  </div>
+                );
+              })}
+          </div>
         </div>
       </div>
     </section>
