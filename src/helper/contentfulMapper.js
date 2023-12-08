@@ -6,6 +6,10 @@ export const mapTeamMember = (contentEntry) => {
   return {
     picture: contentEntry.fields?.picture?.fields?.file?.url,
     text: documentToHtmlString(contentEntry.fields.text, optionsRichText),
+    textNextToImage: documentToHtmlString(
+      contentEntry.fields.textNextToImage,
+      optionsRichText
+    ),
     name: contentEntry.fields.name,
     captain: !!contentEntry.fields?.captain,
     order: contentEntry.fields?.order,

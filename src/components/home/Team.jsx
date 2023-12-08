@@ -71,25 +71,30 @@ function Team() {
       <div>
         <ModalTitle title={member.name} />
         {member.role && (
-          <div className="absolute top-14 bg-stone-100 border-2 border-amber-500 z-1 rounded-full w-8 h-8 text-md flex items-center justify-center">
+          <div className="absolute top-16 bg-stone-100 border-2 border-amber-500 z-1 rounded-full w-8 h-8 text-md flex items-center justify-center">
             {member.role}
           </div>
         )}
-        {member.picture ? (
-          <div className="float-left clear-left w-32 h-32 overflow-hidden mr-2 flex items-center mt-[10px] sm:mt-0">
+
+        <div className="flex items-center mt-10">
+          {member.picture ? (
             <div
-              className="w-full h-full rounded-full overflow-hidden mr-5 md:mr-4 flex-shrink-0 bg-cover bg-no-repeat bg-center"
+              className="w-32 h-32 rounded-full overflow-hidden mr-5 md:mr-4 flex-shrink-0 bg-cover bg-no-repeat bg-center"
               style={{ backgroundImage: `url('${member.picture}')` }}
             />
-          </div>
-        ) : (
-          <div className="float-left clear-left w-28 h-28 bg-stone-800 flex items-center justify-center rounded-full mr-4 mt-[10px] sm:mt-0">
-            <img src={VoteIcon} className="w-16" />
-          </div>
-        )}
+          ) : (
+            <div className="w-32 h-32 bg-stone-800 flex items-center justify-center flex-shrink-0 rounded-full mr-4 mt-[10px] sm:mt-0">
+              <img src={VoteIcon} className="w-16" />
+            </div>
+          )}
+          <div
+            dangerouslySetInnerHTML={{ __html: member.textNextToImage }}
+            className="text-sm md:text-base"
+          />
+        </div>
         <div
           dangerouslySetInnerHTML={{ __html: member.text }}
-          className="mt-8 text-sm md:text-base"
+          className="mt-3 text-sm md:text-base"
         />
       </div>
     );
@@ -116,7 +121,7 @@ function Team() {
         <Heading title="Aktuelles Team" />
         {hasMoreTeamSections && (
           <div className="pb-4 text-sm -mt-3">
-            {Object.keys(teamData).map((key, index) => (
+            {["Eurobowl", "Eur'Open", "Support"].map((key, index) => (
               <a
                 className={`py-2 px-4 ${
                   teamSection === key || (index === 0 && !teamSection)
