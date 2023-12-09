@@ -66,25 +66,32 @@ function Team() {
     getTeamMembers();
   }, []);
 
+  const RoleIcon = ({ role }) => {
+    if (!role) return null;
+    return (
+      <div className="absolute left-0 top-0 bg-stone-100 border-2 border-amber-500 z-1 rounded-full w-8 h-8 text-md flex items-center justify-center z-1">
+        {role}
+      </div>
+    );
+  };
+
   const handleReadMore = (member) => {
     setModalContent(
       <div>
         <ModalTitle title={member.name} />
-        {member.role && (
-          <div className="absolute top-16 bg-stone-100 border-2 border-amber-500 z-1 rounded-full w-8 h-8 text-md flex items-center justify-center">
-            {member.role}
-          </div>
-        )}
 
         <div className="flex items-center mt-10">
           {member.picture ? (
             <div
-              className="w-32 h-32 rounded-full overflow-hidden mr-5 md:mr-4 flex-shrink-0 bg-cover bg-no-repeat bg-center"
+              className="w-32 h-32 rounded-full mr-5 md:mr-4 flex-shrink-0 bg-cover bg-no-repeat bg-center relative"
               style={{ backgroundImage: `url('${member.picture}')` }}
-            />
+            >
+              <RoleIcon role={member.role} />
+            </div>
           ) : (
-            <div className="w-32 h-32 bg-stone-800 flex items-center justify-center flex-shrink-0 rounded-full mr-4 mt-[10px] sm:mt-0">
+            <div className="w-32 h-32 bg-stone-800 flex items-center justify-center flex-shrink-0 rounded-full mr-4 mt-[10px] sm:mt-0 relative">
               <img src={VoteIcon} className="w-16" />
+              <RoleIcon role={member.role} />
             </div>
           )}
           <div
