@@ -49,7 +49,7 @@ Member.propTypes = {
 
 const MIN_MEMBERS_TO_SHOW = {
   Eurobowl: 9,
-  "Eur'Open": 4,
+  "Eur'Open": 5,
 };
 
 function Team() {
