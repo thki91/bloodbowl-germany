@@ -83,11 +83,11 @@ const Header = () => {
       <div className="absolute bg-stone-800 bg-opacity-80 sm:bg-opacity-50 w-full h-full top-0 left-0" />
       <div className="absolute bg-gradient-to-r from-stone-600 from-10% via-1% to-transparent w-1/2 h-full top-0 left-0" />
       <div className="transition flex flex-col justify-center relative">
-        <h3 className="relative uppercase font-semibold sm:tracking-widest bg-clip-text text-transparent bg-gradient-to-r from-black via-red-500 to-yellow-400 w-full md:w-[150px] text-xl sm:text-2xl">
+        <h3 className="relative uppercase font-semibold sm:tracking-widest bg-clip-text text-transparent bg-gradient-to-r from-red-700 via-amber-500 to-yellow-400 w-full md:w-[150px] text-xl sm:text-2xl">
           <span className="hidden md:block">Eurobowl</span>
           <span className="md:hidden">Eurobowl BB Deutschland</span>
         </h3>
-        <h3 className="hidden md:block relative uppercase font-semibold bg-clip-text text-transparent bg-gradient-to-r from-black via-red-500 to-yellow-400 w-[220px] sm:w-[320px] text-2xl sm:text-4xl">
+        <h3 className="hidden md:block relative uppercase font-semibold bg-clip-text text-transparent bg-gradient-to-r from-red-700 via-amber-500 to-yellow-400 w-[220px] sm:w-[320px] text-2xl sm:text-4xl">
           {title}
         </h3>
         {isHomepage && <News />}

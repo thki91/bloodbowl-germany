@@ -58,13 +58,13 @@ const EurobowlResult = ({ result }) => {
   }
   return (
     <div>
-      <div className="absolute right-0 top-0 p-3 opacity-80">
+      <div className="absolute right-0 top-0 p-3">
         {links.length > 0 && (
           <div className="relative">
             <DropdownMenu
               image={ExternalLinkIcon}
               items={links}
-              iconClasses="mr-0 w-[16px]"
+              iconClasses="!mr-0 w-[16px]"
               containerClasses="!right-0"
             />
           </div>
@@ -145,6 +145,11 @@ const EurobowlResults = () => {
     return selectedYears.value.includes(year);
   };
 
+  const getCurrentEurobowlResults = () =>
+    eurobowlResultsData?.filter(
+      (item) => item.year && isInYearSelection(item.year)
+    );
+
   return (
     <section className="py-10 pb-5 md:pb-7">
       <Heading
@@ -170,18 +175,25 @@ const EurobowlResults = () => {
       />
 
       <div className="lg:flex items-start flex-wrap gap-4 xl:gap-6">
-        {eurobowlResultsData
-          ?.filter((item) => item.year && isInYearSelection(item.year))
-          ?.map((item) => {
-            return (
-              <div
-                key={item.title}
-                className="lg:max-w-[49%] lg:flex-[49%] mb-6 lg:mb-0 bg-stone-200 rounded-md p-3 sm:p-4 relative text-sm md:text-base"
-              >
-                <EurobowlResult result={item} />
-              </div>
-            );
-          })}
+        {getCurrentEurobowlResults()?.map((item) => {
+          return (
+            <div
+              key={item.title}
+              className="lg:max-w-[49%] lg:flex-[49%] mb-6 lg:mb-0 bg-stone-200 rounded-md p-3 sm:p-4 relative text-sm md:text-base"
+            >
+              <EurobowlResult result={item} />
+            </div>
+          );
+        })}
+
+        {getCurrentEurobowlResults()?.length === 1 && (
+          <div className="lg:max-w-[49%] lg:flex-[49%] mb-6 lg:mb-0 bg-stone-200 rounded-md relative self-stretch overflow-hidden">
+            <div
+              className="w-full h-full flex-shrink-0 bg-cover bg-no-repeat bg-center overflow-hidden"
+              style={{ backgroundImage: `url('/history_gap_filler.jpeg')` }}
+            />
+          </div>
+        )}
       </div>
 
       {sortedEurobowlResults?.some(

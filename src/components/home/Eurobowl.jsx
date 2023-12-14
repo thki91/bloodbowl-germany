@@ -28,8 +28,8 @@ const Eurobowl = () => {
       <div className="xl:flex xl:items-center -mt-2 sm:mt-2 transition-all ease-in-out duration-700">
         <div className="relative xl:min-w-[350px] transition-all duration-500">
           <img
-            src="/bloodbowl.jpeg"
-            className="pr-3 md:pr-0 sm:block sm:flex-shrink-0 w-[120px] sm:w-[250px] xl:w-[350px] float-left clear-left xl:pr-10"
+            src="/eurobowl.jpg"
+            className="sm:block sm:flex-shrink-0 w-[120px] sm:w-[250px] sm:h-[230px] xl:w-[350px] xl:h-[300px] float-left clear-left rounded-[40px] xl:rounded-[100px] pr-3 xl:pr-10"
             style={{ mixBlendMode: "multiply" }}
           />
         </div>

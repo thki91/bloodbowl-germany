@@ -30,7 +30,7 @@ function Home() {
             }`}
             onClick={() => setFirstSection("bloodbowl")}
           >
-            Bloodwbowl
+            Bloodbowl
           </a>
         </div>
       </div>

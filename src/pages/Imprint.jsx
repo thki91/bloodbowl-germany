@@ -132,12 +132,6 @@ function Imprint() {
           <a href="https://www.flaticon.com/free-icons/out" title="out icons">
             Out icons created by Freepik - Flaticon
           </a>
-          <a
-            href="https://www.flaticon.com/free-icons/anonymous"
-            title="anonymous icons"
-          >
-            Anonymous icons created by Pixel perfect - Flaticon
-          </a>
           <a href="https://www.flaticon.com/free-icons/vote" title="vote icons">
             Vote icons created by Freepik - Flaticon
           </a>

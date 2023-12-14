@@ -3,7 +3,6 @@ import Heading from "../Heading";
 import PropTypes from "prop-types";
 import useContentful from "../../hooks/useContentful";
 import Modal, { ModalTitle } from "../Modal";
-import AnonymousIcon from "../../assets/anonymous.png";
 import VoteIcon from "../../assets/vote.png";
 
 const Member = ({ member, isEmpty }) => {
@@ -11,8 +10,12 @@ const Member = ({ member, isEmpty }) => {
     return (
       <>
         <div className="flex-shrink-0 mx-auto w-28 h-28 bg-stone-800 flex items-center justify-center rounded-full mb-3 relative max-w-[100px] sm:max-w-none max-h-[100px] sm:max-h-none">
-          <img src={AnonymousIcon} className="w-12" />
+          <div
+            className="w-full h-full rounded-full overflow-hidden flex-shrink-0 bg-cover bg-no-repeat bg-center"
+            style={{ backgroundImage: `url('/member_unknown.png')` }}
+          />
         </div>
+
         <div className="text-center font-bold text-sm whitespace-nowrap">
           Nicht nominiert
         </div>
@@ -61,6 +64,15 @@ function Team() {
   useEffect(() => {
     const getTeamMembers = async () => {
       const data = await getTeam();
+      // preload images
+
+      Object.keys(data).forEach((sectionKey) => {
+        data[sectionKey].forEach((member) => {
+          // section.forEach((member) => {
+          new Image().src = member.picture;
+          // });
+        });
+      });
       setTeamData(data);
     };
     getTeamMembers();
