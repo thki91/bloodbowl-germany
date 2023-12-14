@@ -124,7 +124,7 @@ const Menu = () => {
         text="Blog"
         isActive={location.pathname === "/blog"}
       />
-      <div className="ml-auto flex items-center">
+      <div className="ml-auto flex items-center h-full">
         <DropdownMenu image={LinkIcon} items={dropdownMenuLinks} />
         <DropdownMenu image={Discord} items={dropdownDiscordLinks} />
         <a

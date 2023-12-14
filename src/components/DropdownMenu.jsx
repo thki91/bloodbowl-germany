@@ -23,7 +23,7 @@ const DropdownMenu = ({
                 href={item.link}
                 target={item.link.startsWith("http") ? "_blank" : "_self"}
                 rel="noreferrer"
-                className="block px-7 md:px-5 py-3 md:py-2.5 hover:bg-stone-600 transition text-xs text-stone-200 hover:text-stone-100 whitespace-nowrap"
+                className="block px-5 py-3 md:py-2.5 hover:bg-stone-600 transition text-xs text-stone-200 hover:text-stone-100 whitespace-nowrap"
               >
                 {item.text}
               </a>
