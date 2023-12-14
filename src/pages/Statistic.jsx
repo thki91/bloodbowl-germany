@@ -80,7 +80,7 @@ function Statistic() {
             <Table
               data={nationalOverviewData?.table}
               columns={nationalOverviewColumns}
-              className="min-w-[500px]"
+              className="min-w-[550px]"
               paginationNumbers={[12, 25]}
             />
           </div>
@@ -96,7 +96,7 @@ function Statistic() {
             <Table
               data={balanceSheetData?.table}
               columns={balanceSheetColumns}
-              className="min-w-[500px]"
+              className="min-w-[550px]"
               paginationNumbers={[12, 25]}
             />
           </div>
@@ -115,7 +115,7 @@ function Statistic() {
             <Table
               data={nationalPlayersData?.table}
               columns={nationalPlayersColumns}
-              className="min-w-[500px] w-full"
+              className="min-w-[550px] w-full"
             />
           </div>
         </section>

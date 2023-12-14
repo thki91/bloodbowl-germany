@@ -84,7 +84,11 @@ export const mapTableRace = (tableData, colIndex) => {
           {races.split(",").map((race) => {
             const val = raceMappings[race.trim().toLowerCase()];
             if (!val) return;
-            return <img src={val} className="w-4 h-4" title={race} />;
+            return (
+              <span aria-label={race} data-balloon-pos="up">
+                <img src={val} className="w-4 h-4" />
+              </span>
+            );
           })}
         </div>
       );
