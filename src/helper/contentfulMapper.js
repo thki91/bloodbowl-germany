@@ -20,6 +20,7 @@ export const mapTeamMember = (contentEntry) => {
 
 export const mapNewsArticle = (contentEntry) => {
   return {
+    id: contentEntry.sys.id,
     text: documentToHtmlString(contentEntry.fields.text, optionsRichText),
     title: contentEntry.fields.title,
     previewText: contentEntry.fields.previewText,

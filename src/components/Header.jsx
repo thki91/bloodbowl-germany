@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useInterval } from "../hooks/useInterval";
-import News from "../components/News";
 import { useLocation } from "react-router-dom";
 import useContentful from "../hooks/useContentful";
 
@@ -102,7 +101,6 @@ const Header = () => {
           </a>{" "}
           in Deutschland informiert.
         </div>
-        {/* {isHomepage && <News />} */}
       </div>
     </header>
   );

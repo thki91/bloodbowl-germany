@@ -5,6 +5,7 @@ import Modal from "../components/Modal";
 import { NewsModalContent } from "../components/News";
 import ArticleFilters from "../components/news/ArticleFilters";
 import NewsItem from "../components/news/NewsItem";
+import { useLocation } from "react-router-dom";
 
 const NEWS_CHUNK = 10;
 
@@ -13,15 +14,25 @@ function News() {
   const [newsToShow, setNewsToShow] = useState(NEWS_CHUNK);
   const [modalContent, setModalContent] = useState();
   const [selectedFilter, setSelectedFilter] = useState("ALL");
+  const { search } = useLocation();
   const { getNews } = useContentful();
 
   useEffect(() => {
     const getNewsArticles = async () => {
       const data = await getNews();
       setNewsData(data);
+
+      const idQueryParam = new URLSearchParams(search)?.get("id");
+      if (idQueryParam) {
+        const newsToShowInModal = data.find(
+          (newsEntry) => newsEntry.id === idQueryParam
+        );
+        if (newsToShowInModal)
+          setModalContent(<NewsModalContent news={newsToShowInModal} />);
+      }
     };
     getNewsArticles();
-  }, []);
+  }, [search]);
 
   const handleClickReadMore = (news) => {
     setModalContent(<NewsModalContent news={news} />);
