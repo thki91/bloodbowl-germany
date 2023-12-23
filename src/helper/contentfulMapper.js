@@ -25,6 +25,8 @@ export const mapNewsArticle = (contentEntry) => {
     previewText: contentEntry.fields.previewText,
     publishedAt: contentEntry.fields.publishedAt,
     picture: contentEntry.fields.picture?.fields?.file?.url,
+    author: contentEntry.fields.author,
+    type: contentEntry.fields.type,
   };
 };
 

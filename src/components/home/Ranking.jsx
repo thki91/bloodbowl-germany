@@ -23,7 +23,6 @@ function Ranking() {
   const [rankingData, setRankingData] = useState();
   const [rankingUpdatedAt, setRankingUpdatedAt] = useState();
   const [rankingTitle, setRankingTitle] = useState();
-  const [rankingDescription, setRankingDescription] = useState();
   const [rankingAccordion, setRankingAccordion] = useState();
   const { getRanking, getAccordions } = useContentful();
 
@@ -33,7 +32,6 @@ function Ranking() {
       setRankingData(mapTableMemberLink(data?.rankingTable, 0));
       setRankingUpdatedAt(data.updatedAt);
       setRankingTitle(data.title);
-      setRankingDescription(data.description);
     };
     getRankings();
   }, []);

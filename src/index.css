@@ -137,9 +137,19 @@ h4 {
   color: black;
 }
 
+.flip-card-front img {
+  height: 50px !important;
+  width: auto !important;
+}
+
 .flip-card-back {
   color: white;
   transform: rotateY(180deg);
+}
+
+.flip-card-back img {
+  height: 50px !important;
+  width: auto !important;
 }
 
 .spinner-ring {

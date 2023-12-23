@@ -19,8 +19,13 @@ export const NewsModalContent = ({ news }) => {
       )}
       <div
         dangerouslySetInnerHTML={{ __html: news.text }}
-        className=" mt-10 text-sm md:text-base"
+        className="mt-10 text-sm md:text-base"
       />
+      {news.author && (
+        <div className="flex justify-end text-stone-400 font-semibold text-sm">
+          Autor: {news.author}
+        </div>
+      )}
     </div>
   );
 };

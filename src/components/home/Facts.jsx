@@ -5,9 +5,9 @@ import CarouselDefault from "../Carousel";
 const FactItem = ({ text, iconUrl }) => {
   return (
     <>
-      <img src={iconUrl} className="w-12 text-center mx-auto mb-7" />
-      <div className=" text-center mb-2">Wusstest du...</div>
-      <div className="pb-8 sm:pb-12 text-center">{text}</div>
+      <img src={iconUrl} className="w-12 text-center mx-auto mb-5 sm:mb-7" />
+      <div className="text-xl sm:text-2xl text-center mb-2">Wusstest du...</div>
+      <div className="pb-6 sm:pb-12 text-center">{text}</div>
     </>
   );
 };

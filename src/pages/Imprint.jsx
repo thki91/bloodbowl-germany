@@ -179,7 +179,7 @@ function Imprint() {
           </a>
         </div>
       </section>
-      <section className="py-8 text-sm md:text-base">
+      <section className="pt-8 text-sm md:text-base">
         <Heading
           title="Rechtswirksamkeit dieses Haftungsausschlusses"
           variant="small"
@@ -200,6 +200,23 @@ function Imprint() {
           interne Zwecke verwendet und dienen nicht der Identifikation einzelner
           Nutzer. Durch die Nutzung dieser Website stimmen Sie der Speicherung
           dieser Daten zu.
+        </p>
+        <p>
+          Wir verwenden den Google-Dienst reCaptcha, um festzustellen, ob ein
+          Mensch oder ein Computer eine bestimmte Eingabe in unserem Kontakt-
+          oder Newsletter-Formular macht. Google prüft anhand folgender Daten,
+          ob Sie ein Mensch oder ein Computer sind: IP-Adresse des verwendeten
+          Endgeräts, die Webseite, die Sie bei uns besuchen und auf der das
+          Captcha eingebunden ist, das Datum und die Dauer des Besuchs, die
+          Erkennungsdaten des verwendeten Browser- und Betriebssystem-Typs,
+          Google-Account, wenn Sie bei Google eingeloggt sind, Mausbewegungen
+          auf den reCaptcha-Flächen sowie Aufgaben, bei denen Sie Bilder
+          identifizieren müssen. Rechtsgrundlage für die beschriebene
+          Datenverarbeitung ist Art. 6 Abs. 1 lit. f
+          Datenschutz-Grundverordnung. Es besteht ein berechtigtes Interesse auf
+          unserer Seite an dieser Datenverarbeitung, die Sicherheit unserer
+          Webseite zu gewährleisten und uns vor automatisierten Eingaben
+          (Angriffen) zu schützen.
         </p>
       </section>
     </Layout>
