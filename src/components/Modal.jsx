@@ -48,7 +48,7 @@ const Modal = ({ handleClose, show, children, classes }) => {
           >
             <div className="px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
               <div
-                className="absolute right-0 top-0 py-1 px-2 sm:py-2.5 sm:px-3.5 text-lg font-semibold cursor-pointer hover:text-stone-500 transition"
+                className="absolute -right-2 -top-3 py-5 px-5 text-lg font-semibold cursor-pointer hover:text-stone-500 transition"
                 onClick={handleClose}
               >
                 &#10005;
