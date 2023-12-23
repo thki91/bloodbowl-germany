@@ -84,13 +84,13 @@ function News() {
           <div className="flex items-center justify-center gap-x-5 pt-5">
             <a
               className="bg-red-600 hover:bg-red-500 py-2 px-3 rounded-md font-semibold transition text-white hover:text-white"
-              href="https://seu2.cleverreach.com/f/375579-376383/"
+              href="https://seu2.cleverreach.com/f/375593-376397/"
               target="_blank"
             >
               Anmelden
             </a>
             <a
-              href="https://seu2.cleverreach.com/f/375579-376383/wwu/"
+              href="https://seu2.cleverreach.com/f/375593-376397/wwu/"
               className="bg-stone-800 hover:bg-stone-900 border-stone-600 border py-2 px-3 rounded-md font-semibold transition text-white hover:text-white"
               target="_blank"
             >
