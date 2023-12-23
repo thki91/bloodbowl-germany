@@ -38,7 +38,7 @@ function Home() {
       {firstSection === "eurobowl" && <Eurobowl />}
       <Team />
       <Ranking />
-      <Facts />
+      {/* <Facts /> */}
     </Layout>
   );
 }
