@@ -65,8 +65,16 @@ const dropdownDiscordLinks = [
     link: "https://discord.com/channels/484314766224130050/1159188115437658182",
   },
   {
+    text: "Bloodbowl Germany Facebook",
+    link: "https://m.facebook.com/groups/1429958430633510/?ref=share",
+  },
+  {
     text: "NAF Discord #Eurobowl",
     link: "https://discord.com/channels/368441333745975306/1159758186656583742",
+  },
+  {
+    text: "Eurobowl Facebook",
+    link: "https://www.facebook.com/groups/435828406479977/?ref=share",
   },
   {
     text: "Eurobowl Discord #General",
