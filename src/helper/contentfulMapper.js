@@ -51,28 +51,16 @@ export const mapFact = (contentEntry) => {
 };
 
 export const mapGallery = (contentEntry) => {
-  return {
-    image1: {
-      url: contentEntry.fields.image1?.fields?.file?.url,
-      description: contentEntry.fields.image1?.fields?.description,
-    },
-    image2: {
-      url: contentEntry.fields.image2?.fields?.file?.url,
-      description: contentEntry.fields.image2?.fields?.description,
-    },
-    image3: {
-      url: contentEntry.fields.image3?.fields?.file?.url,
-      description: contentEntry.fields.image3?.fields?.description,
-    },
-    image4: {
-      url: contentEntry.fields.image4?.fields?.file?.url,
-      description: contentEntry.fields.image4?.fields?.description,
-    },
-    image5: {
-      url: contentEntry.fields.image5?.fields?.file?.url,
-      description: contentEntry.fields.image5?.fields?.description,
-    },
-  };
+  return contentEntry.fields.galleryImage?.map((entry) => {
+    return {
+      src: entry.fields.image?.fields?.file?.url,
+      width: entry.fields.image?.fields?.file?.details.image.width,
+      height: entry.fields.image?.fields?.file?.details.image.height,
+      title: entry.fields?.title,
+      caption: entry.fields?.description,
+      tags: [{ value: entry.fields?.tag, title: entry.fields?.tag }],
+    };
+  });
 };
 
 export const mapHeaderImage = (contentEntry) => {
