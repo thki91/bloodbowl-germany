@@ -64,11 +64,11 @@ th:first-child {
 }
 
 tr:nth-child(even) td:first-child {
-  @apply sticky left-0 bg-stone-300;
+  @apply sticky left-0 bg-stone-300 z-10;
 }
 
 tr:nth-child(odd) td:first-child {
-  @apply sticky left-0 bg-stone-200;
+  @apply sticky left-0 bg-stone-200 z-10;
 }
 
 .hamburger {
