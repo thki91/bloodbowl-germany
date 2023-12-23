@@ -8,7 +8,6 @@ import Heading from "../components/Heading";
 import _ from "lodash";
 import EurobowlResults from "../components/statistic/EurobowlResults";
 import Statistics from "../components/statistic/Statistics";
-import Collage from "../components/statistic/Collage";
 import Facts from "../components/home/Facts";
 
 function Statistic() {
@@ -102,7 +101,7 @@ function Statistic() {
           </div>
         )}
       </section>
-      <Collage />
+      <Facts />
       {nationalPlayersData?.table?.length > 0 && (
         <section className="py-5 sm:py-10 bg-stone-200 -mx-4 sm:-mx-10 px-4 sm:px-10">
           <Heading
@@ -120,7 +119,6 @@ function Statistic() {
           </div>
         </section>
       )}
-      <Facts />
     </Layout>
   );
 }

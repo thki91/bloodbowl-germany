@@ -80,7 +80,7 @@ export const mapTableRace = (tableData, colIndex) => {
     const isString = typeof races === "string";
     if (isString) {
       races = (
-        <div className="flex justify-center items-center flex-wrap gap-x-2">
+        <div className="flex justify-center items-center flex-wrap gap-x-1 min-w-[70px]">
           {races.split(",").map((race) => {
             const val = raceMappings[race.trim().toLowerCase()];
             if (!val) return;

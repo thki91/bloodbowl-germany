@@ -7,7 +7,7 @@ const Footer = () => {
         <img src={Logo} className="w-20" />
       </div>
       <a className="text-white hover:text-stone-100 relative" href="/impressum">
-        Impressum
+        Impressum & Datenschutz
       </a>
     </footer>
   );

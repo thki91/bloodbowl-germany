@@ -6,9 +6,7 @@ export const optionsRichText = {
       return `<a target="_blank" rel="noopener noreferrer" href="/${node.data.target.fields?.file?.url}">${node.content[0].value}</a>`;
     },
     [INLINES.HYPERLINK]: (node) => {
-      return `<a target="_blank" rel="noopener noreferrer" href="${node.data.uri}">
-            ${node.content[0].value}
-          </a>`;
+      return `<a target="_blank" rel="noopener noreferrer" href="${node.data.uri}">${node.content[0].value}</a>`;
     },
     [BLOCKS.EMBEDDED_ASSET]: (node) => {
       const imgUrl = node.data.target?.fields?.file?.url;

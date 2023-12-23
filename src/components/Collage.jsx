@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import useContentful from "../../hooks/useContentful";
-import Modal from "../Modal";
+import useContentful from "../hooks/useContentful";
+import Modal from "./Modal";
 
 const Collage = () => {
   const [galleryData, setGalleryData] = useState();
@@ -28,10 +28,7 @@ const Collage = () => {
     "bg-stone-500 w-full h-full bg-cover bg-no-repeat bg-center hover:scale-105 transition cursor-pointer";
 
   return (
-    <section
-      className="py-5 sm:py-10 bg-stone-800 -mx-4 sm:-mx-10"
-      id="collage"
-    >
+    <section className="py-5 sm:py-10-mx-4 sm:-mx-10" id="collage">
       <Modal
         show={!!modalContent}
         handleClose={() => setModalContent(null)}

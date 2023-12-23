@@ -14,7 +14,7 @@ const Heading = ({ title, centered, description, tooltipClasses }) => {
             i
           </div>
           <div
-            className={`opacity-0 pointer-events-none group-hover:opacity-100 absolute left-0 lg:left-auto lg:-right-0 lg:translate-x-1/2 top-7 lg:top-5 bg-stone-700 p-4 rounded-md text-xs sm:text-sm text-white transition lg:w-[430px] z-10 ${tooltipClasses}`}
+            className={`opacity-0 pointer-events-none group-hover:opacity-100 absolute left-0 lg:left-auto lg:-right-0 lg:translate-x-1/2 top-7 lg:top-5 bg-stone-700 p-4 rounded-md text-xs sm:text-sm text-white transition lg:w-[430px] z-20 w-full ${tooltipClasses}`}
           >
             {description}
           </div>

@@ -28,10 +28,10 @@ const Header = () => {
   }, 10000);
 
   let title = "BB Deutschland";
-  if (location.pathname === "/news") title = "News";
+  if (location.pathname === "/news") title = "News & Blog";
   if (location.pathname === "/historie") title = "Historie";
-  if (location.pathname === "/impressum") title = "Impressum";
-  if (location.pathname === "/blog") title = "Blog";
+  if (location.pathname === "/impressum") title = "Impressum & Datenschutz";
+  if (location.pathname === "/gallerie") title = "Gallerie";
 
   if (!isHomepage) {
     return (
@@ -90,7 +90,19 @@ const Header = () => {
         <h3 className="hidden md:block relative uppercase font-semibold bg-clip-text text-transparent bg-gradient-to-r from-red-700 via-amber-500 to-yellow-400 w-[220px] sm:w-[320px] text-2xl sm:text-4xl">
           {title}
         </h3>
-        {isHomepage && <News />}
+        <div className="text-sm md:text-base text-white max-w-[450px] mt-2 sm:mt-4 mb-8 md:mb-0">
+          Unser Ziel: Anlaufstelle für die deutsche Community zum Thema
+          Eurobowl/Eur'Open im Bloodbowl sein. Das heißt hier wird Erklärt,{" "}
+          <a href="/historie" className="text-white">
+            Wissen
+          </a>{" "}
+          gesammelt und über das aktuelle{" "}
+          <a href="/news" className="text-white">
+            Eurobowl/Eur'Open-Geschehen
+          </a>{" "}
+          in Deutschland informiert.
+        </div>
+        {/* {isHomepage && <News />} */}
       </div>
     </header>
   );

@@ -17,7 +17,6 @@ function Imprint() {
           <strong>Design und Inhalt:</strong> Stephan Löbel
         </div>
       </section>
-
       <section className="pt-6 sm:pt-8 text-sm md:text-base">
         <Heading title="Inhalt des Onlineangebotes" variant="small" />
         <p>
@@ -36,7 +35,6 @@ function Imprint() {
           Veröffentlichung zeitweise oder endgültig einzustellen.
         </p>
       </section>
-
       <section className="pt-6 sm:pt-8 text-sm md:text-base">
         <Heading title="Verweise und Links" variant="small" />
         <p>
@@ -60,7 +58,6 @@ function Imprint() {
           verweist.
         </p>
       </section>
-
       <section className="pt-6 sm:pt-8 text-sm md:text-base">
         <Heading title="Urheber- und Kennzeichenrecht" variant="small" />
         <p>
@@ -182,7 +179,6 @@ function Imprint() {
           </a>
         </div>
       </section>
-
       <section className="py-8 text-sm md:text-base">
         <Heading
           title="Rechtswirksamkeit dieses Haftungsausschlusses"
@@ -193,6 +189,17 @@ function Imprint() {
           Rechtslage nicht, nicht mehr oder nicht vollständig entsprechen
           sollten, bleiben die übrigen Teile des Dokumentes in ihrem Inhalt und
           ihrer Gültigkeit davon unberührt.
+        </p>
+      </section>
+      <section className="py-8 text-sm md:text-base">
+        <Heading title="Datenschutz" variant="small" />
+        <p>
+          Zur Verbesserung der Ladezeiten und Optimierung der Benutzererfahrung
+          speichern wir bestimmte nicht-nutzerbezogene Daten lokal auf dem Gerät
+          des Nutzers im Local Storage. Diese Daten werden ausschließlich für
+          interne Zwecke verwendet und dienen nicht der Identifikation einzelner
+          Nutzer. Durch die Nutzung dieser Website stimmen Sie der Speicherung
+          dieser Daten zu.
         </p>
       </section>
     </Layout>
