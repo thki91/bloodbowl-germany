@@ -73,12 +73,12 @@ function News() {
             ))}
         </div>
 
-        {newsData?.length >= NEWS_CHUNK && (
+        {getSelectedArticles()?.length > NEWS_CHUNK && (
           <a
             onClick={handleClickShowNews}
             className="flex justify-end mt-5 px-2 lg:px-8 xl:px-10 text-sm md:text-base"
           >
-            {newsToShow >= newsData?.length
+            {newsToShow >= getSelectedArticles()?.length
               ? "Weniger anzeigen"
               : "Mehr anzeigen"}
           </a>

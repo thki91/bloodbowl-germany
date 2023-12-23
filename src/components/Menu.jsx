@@ -102,7 +102,7 @@ const Menu = () => {
     <div className={headerClasses}>
       <div className="sm:hidden pl-6 flex gap-x-6">
         <a href="/">
-          <img src={Logo} className="w-10 h-auto hover:scale-105 transition" />
+          <img src={Logo} className="w-12 h-auto hover:scale-105 transition" />
         </a>
       </div>
       <div className="flex-shrink-0 h-full">
@@ -111,7 +111,7 @@ const Menu = () => {
           text={
             <img
               src={Logo}
-              className="w-10 h-auto hover:scale-105 transition"
+              className="w-12 h-auto hover:scale-105 transition"
             />
           }
           isActive={location.pathname === "/" && !location.hash}
