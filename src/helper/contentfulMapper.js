@@ -58,7 +58,9 @@ export const mapGallery = (contentEntry) => {
       height: entry.fields.image?.fields?.file?.details.image.height,
       title: entry.fields?.title,
       caption: entry.fields?.description,
-      tags: [{ value: entry.fields?.tag, title: entry.fields?.tag }],
+      tags: entry.fields?.tag
+        ? [{ value: entry.fields?.tag, title: entry.fields?.tag }]
+        : [],
     };
   });
 };
