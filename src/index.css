@@ -108,7 +108,7 @@ h4 {
 
 .flip-card {
   perspective: 800px;
-  @apply h-[200px] lg:h-[190px];
+  @apply h-[225px] lg:h-[200px];
 }
 
 .flip-card-inner {
