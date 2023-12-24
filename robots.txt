@@ -1,2 +1,2 @@
-user-agent: *
-disallow: /gallerie
+User-agent: *
+Disallow: /gallerie/
