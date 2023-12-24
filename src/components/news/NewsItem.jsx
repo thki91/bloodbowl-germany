@@ -4,8 +4,8 @@ const NewsItem = ({ news, handleClickReadMore }) => {
       <div
         className={`absolute -right-0 rounded-sm text-xs tracking-wider font-semibold p-1.5 -top-0 ${
           news.type.toUpperCase() === "BLOG"
-            ? "bg-stone-900 text-white"
-            : "bg-amber-400 text-black"
+            ? "bg-amber-500 text-white"
+            : "bg-stone-900 text-white"
         }`}
       >
         {news.type.toUpperCase()}
@@ -40,11 +40,6 @@ const NewsItem = ({ news, handleClickReadMore }) => {
               </span>
               {news?.title}
             </h3>
-            {news?.author && (
-              <div className="text-stone-500 mb-1 -mt-1 text-sm">
-                Autor: {news?.author}
-              </div>
-            )}
             <div className="hidden sm:block font-normal">
               {news?.previewText}
               <a

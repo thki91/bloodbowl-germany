@@ -11,7 +11,7 @@ export const optionsRichText = {
     [BLOCKS.EMBEDDED_ASSET]: (node) => {
       const imgUrl = node.data.target?.fields?.file?.url;
       return imgUrl
-        ? `<img src=${imgUrl} style="width: 70%; margin:0 auto;margin-bottom:15px; margin-top: 15px;"/>`
+        ? `<img src=${imgUrl} style="width: auto;max-height:500px; margin:0 auto;margin-bottom:15px; margin-top: 15px;"/>`
         : "";
     },
   },
