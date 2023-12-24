@@ -102,7 +102,11 @@ const Menu = () => {
     <div className={headerClasses}>
       <div className="sm:hidden pl-6 flex gap-x-6">
         <a href="/">
-          <img src={Logo} className="w-12 h-auto hover:scale-105 transition" />
+          <img
+            src={Logo}
+            className="w-12 h-auto hover:scale-105 transition"
+            alt="Feuerfurz Logo"
+          />
         </a>
       </div>
       <div className="flex-shrink-0 h-full">
