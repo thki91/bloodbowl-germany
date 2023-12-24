@@ -1,3 +1,4 @@
+import { memo } from "react";
 import PropTypes from "prop-types";
 import { useLocation } from "react-router-dom";
 import Instagram from "../assets/instagram.png";
@@ -82,7 +83,7 @@ const dropdownDiscordLinks = [
   },
 ];
 
-const Menu = () => {
+const Menu = memo(() => {
   const location = useLocation();
   const { scrollDirection, scrollPosition } = useScrollDirection();
   const isScrollingDown = scrollDirection === "down";
@@ -177,6 +178,6 @@ const Menu = () => {
       </div>
     </div>
   );
-};
+});
 
 export default Menu;
