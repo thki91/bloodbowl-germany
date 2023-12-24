@@ -53,12 +53,14 @@ const Eurobowl = () => {
                 statt, ein Teamturnier ohne nationale Beschränkungen für Teams
                 mit 4 Coaches. Sowohl beim Eurobowl als auch der Eur’Open spielt
                 jedes Team 6 Runden Blood Bowl.
-                <a
+                <span
                   onClick={() => setReadMore(!readMore)}
-                  className={`md:hidden ml-0.5 ${readMore ? "hidden" : ""}`}
+                  className={`link md:hidden ml-0.5 ${
+                    readMore ? "hidden" : ""
+                  }`}
                 >
                   Mehr lesen
-                </a>
+                </span>
               </p>
             </div>
             <div
@@ -76,12 +78,14 @@ const Eurobowl = () => {
                 Während des Turniers werden die Paarungen beider Teams und die
                 darin enthaltenen einzelnen Coaches nach dem Schweizer-System
                 gepaart. So spielen die stärksten Teams/Coaches gegeneinander.
-                <a
+                <span
                   onClick={() => setReadMore(!readMore)}
-                  className={`md:hidden ml-0.5 ${!readMore ? "hidden" : ""}`}
+                  className={`link md:hidden ml-0.5 ${
+                    !readMore ? "hidden" : ""
+                  }`}
                 >
                   Weniger lesen
-                </a>
+                </span>
               </p>
             </div>
           </div>

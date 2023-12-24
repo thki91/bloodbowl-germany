@@ -15,8 +15,8 @@ function Home() {
           <span
             className={`link py-2 px-4 ${
               firstSection === "eurobowl"
-                ? "border-b-2 border-red-600 !text-stone-600 hover:!text-stone-500"
-                : "!text-stone-400 hover:!text-stone-500"
+                ? "border-b-2 border-red-600 !text-stone-800 hover:!text-stone-500"
+                : "!text-stone-600 hover:!text-stone-500"
             }`}
             onClick={() => setFirstSection("eurobowl")}
           >
@@ -25,8 +25,8 @@ function Home() {
           <span
             className={`link py-2 px-4 ${
               firstSection === "bloodbowl"
-                ? "border-b-2 border-red-600 !text-stone-600 hover:!text-stone-500"
-                : "!text-stone-400 hover:!text-stone-500"
+                ? "border-b-2 border-red-600 !text-stone-800 hover:!text-stone-500"
+                : "!text-stone-600 hover:!text-stone-500"
             }`}
             onClick={() => setFirstSection("bloodbowl")}
           >

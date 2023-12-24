@@ -92,7 +92,7 @@ const Table = ({
       </div>
       <div className="flex items-center justify-between mt-4">
         {updatedAt && (
-          <div className="text-xs italic text-stone-500">
+          <div className="text-xs italic text-stone-600">
             Zuletzt aktualisiert am{" "}
             {new Date(updatedAt)?.toLocaleDateString("de-DE")}
           </div>
