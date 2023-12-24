@@ -1,3 +1,6 @@
+import { useState, useRef } from "react";
+import { useClickAway } from "@uidotdev/usehooks";
+
 const DropdownMenu = ({
   image,
   icon,
@@ -6,9 +9,20 @@ const DropdownMenu = ({
   iconClasses,
   altText,
 }) => {
-  let dropdownContainerClasses = `z-10 opacity-0 group-hover:opacity-100 pointer-events-none min-w-[100px] group-hover:pointer-events-auto transition absolute top-4 pt-3 right-4 ${containerClasses}`;
+  const [showMenu, setShowMenu] = useState(false);
+  let dropdownContainerClasses = `z-10 opacity-0 sm:group-hover:opacity-100 pointer-events-none min-w-[100px] group-hover:pointer-events-auto transition absolute top-4 pt-3 right-4 ${containerClasses} ${
+    showMenu ? "!opacity-100 !pointer-events-auto " : ""
+  }`;
+  const ref = useClickAway(() => {
+    setShowMenu(false);
+  });
+
   return (
-    <div className="relative group cursor-pointer">
+    <div
+      className="relative group cursor-pointer"
+      onClick={() => setShowMenu(!showMenu)}
+      ref={ref}
+    >
       {image && (
         <img
           src={image}
