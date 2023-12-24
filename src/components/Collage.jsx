@@ -34,12 +34,24 @@ const Collage = () => {
       >
         {modalContent}
       </Modal>
-      <Gallery
-        images={galleryData}
-        onClick={handleClickCollage}
-        enableImageSelection={false}
-        rowHeight={300}
-      />
+      {/* Desktop */}
+      <div className="hidden md:block">
+        <Gallery
+          images={galleryData?.galleryDesktop}
+          onClick={handleClickCollage}
+          enableImageSelection={false}
+          rowHeight={300}
+        />
+      </div>
+      {/* Mobile */}
+      <div className="md:hidden">
+        <Gallery
+          images={galleryData?.galleryMobile}
+          onClick={handleClickCollage}
+          enableImageSelection={false}
+          rowHeight={300}
+        />
+      </div>
     </section>
   );
 };

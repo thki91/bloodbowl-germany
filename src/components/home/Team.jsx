@@ -28,7 +28,7 @@ const Member = ({ member, isEmpty }) => {
         <div className="flex-shrink-0 mx-auto rounded-full text-center relative mb-3 w-28 h-28 max-w-[100px] sm:max-w-none max-h-[100px] sm:max-h-none overflow-hidden flex items-center">
           <div
             className="w-full h-full rounded-full overflow-hidden flex-shrink-0 bg-cover bg-no-repeat bg-center"
-            style={{ backgroundImage: `url('${member.picture}')` }}
+            style={{ backgroundImage: `url('${member.picture}?w=200')` }}
           />
         </div>
       ) : (
@@ -96,7 +96,7 @@ function Team() {
           {member.picture ? (
             <div
               className="w-32 h-32 rounded-full mr-5 md:mr-4 flex-shrink-0 bg-cover bg-no-repeat bg-center relative"
-              style={{ backgroundImage: `url('${member.picture}')` }}
+              style={{ backgroundImage: `url('${member.picture}?w=200')` }}
             >
               <RoleIcon role={member.role} />
             </div>

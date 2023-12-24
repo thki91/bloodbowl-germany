@@ -52,7 +52,7 @@ export const mapFact = (contentEntry) => {
 };
 
 export const mapGallery = (contentEntry) => {
-  return contentEntry.fields.galleryImage?.map((entry) => {
+  const galleryDesktop = contentEntry.fields.galleryImage?.map((entry) => {
     return {
       src: entry.fields.image?.fields?.file?.url,
       width: entry.fields.image?.fields?.file?.details.image.width,
@@ -64,6 +64,12 @@ export const mapGallery = (contentEntry) => {
         : [],
     };
   });
+  const galleryMobile = galleryDesktop.map((entry) => ({
+    ...entry,
+    src: `${entry.src}?w=500`,
+  }));
+
+  return { galleryDesktop, galleryMobile };
 };
 
 export const mapHeaderImage = (contentEntry) => {
