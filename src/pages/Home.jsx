@@ -12,26 +12,26 @@ function Home() {
     <Layout>
       <div className="relative flex justify-end items-end -mt-9 -mr-4 sm:-mr-10">
         <div className="z-10 px-3 py-2 rounded-tl-md bg-stone-200 font-semibold text-sm">
-          <a
-            className={`py-2 px-4 ${
+          <span
+            className={`link py-2 px-4 ${
               firstSection === "eurobowl"
                 ? "border-b-2 border-red-600 !text-stone-600 hover:!text-stone-500"
-                : "text-stone-400 hover:!text-stone-500"
+                : "!text-stone-400 hover:!text-stone-500"
             }`}
             onClick={() => setFirstSection("eurobowl")}
           >
             Eurobowl
-          </a>
-          <a
-            className={`py-2 px-4 ${
+          </span>
+          <span
+            className={`link py-2 px-4 ${
               firstSection === "bloodbowl"
                 ? "border-b-2 border-red-600 !text-stone-600 hover:!text-stone-500"
-                : "text-stone-400 hover:!text-stone-500"
+                : "!text-stone-400 hover:!text-stone-500"
             }`}
             onClick={() => setFirstSection("bloodbowl")}
           >
             Bloodbowl
-          </a>
+          </span>
         </div>
       </div>
       {firstSection === "bloodbowl" && <Bloodbowl />}

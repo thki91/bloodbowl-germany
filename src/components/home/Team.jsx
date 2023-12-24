@@ -141,17 +141,17 @@ function Team() {
         {hasMoreTeamSections && (
           <div className="pb-4 text-sm -mt-3">
             {["Eurobowl", "Eur'Open", "Support"].map((key, index) => (
-              <a
-                className={`py-2 px-4 ${
+              <span
+                className={`link py-2 px-4 ${
                   teamSection === key || (index === 0 && !teamSection)
                     ? "border-b-2 border-red-600 !text-stone-100 hover:!text-white"
-                    : "text-stone-100 hover:!text-white opacity-90"
+                    : "!text-stone-100 hover:!text-white opacity-90"
                 }`}
                 onClick={() => setTeamSection(key)}
                 key={key}
               >
                 {key}
-              </a>
+              </span>
             ))}
           </div>
         )}

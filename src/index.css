@@ -43,6 +43,10 @@ a {
   @apply font-semibold text-red-600 hover:text-red-500 transition cursor-pointer;
 }
 
+.link {
+  @apply font-semibold text-red-600 hover:text-red-500 transition cursor-pointer;
+}
+
 .react-multi-carousel-dot button {
   @apply bg-black;
 }
