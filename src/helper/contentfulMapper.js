@@ -51,10 +51,10 @@ export const mapFact = (contentEntry) => {
   };
 };
 
-export const mapGallery = (contentEntry) => {
-  const galleryDesktop = contentEntry.fields.galleryImage?.map((entry) => {
+const mapGalleryWithImageWidth = (contentEntry, width) => {
+  return contentEntry.fields.galleryImage?.map((entry) => {
     return {
-      src: entry.fields.image?.fields?.file?.url,
+      src: `${entry.fields.image?.fields?.file?.url}?w=${width}`,
       width: entry.fields.image?.fields?.file?.details.image.width,
       height: entry.fields.image?.fields?.file?.details.image.height,
       title: entry.fields?.title,
@@ -64,11 +64,11 @@ export const mapGallery = (contentEntry) => {
         : [],
     };
   });
-  const galleryMobile = galleryDesktop.map((entry) => ({
-    ...entry,
-    src: `${entry.src}?w=500`,
-  }));
+};
 
+export const mapGallery = (contentEntry) => {
+  const galleryDesktop = mapGalleryWithImageWidth(contentEntry, 700);
+  const galleryMobile = mapGalleryWithImageWidth(contentEntry, 500);
   return { galleryDesktop, galleryMobile };
 };
 
