@@ -74,7 +74,11 @@ const Header = () => {
 
   return (
     <header
-      style={{ backgroundImage: `url("${headerImg}")` }}
+      style={{
+        backgroundImage: `image-set(
+        url("${headerImg}?w=500") 1x,
+        url("${headerImg}") 2x)`,
+      }}
       className={`p-6 pt-20 sm:pt-24 sm:p-10 ${
         isHomepage ? "md:min-h-[450px]" : "sm:min-h-[300px]"
       } bg-center bg-cover bg-no-repeat relative flex items-center transition-[background-image] duration-200 ease-in-out`}
