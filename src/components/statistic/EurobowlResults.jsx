@@ -66,6 +66,7 @@ const EurobowlResult = ({ result }) => {
               items={links}
               iconClasses="!mr-0 w-[16px]"
               containerClasses="!right-0"
+              altText="Weitere Eurobowl Links"
             />
           </div>
         )}

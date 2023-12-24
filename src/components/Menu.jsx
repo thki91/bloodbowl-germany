@@ -112,6 +112,7 @@ const Menu = () => {
             <img
               src={Logo}
               className="w-12 h-auto hover:scale-105 transition"
+              alt="Feuerfurz Logo"
             />
           }
           isActive={location.pathname === "/" && !location.hash}
@@ -133,8 +134,16 @@ const Menu = () => {
         isActive={location.pathname === "/gallerie"}
       />
       <div className="ml-auto flex items-center h-full">
-        <DropdownMenu image={LinkIcon} items={dropdownMenuLinks} />
-        <DropdownMenu image={Discord} items={dropdownDiscordLinks} />
+        <DropdownMenu
+          image={LinkIcon}
+          items={dropdownMenuLinks}
+          altText="Allgemeine Links"
+        />
+        <DropdownMenu
+          image={Discord}
+          items={dropdownDiscordLinks}
+          altText="Discord Links"
+        />
         <a
           href="https://www.instagram.com/team_germany_bb/"
           target="_blank"
@@ -158,6 +167,7 @@ const Menu = () => {
             items={dropdownMenuMobile}
             containerClasses="!right-0 !top-7"
             iconClasses="!w-10 !h-auto ml-4"
+            altText="Menü"
           />
         </div>
       </div>

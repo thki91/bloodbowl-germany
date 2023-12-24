@@ -4,6 +4,7 @@ const DropdownMenu = ({
   items,
   containerClasses,
   iconClasses,
+  altText,
 }) => {
   let dropdownContainerClasses = `z-10 opacity-0 group-hover:opacity-100 pointer-events-none min-w-[100px] group-hover:pointer-events-auto transition absolute top-4 pt-3 right-4 ${containerClasses}`;
   return (
@@ -12,6 +13,7 @@ const DropdownMenu = ({
         <img
           src={image}
           className={`w-6 opacity-80 hover:opacity-100 transition mr-6 ${iconClasses}`}
+          alt={altText}
         />
       )}
       {icon && icon}

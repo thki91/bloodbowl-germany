@@ -32,6 +32,7 @@ const Eurobowl = () => {
             sizes="(max-width: 600px) 600px"
             className="sm:block sm:flex-shrink-0 w-[120px] sm:w-[250px] sm:h-[230px] xl:w-[350px] xl:h-[300px] float-left clear-left rounded-[40px] xl:rounded-[100px] pr-3 xl:pr-10"
             style={{ mixBlendMode: "multiply" }}
+            alt="Eurobowl"
           />
         </div>
         <div className="transition-all duration-700 flex-1">

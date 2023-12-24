@@ -95,7 +95,7 @@ const Header = () => {
         </h3>
         <div className="text-sm md:text-base text-white max-w-[450px] mt-2 sm:mt-4 mb-8 md:mb-0">
           Unser Ziel: Anlaufstelle für die deutsche Community zum Thema
-          Eurobowl/Eur'Open im Bloodbowl sein. Das heißt hier wird Erklärt,{" "}
+          Eurobowl/Eur'Open im Bloodbowl sein. Das heißt hier wird erklärt,{" "}
           <a href="/historie" className="text-white">
             Wissen
           </a>{" "}

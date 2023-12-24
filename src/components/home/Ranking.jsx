@@ -70,6 +70,7 @@ function Ranking() {
           items={dropdownRankingLinks}
           iconClasses="!mr-0 !w-4 !h-4 mb-5"
           containerClasses="!-right-2.5"
+          altText="Weitere Ranking Links"
         />
       </div>
       {rankingData?.length && (
