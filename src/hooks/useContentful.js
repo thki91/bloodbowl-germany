@@ -134,6 +134,7 @@ const useContentful = () => {
         rankingTable,
         updatedAt: asset.sys.updatedAt,
         title: asset.fields.title,
+        description: asset.fields.description,
       };
       setWithExpiry("ranking", data);
       return data;

@@ -23,6 +23,7 @@ function Ranking() {
   const [rankingData, setRankingData] = useState();
   const [rankingUpdatedAt, setRankingUpdatedAt] = useState();
   const [rankingTitle, setRankingTitle] = useState();
+  const [rankingDescription, setRankingDescription] = useState();
   const [rankingAccordion, setRankingAccordion] = useState();
   const { getRanking, getAccordions } = useContentful();
 
@@ -32,6 +33,7 @@ function Ranking() {
       setRankingData(mapTableMemberLink(data?.rankingTable, 0));
       setRankingUpdatedAt(data.updatedAt);
       setRankingTitle(data.title);
+      setRankingDescription(data.description);
     };
     getRankings();
   }, []);
@@ -63,7 +65,7 @@ function Ranking() {
       id="ranking"
       className="relative py-6 sm:py-10 px-6 sm:px-14 bg-stone-200 -mx-4 sm:-mx-10"
     >
-      <Heading title={rankingTitle} centered />
+      <Heading title={rankingTitle} description={rankingDescription} centered />
       <div className="absolute right-4 top-7 sm:right-14 sm:top-12">
         <DropdownMenu
           image={ExternalLinkIcon}
@@ -81,6 +83,7 @@ function Ranking() {
               data={rankingData}
               className="min-w-[900px]"
               updatedAt={rankingUpdatedAt}
+              paginationNumbers={[15, 30, 60]}
             />
             {rankingAccordion && (
               <div className="mt-5">
