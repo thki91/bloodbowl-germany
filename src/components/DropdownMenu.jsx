@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { useClickAway } from "@uidotdev/usehooks";
 
 const DropdownMenu = ({
