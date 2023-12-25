@@ -1,6 +1,5 @@
 import Layout from "../Layout";
 import Team from "../components/home/Team";
-import Facts from "../components/home/Facts";
 import Ranking from "../components/home/Ranking";
 import Bloodbowl from "../components/home/Bloodbowl";
 import { useState } from "react";
@@ -38,7 +37,6 @@ function Home() {
       {firstSection === "eurobowl" && <Eurobowl />}
       <Team />
       <Ranking />
-      {/* <Facts /> */}
     </Layout>
   );
 }

@@ -2,10 +2,10 @@ import Layout from "../Layout";
 import { useEffect, useState } from "react";
 import useContentful from "../hooks/useContentful";
 import Modal from "../components/Modal";
-import { NewsModalContent } from "../components/News";
 import ArticleFilters from "../components/news/ArticleFilters";
 import NewsItem from "../components/news/NewsItem";
 import { useLocation } from "react-router-dom";
+import NewsModalContent from "../components/news/NewsModalContent";
 
 const NEWS_CHUNK = 10;
 

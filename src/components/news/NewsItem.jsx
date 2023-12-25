@@ -18,7 +18,7 @@ const NewsItem = ({ news, handleClickReadMore }) => {
           {news.picture && (
             <div
               className="w-[100px] h-[100px] lg:w-[140px] lg:h-[140px] rounded-md overflow-hidden mr-3 lg:mr-4 mb-1 flex-shrink-0 bg-contain bg-no-repeat bg-center"
-              style={{ backgroundImage: `url('${news.picture}')` }}
+              style={{ backgroundImage: `url('${news.picture}?w=250')` }}
             />
           )}
           <div>

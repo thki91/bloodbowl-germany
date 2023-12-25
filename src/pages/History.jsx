@@ -10,7 +10,7 @@ import EurobowlResults from "../components/statistic/EurobowlResults";
 import Statistics from "../components/statistic/Statistics";
 import Facts from "../components/home/Facts";
 
-function Statistic() {
+function History() {
   const [nationalOverviewData, setNationalOverviewData] = useState();
   const [nationalPlayersData, setNationalPlayersData] = useState();
   const [balanceSheetData, setBalanceSheetData] = useState();
@@ -123,4 +123,4 @@ function Statistic() {
   );
 }
 
-export default Statistic;
+export default History;

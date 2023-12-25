@@ -1,17 +1,7 @@
 import { useEffect, useState } from "react";
 import useContentful from "../../hooks/useContentful";
 import _ from "lodash";
-
-const FlipCard = ({ front, back }) => {
-  return (
-    <div className="flip-card flex-1">
-      <div className="flip-card-inner">
-        <div className="flip-card-front">{front}</div>
-        <div className="flip-card-back">{back}</div>
-      </div>
-    </div>
-  );
-};
+import FlipCard from "../FlipCard";
 
 const Statistics = () => {
   const [statisticsData, setStatisticsData] = useState();

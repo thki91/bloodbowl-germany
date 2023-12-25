@@ -11,7 +11,16 @@ const Collage = () => {
   useEffect(() => {
     const getGalleryData = async () => {
       const data = await getGallery();
-      setGalleryData(data?.[0]);
+      // preload images
+      if (data && data[0]) {
+        data[0].galleryDesktop?.forEach((galleryEntry) => {
+          new Image().src = galleryEntry.src;
+        });
+        data[0].galleryMobile?.forEach((galleryEntry) => {
+          new Image().src = galleryEntry.src;
+        });
+        setGalleryData(data[0]);
+      }
     };
     getGalleryData();
   }, []);

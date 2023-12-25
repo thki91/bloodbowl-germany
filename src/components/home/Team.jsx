@@ -1,54 +1,9 @@
 import { useEffect, useState } from "react";
 import Heading from "../Heading";
-import PropTypes from "prop-types";
 import useContentful from "../../hooks/useContentful";
 import Modal, { ModalTitle } from "../Modal";
 import VoteIcon from "../../assets/vote.png";
-
-const Member = ({ member, isEmpty }) => {
-  if (isEmpty) {
-    return (
-      <>
-        <div className="flex-shrink-0 mx-auto w-28 h-28 bg-stone-800 flex items-center justify-center rounded-full mb-3 relative max-w-[100px] sm:max-w-none max-h-[100px] sm:max-h-none">
-          <div
-            className="w-full h-full rounded-full overflow-hidden flex-shrink-0 bg-cover bg-no-repeat bg-center"
-            style={{ backgroundImage: `url('/member_unknown.png')` }}
-          />
-        </div>
-
-        <div className="text-center font-bold text-sm whitespace-nowrap">
-          Nicht nominiert
-        </div>
-      </>
-    );
-  }
-  return (
-    <>
-      {member.picture ? (
-        <div className="flex-shrink-0 mx-auto rounded-full text-center relative mb-3 w-28 h-28 max-w-[100px] sm:max-w-none max-h-[100px] sm:max-h-none overflow-hidden flex items-center">
-          <div
-            className="w-full h-full rounded-full overflow-hidden flex-shrink-0 bg-cover bg-no-repeat bg-center"
-            style={{ backgroundImage: `url('${member.picture}?w=200')` }}
-          />
-        </div>
-      ) : (
-        <div className="mx-auto w-28 h-28 bg-stone-800 flex items-center justify-center rounded-full mb-3 relative max-w-[100px] sm:max-w-none max-h-[100px] sm:max-h-none">
-          <img src={VoteIcon} className="w-12" />
-        </div>
-      )}
-      {member.role && (
-        <div className="absolute top-3 bg-stone-100 border-2 border-amber-500 z-1 rounded-full w-8 h-8 text-md flex items-center justify-center">
-          {member.role}
-        </div>
-      )}
-      <div className="text-sm text-center font-bold">{member.name}</div>
-    </>
-  );
-};
-
-Member.propTypes = {
-  member: PropTypes.object,
-};
+import TeamMember from "./TeamMember";
 
 const MIN_MEMBERS_TO_SHOW = {
   Eurobowl: 9,
@@ -65,12 +20,9 @@ function Team() {
     const getTeamMembers = async () => {
       const data = await getTeam();
       // preload images
-
       Object.keys(data).forEach((sectionKey) => {
         data[sectionKey].forEach((member) => {
-          // section.forEach((member) => {
           new Image().src = member.picture;
-          // });
         });
       });
       setTeamData(data);
@@ -165,7 +117,7 @@ function Team() {
                 className="p-2 sm:p-3 relative bg-stone-200 rounded-md transform hover:scale-110 transition cursor-pointer flex-1 max-w-[150px]"
                 onClick={() => handleReadMore(member)}
               >
-                <Member member={member} />
+                <TeamMember member={member} />
               </div>
             ))}
 
@@ -182,7 +134,7 @@ function Team() {
                     key={`emptyMember${index}`}
                     className="p-2 sm:p-3 relative bg-stone-200 rounded-md flex-1 max-w-[140px] self-stretch opacity-80"
                   >
-                    <Member isEmpty={true} />
+                    <TeamMember isEmpty={true} />
                   </div>
                 );
               })}
