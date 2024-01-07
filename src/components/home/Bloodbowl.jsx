@@ -5,7 +5,7 @@ const Bloodbowl = () => {
   const [readMore, setReadMore] = useState(false);
   return (
     <section
-      className="bg-stone-200 -mx-4 sm:-mx-10 px-6 sm:px-10 py-5 md:py-10 lg:py-10 xl:py-14"
+      className="bg-stone-200 -mx-4 sm:-mx-14 lg:-mx-20 px-6 sm:px-14 lg:px-20 py-5 sm:py-10"
       id="was-ist-bloodbowl"
     >
       {/* mobile */}
@@ -20,7 +20,7 @@ const Bloodbowl = () => {
         >
           <img
             src="/bloodbowl.png"
-            className="pr-3 sm:block sm:flex-shrink-0 w-[120px] sm:w-[250px] xl:w-[350px] float-left clear-left xl:pr-10"
+            className="pr-5 sm:block sm:flex-shrink-0 w-[120px] sm:w-[250px] xl:w-[350px] float-left clear-left xl:pr-10"
             style={{ mixBlendMode: "multiply" }}
           />
         </div>

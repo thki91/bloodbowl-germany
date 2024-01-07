@@ -68,7 +68,10 @@ function History() {
     <Layout>
       <EurobowlResults />
       <Statistics />
-      <section className="py-5 sm:py-10 xl:flex items-start bg-stone-200 -mx-4 sm:-mx-10 px-4 sm:px-10">
+      <section
+        className="py-5 sm:py-10 xl:flex items-start bg-stone-200 sm:-mx-14 lg:-mx-20 px-4 sm:px-14 lg:px-20"
+        id="nationenrangliste-spielbilanz"
+      >
         {nationalOverviewData && (
           <div className="mb-5 sm:mb-0 flex-[60%] xl:pr-10 border-b border-b-stone-400 xl:border-b-0 xl:border-r xl:border-r-stone-400 pb-7 xl:pb-0">
             <Heading
@@ -79,7 +82,7 @@ function History() {
             <Table
               data={nationalOverviewData?.table}
               columns={nationalOverviewColumns}
-              className="min-w-[550px]"
+              className="min-w-[520px]"
               paginationNumbers={[12, 25]}
             />
           </div>
@@ -95,7 +98,7 @@ function History() {
             <Table
               data={balanceSheetData?.table}
               columns={balanceSheetColumns}
-              className="min-w-[550px]"
+              className="min-w-[520px]"
               paginationNumbers={[12, 25]}
             />
           </div>
@@ -103,7 +106,10 @@ function History() {
       </section>
       <Facts />
       {nationalPlayersData?.table?.length > 0 && (
-        <section className="py-5 sm:py-10 bg-stone-200 -mx-4 sm:-mx-10 px-4 sm:px-10">
+        <section
+          className="py-5 sm:py-10 bg-stone-200 -mx-4 sm:-mx-14 lg:-mx-20 px-4 sm:px-20"
+          id="rekordspieler"
+        >
           <Heading
             title={nationalPlayersData?.title}
             centered

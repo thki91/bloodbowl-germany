@@ -65,7 +65,7 @@ const Header = () => {
             }}
           />
         </div>
-        <h2 className="text-2xl sm:text-4xl ml-6 sm:ml-10 uppercase font-semibold tracking-wide text-white relative">
+        <h2 className="text-2xl sm:text-4xl ml-6 sm:ml-14 lg:ml-20 uppercase font-semibold tracking-wide text-white relative">
           {title}
         </h2>
       </header>
@@ -75,17 +75,15 @@ const Header = () => {
   return (
     <header
       style={{
-        backgroundImage: `image-set(
-        url("${headerImg}?w=500") 1x,
-        url("${headerImg}") 2x)`,
+        backgroundImage: `url(${headerImg})`,
       }}
-      className={`p-6 pt-20 sm:pt-24 sm:p-10 ${
-        isHomepage ? "md:min-h-[450px]" : "sm:min-h-[300px]"
+      className={`p-6 pt-20 sm:pt-24 sm:p-12 lg:p-20 ${
+        isHomepage ? "md:min-h-[440px]" : "sm:min-h-[250px]"
       } bg-center bg-cover bg-no-repeat relative flex items-center transition-[background-image] duration-200 ease-in-out`}
     >
       <div className="absolute bg-stone-800 bg-opacity-80 sm:bg-opacity-50 w-full h-full top-0 left-0" />
       <div className="absolute bg-gradient-to-r from-stone-600 from-10% via-1% to-transparent w-1/2 h-full top-0 left-0" />
-      <div className="transition flex flex-col justify-center relative">
+      <div className="transition flex flex-col justify-center relative sm:pt-8 md:pt-5 lg:pt-10">
         <h3 className="relative uppercase font-semibold sm:tracking-widest bg-clip-text text-transparent bg-gradient-to-r from-red-700 via-amber-500 to-yellow-400 w-full md:w-[150px] text-xl sm:text-2xl">
           <span className="hidden md:block">Eurobowl</span>
           <span className="md:hidden">Eurobowl BB Deutschland</span>
@@ -93,7 +91,7 @@ const Header = () => {
         <h3 className="hidden md:block relative uppercase font-semibold bg-clip-text text-transparent bg-gradient-to-r from-red-700 via-amber-500 to-yellow-400 w-[220px] sm:w-[320px] text-2xl sm:text-4xl">
           {title}
         </h3>
-        <div className="text-sm md:text-base text-white max-w-[450px] mt-2 sm:mt-4 mb-8 md:mb-0">
+        <div className="text-sm md:text-base text-white max-w-[450px] mt-2 lg:mt-4 mb-8 md:mb-0">
           Unser Ziel: Anlaufstelle für die deutsche Community zum Thema
           Eurobowl/Eur'Open im Bloodbowl sein. Das heißt hier wird erklärt,{" "}
           <a href="/historie" className="text-white">

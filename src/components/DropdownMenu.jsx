@@ -10,7 +10,7 @@ const DropdownMenu = ({
   altText,
 }) => {
   const [showMenu, setShowMenu] = useState(false);
-  let dropdownContainerClasses = `z-10 opacity-0 sm:group-hover:opacity-100 pointer-events-none min-w-[100px] group-hover:pointer-events-auto transition absolute top-4 pt-3 right-4 ${containerClasses} ${
+  let dropdownContainerClasses = `z-10 opacity-0 pointer-events-none min-w-[100px] group-hover:pointer-events-auto transition absolute top-4 pt-3 right-4 ${containerClasses} ${
     showMenu ? "!opacity-100 !pointer-events-auto " : ""
   }`;
   const ref = useClickAway(() => {

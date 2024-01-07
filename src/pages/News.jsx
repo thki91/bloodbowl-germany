@@ -84,7 +84,7 @@ function News() {
           </a>
         )}
       </section>
-      <section className="pt-10 sm:pt-18 pb-10 sm:pb-10 bg-stone-800 -mx-4 sm:-mx-10 text-white">
+      <section className="pt-10 sm:pt-18 pb-10 sm:pb-10 bg-stone-800 -mx-4 sm:-mx-14 lg:-mx-20 text-white">
         <div className="mx-auto max-w-[80%] text-center flex flex-col justify-center items-center">
           <h3 className="mb-2 sm:mb-4 font-semibold">News & Blog abonnieren</h3>
           <div className="text-base md:text-lg max-w-[500px]">

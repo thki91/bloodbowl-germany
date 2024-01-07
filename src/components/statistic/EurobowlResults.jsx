@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useMemo } from "react";
 import Table from "../Table";
-import ExternalLinkIcon from "../../assets/external-link.png";
+import LinkIcon from "../../assets/linkIconBlack.png";
+
 import PropTypes from "prop-types";
 import useContentful from "../../hooks/useContentful";
 import { mapTableMemberLink, mapTableRace } from "../../helper/table";
@@ -16,7 +17,7 @@ const EurobowlResultFilters = ({
 }) => {
   return (
     <div className="overflow-x-auto scrollbar-transparent -mt-2">
-      <div className="text-xs sm:text-sm md:text-base flex items-center sm:justify-center mb-6 gap-x-1.5 whitespace-nowrap">
+      <div className="text-xs sm:text-sm lg:text-base flex items-center sm:justify-center mb-6 gap-x-1.5 whitespace-nowrap min-w-max">
         {sortedEurobowlResults?.map(({ label, value, selected }) => (
           <a
             className={`py-2 px-1 sm:px-4 border-b-2 ${
@@ -62,9 +63,9 @@ const EurobowlResult = ({ result }) => {
         {links.length > 0 && (
           <div className="relative">
             <DropdownMenu
-              image={ExternalLinkIcon}
+              image={LinkIcon}
               items={links}
-              iconClasses="!mr-0 w-[16px]"
+              iconClasses="!mr-0 w-6"
               containerClasses="!right-0"
               altText="Weitere Eurobowl Links"
             />
@@ -152,7 +153,10 @@ const EurobowlResults = () => {
     );
 
   return (
-    <section className="py-10 pb-5 md:pb-7">
+    <section
+      className="py-10 pb-5 md:pb-7"
+      id="eurobowl-ergebnisse-deutschland"
+    >
       <Heading
         title="Eurobowl Ergebnisse Deutschland"
         description={
@@ -175,7 +179,7 @@ const EurobowlResults = () => {
         }
       />
 
-      <div className="lg:flex items-start flex-wrap gap-4 xl:gap-6">
+      <div className="lg:flex items-start flex-wrap gap-4 xl:gap-5">
         {getCurrentEurobowlResults()?.map((item) => {
           return (
             <div

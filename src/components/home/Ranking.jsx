@@ -2,7 +2,7 @@ import { useEffect, useState, useMemo } from "react";
 import useContentful from "../../hooks/useContentful";
 import Table from "../Table";
 import Heading from "../Heading";
-import ExternalLinkIcon from "../../assets/external-link.png";
+import LinkIcon from "../../assets/linkIconBlack.png";
 import DropdownMenu from "../DropdownMenu";
 import Accordion from "../Accordion";
 import { mapTableMemberLink } from "../../helper/table";
@@ -63,14 +63,14 @@ function Ranking() {
   return (
     <section
       id="ranking"
-      className="relative py-6 sm:py-10 px-6 sm:px-14 bg-stone-200 -mx-4 sm:-mx-10"
+      className="relative py-8 sm:py-10 px-6 sm:px-14 lg:px-20 bg-stone-200 -mx-4 sm:-mx-14 lg:-mx-20"
     >
       <Heading title={rankingTitle} description={rankingDescription} centered />
-      <div className="absolute right-4 top-7 sm:right-14 sm:top-12">
+      <div className="absolute right-4 top-9 sm:right-20 sm:top-12">
         <DropdownMenu
-          image={ExternalLinkIcon}
+          image={LinkIcon}
           items={dropdownRankingLinks}
-          iconClasses="!mr-0 !w-4 !h-4 mb-5"
+          iconClasses="!mr-0 !w-6 !h-6 mb-5"
           containerClasses="!-right-2.5"
           altText="Weitere Ranking Links"
         />

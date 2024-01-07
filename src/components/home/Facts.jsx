@@ -25,7 +25,7 @@ function Facts() {
   }, []);
 
   return (
-    <section className="pt-10 sm:pt-18 pb-10 sm:pb-16 bg-stone-800 -mx-4 sm:-mx-10 text-white text-md sm:text-xl font-semibold">
+    <section className="pt-10 sm:pt-18 pb-10 sm:pb-16 bg-stone-800 -mx-4 sm:-mx-14 lg:-mx-20 text-white text-md sm:text-xl font-semibold">
       <div className="mx-auto max-w-[80%]">
         {factsData?.length > 0 && (
           <CarouselDefault

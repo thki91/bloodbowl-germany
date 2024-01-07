@@ -18,7 +18,7 @@ const Eurobowl = () => {
 
   return (
     <section
-      className="bg-stone-200 -mx-4 sm:-mx-10 px-6 sm:px-10 py-5 md:py-10 lg:py-10 xl:py-"
+      className="bg-stone-200 -mx-4 sm:-mx-14 lg:-mx-20 px-6 sm:px-14 lg:px-20 py-5 sm:py-10"
       id="was-ist-eurobowl"
     >
       {/* mobile */}
@@ -30,7 +30,7 @@ const Eurobowl = () => {
           <img
             srcSet="/eurobowl_mobile.jpg 600w, /eurobowl.jpg"
             sizes="(max-width: 600px) 600px"
-            className="sm:block sm:flex-shrink-0 w-[120px] sm:w-[250px] sm:h-[230px] xl:w-[350px] xl:h-[300px] float-left clear-left rounded-[40px] xl:rounded-[100px] pr-3 xl:pr-10"
+            className="sm:block sm:flex-shrink-0 w-[120px] sm:w-[250px] sm:h-[230px] xl:w-[350px] xl:h-[300px] float-left clear-left rounded-[40px] xl:rounded-[100px] pr-5 xl:pr-10"
             style={{ mixBlendMode: "multiply" }}
             alt="Eurobowl"
           />
@@ -91,7 +91,7 @@ const Eurobowl = () => {
           </div>
         </div>
       </div>
-      <div className="my-5 md:mb-0">
+      <div className="my-5 md:mb-0 pt-5">
         <>
           {accordionsData?.map(({ title, description }, index) => (
             <div key={title} className="mb-3">

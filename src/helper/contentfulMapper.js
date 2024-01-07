@@ -122,3 +122,16 @@ export const mapEurobowlResult = async (contentEntry) => {
     resultTable,
   };
 };
+
+export const mapImprint = (contentEntry) => {
+  return {
+    title: contentEntry.fields.title,
+    content: documentToHtmlString(contentEntry.fields.content, optionsRichText),
+  };
+};
+
+export const mapSponsor = (contentEntry) => {
+  return {
+    logo: contentEntry.fields.logo?.fields?.file?.url,
+  };
+};

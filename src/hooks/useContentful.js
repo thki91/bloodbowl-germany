@@ -11,6 +11,7 @@ import {
   mapFact,
   mapStatistic,
   mapTeamMember,
+  mapImprint,
 } from "../helper/contentfulMapper";
 import { parseCSVFile } from "../helper/parseCsvFile";
 
@@ -124,9 +125,6 @@ const useContentful = () => {
   }, [client]);
 
   const getRanking = useCallback(async () => {
-    const localStorageValue = getWithExpiry("ranking");
-    if (localStorageValue) return localStorageValue;
-
     try {
       const asset = await client.getAsset("4QbbhyoSHk3gPwESRCxOFv");
       const rankingTable = await parseCSVFile(asset.fields.file.url);
@@ -136,7 +134,6 @@ const useContentful = () => {
         title: asset.fields.title,
         description: asset.fields.description,
       };
-      setWithExpiry("ranking", data);
       return data;
     } catch (error) {
       console.log(`Error fetching ranking ${error}`);
@@ -250,6 +247,38 @@ const useContentful = () => {
     }
   }, [client]);
 
+  const getImprint = useCallback(async () => {
+    const localStorageValue = getWithExpiry("imprint");
+    if (localStorageValue) return localStorageValue;
+
+    try {
+      const entry = await client.getEntry("54c2BMj5bi77HY2Ngmoaqo");
+      if (!entry) return null;
+      const data = mapImprint(entry);
+      setWithExpiry("imprint", data);
+      return data;
+    } catch (error) {
+      console.log(`Error fetching imprint ${error}`);
+    }
+  }, [client]);
+
+  const getSponsors = useCallback(async () => {
+    const localStorageValue = getWithExpiry("sponsors");
+    if (localStorageValue) return localStorageValue;
+
+    try {
+      const entries = await client.getEntries({
+        content_type: "sponsor",
+      });
+      if (!entries?.items?.length) return null;
+      const data = entries.items.map((entry) => mapSponsor(entry));
+      setWithExpiry("sponsor", data);
+      return data;
+    } catch (error) {
+      console.log(`Error fetching header images ${error}`);
+    }
+  }, [client]);
+
   return {
     getTeam,
     getNews,
@@ -263,6 +292,8 @@ const useContentful = () => {
     getStatistics,
     getGallery,
     getHeaderImages,
+    getImprint,
+    getSponsors,
   };
 };
 

@@ -27,7 +27,7 @@ const Layout = ({ children }) => {
       {isLoading && <Loader />}
       <Menu />
       <Header />
-      <div className="px-4 sm:px-10 bg-white">{children}</div>
+      <div className="px-4 sm:px-14 lg:px-20 bg-white">{children}</div>
       <Footer />
     </>
   );

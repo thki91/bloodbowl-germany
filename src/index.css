@@ -99,7 +99,7 @@ h1 {
 }
 
 h2 {
-  @apply text-xl sm:text-2xl;
+  @apply text-xl sm:text-2xl my-4;
 }
 
 h3 {
