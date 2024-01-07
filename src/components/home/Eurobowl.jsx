@@ -91,7 +91,7 @@ const Eurobowl = () => {
           </div>
         </div>
       </div>
-      <div className="my-5 md:mb-0 pt-5">
+      <div className="my-5 md:mb-0 sm:pt-3 lg:pt-5">
         <>
           {accordionsData?.map(({ title, description }, index) => (
             <div key={title} className="mb-3">
