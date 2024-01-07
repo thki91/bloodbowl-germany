@@ -20,7 +20,7 @@ const Bloodbowl = () => {
         >
           <img
             src="/bloodbowl.png"
-            className="pr-5 sm:block sm:flex-shrink-0 w-[120px] sm:w-[250px] xl:w-[350px] float-left clear-left xl:pr-10"
+            className="pr-5 sm:block sm:flex-shrink-0 w-[160px] sm:w-[250px] xl:w-[350px] float-left clear-left xl:pr-10"
             style={{ mixBlendMode: "multiply" }}
           />
         </div>
