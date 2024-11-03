@@ -3,7 +3,9 @@ import PropTypes from "prop-types";
 const Heading = ({ title, centered, description, tooltipClasses }) => {
   if (description) {
     if (typeof description === "string") {
-      description = description.split("\n").map((str) => <p>{str}</p>);
+      description = description
+        .split("\n")
+        .map((str, index) => <p key={`description-${index}`}>{str}</p>);
     }
 
     return (

@@ -10,32 +10,32 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@contentful/rich-text-html-renderer": "^16.3.0",
-    "@tanstack/react-table": "^8.10.7",
+    "@contentful/rich-text-html-renderer": "^16.6.10",
+    "@tanstack/react-table": "^8.20.5",
     "@uidotdev/usehooks": "^2.4.1",
-    "contentful": "^10.6.5",
+    "contentful": "^10.15.1",
     "install": "^0.13.0",
     "lodash": "^4.17.21",
-    "npm": "^10.2.3",
+    "npm": "^10.9.0",
     "papaparse": "^5.4.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-grid-gallery": "^1.0.1-alpha.0",
-    "react-multi-carousel": "^2.8.4",
-    "react-router-dom": "^6.18.0"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-grid-gallery": "^1.0.1",
+    "react-multi-carousel": "^2.8.5",
+    "react-router-dom": "^6.27.0"
   },
   "devDependencies": {
-    "@types/react": "^18.2.15",
-    "@types/react-dom": "^18.2.7",
-    "@vitejs/plugin-react": "^4.0.3",
-    "autoprefixer": "^10.4.16",
-    "eslint": "^8.45.0",
-    "eslint-plugin-react": "^7.32.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.3",
-    "postcss": "^8.4.31",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.3",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^8.57.1",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-refresh": "^0.4.14",
+    "postcss": "^8.4.47",
     "prettier": "2.8.8",
-    "tailwindcss": "^3.3.5",
-    "vite": "^4.4.5"
+    "tailwindcss": "^3.4.14",
+    "vite": "^4.5.5"
   }
 }

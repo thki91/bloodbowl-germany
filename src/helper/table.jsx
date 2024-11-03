@@ -81,11 +81,15 @@ export const mapTableRace = (tableData, colIndex) => {
     if (isString) {
       races = (
         <div className="flex justify-center items-center flex-wrap gap-x-1 min-w-[70px]">
-          {races.split(",").map((race) => {
+          {races.split(",").map((race, index) => {
             const val = raceMappings[race.trim().toLowerCase()];
             if (!val) return;
             return (
-              <span aria-label={race} data-balloon-pos="up">
+              <span
+                aria-label={race}
+                data-balloon-pos="up"
+                key={`${val}-${index}`}
+              >
                 <img src={val} className="w-4 h-4" />
               </span>
             );
