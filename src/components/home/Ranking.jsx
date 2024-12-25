@@ -6,6 +6,7 @@ import LinkIcon from "../../assets/linkIconBlack.png";
 import DropdownMenu from "../DropdownMenu";
 import Accordion from "../Accordion";
 import { mapTableMemberLink } from "../../helper/table";
+import { RankingFilters } from "./RankingFilters";
 
 const dropdownRankingLinks = [
   {
@@ -22,20 +23,26 @@ const dropdownRankingLinks = [
 function Ranking() {
   const [rankingData, setRankingData] = useState();
   const [rankingUpdatedAt, setRankingUpdatedAt] = useState();
-  const [rankingTitle, setRankingTitle] = useState();
-  const [rankingDescription, setRankingDescription] = useState();
   const [rankingAccordion, setRankingAccordion] = useState();
-  const { getRanking, getAccordions } = useContentful();
+  const { getAccordions, getRankings } = useContentful();
+
+  const [filterOptions, setFilterOptions] = useState([]);
 
   useEffect(() => {
-    const getRankings = async () => {
-      const data = await getRanking();
-      setRankingData(mapTableMemberLink(data?.rankingTable, 0));
-      setRankingUpdatedAt(data.updatedAt);
-      setRankingTitle(data.title);
-      setRankingDescription(data.description);
+    const getRankingsData = async () => {
+      const data = await getRankings();
+      setFilterOptions(
+        data
+          ?.sort((a, b) => b.year - a.year)
+          .map((data, index) => ({
+            value: data.year,
+            label: data.year,
+            selected: index === 0,
+          }))
+      );
+      setRankingData(data);
     };
-    getRankings();
+    getRankingsData();
   }, []);
 
   useEffect(() => {
@@ -51,21 +58,50 @@ function Ranking() {
     getCommunityRankingAccordion();
   }, []);
 
+  const selectedRankingData = useMemo(() => {
+    if (!rankingData) return [];
+    const selectedFilterValue = filterOptions.find(
+      (filter) => filter.selected
+    )?.value;
+
+    if (!selectedFilterValue) return [];
+
+    const selectedRanking = rankingData.find(
+      (data) => data.year === selectedFilterValue
+    );
+    setRankingUpdatedAt(selectedRanking.updatedAt);
+    return mapTableMemberLink(selectedRanking.rankingTable, 0);
+  }, [rankingData, filterOptions]);
+
   const columns = useMemo(() => {
-    if (!rankingData?.length) return [];
-    const rankingColumns = Object.keys(rankingData[0]);
+    if (!selectedRankingData?.length) return [];
+    const rankingColumns = Object.keys(selectedRankingData[0]);
     return rankingColumns.map((col, index) => ({
       accessorKey: col,
       enableSorting: index !== 0,
     }));
-  }, [rankingData]);
+  }, [selectedRankingData]);
 
+  const handleChangeOption = (year) => {
+    setFilterOptions((prev) => {
+      return prev.map((option) => {
+        return {
+          ...option,
+          selected: option.value === year,
+        };
+      });
+    });
+  };
   return (
     <section
       id="ranking"
       className="relative py-8 sm:py-10 px-6 sm:px-14 lg:px-20 bg-stone-200 -mx-4 sm:-mx-14 lg:-mx-20"
     >
-      <Heading title={rankingTitle} description={rankingDescription} centered />
+      <Heading
+        title="Community Ranking"
+        description='Zur deutschen Community gehören Coaches, die mind. 50% ihrer Turniere in Deutschland absolviert haben - unabhängig ihrer Nationalität - oder aber bei der NAF die Nationalität "Germany" eingetragen haben.'
+        centered
+      />
       <div className="absolute right-4 top-9 sm:right-20 sm:top-12">
         <DropdownMenu
           image={LinkIcon}
@@ -78,9 +114,13 @@ function Ranking() {
       {rankingData?.length && (
         <>
           <div className="overflow-x-auto">
+            <RankingFilters
+              filterOptions={filterOptions}
+              handleChangeOption={handleChangeOption}
+            />
             <Table
               columns={columns}
-              data={rankingData}
+              data={selectedRankingData}
               className="min-w-[900px]"
               updatedAt={rankingUpdatedAt}
               paginationNumbers={[15, 30, 60]}

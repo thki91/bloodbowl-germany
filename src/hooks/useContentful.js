@@ -124,19 +124,32 @@ const useContentful = () => {
     }
   }, [client]);
 
-  const getRanking = useCallback(async () => {
+  const getRankings = useCallback(async () => {
     try {
-      const asset = await client.getAsset("4QbbhyoSHk3gPwESRCxOFv");
-      const rankingTable = await parseCSVFile(asset.fields.file.url);
-      const data = {
-        rankingTable,
-        updatedAt: asset.sys.updatedAt,
-        title: asset.fields.title,
-        description: asset.fields.description,
-      };
-      return data;
+      const entries = await client.getEntries({
+        content_type: "ranking",
+        select: "fields",
+      });
+
+      const items = Promise.all(
+        entries.items.map(async (entry) => {
+          const rankingTable = await parseCSVFile(
+            entry.fields.file.fields.file.url
+          );
+          const fileInfo = entry.fields.file;
+          return {
+            rankingTable,
+            updatedAt: fileInfo.sys.updatedAt,
+            title: fileInfo.fields.title,
+            description: fileInfo.fields.description,
+            year: entry.fields.year,
+          };
+        })
+      );
+
+      return items;
     } catch (error) {
-      console.log(`Error fetching ranking ${error}`);
+      console.log(`Error fetching rankings ${error}`);
     }
   }, [client]);
 
@@ -282,7 +295,7 @@ const useContentful = () => {
   return {
     getTeam,
     getNews,
-    getRanking,
+    getRankings,
     getAccordions,
     getFacts,
     getEurobowlResults,

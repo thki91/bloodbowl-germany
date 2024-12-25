@@ -1,5 +1,5 @@
 import Layout from "../Layout";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import useContentful from "../hooks/useContentful";
 import Modal from "../components/Modal";
 import ArticleFilters from "../components/news/ArticleFilters";
@@ -10,7 +10,7 @@ import NewsModalContent from "../components/news/NewsModalContent";
 const NEWS_CHUNK = 10;
 
 function News() {
-  const [newsData, setNewsData] = useState();
+  const [newsData, setNewsData] = useState([]);
   const [newsToShow, setNewsToShow] = useState(NEWS_CHUNK);
   const [modalContent, setModalContent] = useState();
   const [selectedFilter, setSelectedFilter] = useState("ALL");
@@ -46,11 +46,13 @@ function News() {
     }
   };
 
-  const getSelectedArticles = () =>
-    newsData?.slice(0, newsToShow)?.filter((item) => {
+  const getSelectedArticles = useCallback(() => {
+    const dataToShow = [...newsData];
+    return dataToShow?.slice(0, newsToShow)?.filter((item) => {
       if (selectedFilter === "ALL") return true;
       return item.type.toUpperCase() === selectedFilter;
     });
+  }, [newsData, newsToShow, selectedFilter]);
 
   return (
     <Layout>
@@ -67,7 +69,7 @@ function News() {
             getSelectedArticles().map((news) => (
               <NewsItem
                 news={news}
-                key={news.publishedAt}
+                key={news.title}
                 handleClickReadMore={handleClickReadMore}
               />
             ))}

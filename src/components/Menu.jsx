@@ -29,10 +29,6 @@ MenuLink.propTypes = {
 };
 
 const dropdownMenuLinks = [
-  {
-    text: "Deutsche BB Community Forum",
-    link: "http://dbbcev.de/joomla/index.php/forum/deutscher-pavillion",
-  },
   { text: "Eurobowl Homepage", link: "http://www.eurobowl.eu/2024/" },
   { text: "The Naf Homepage", link: "https://www.thenaf.net" },
 ];

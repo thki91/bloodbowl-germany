@@ -13,11 +13,7 @@ const Bloodbowl = () => {
         <Heading title="Was ist Bloodbowl?" />
       </div>
       <div className="xl:flex xl:items-center -mt-2 sm:mt-2 transition-all ease-in-out duration-700">
-        <div
-          className={`relative xl:min-w-[350px] transition-all duration-500 ${
-            readMore ? "!min-w-0 !w-0" : ""
-          }`}
-        >
+        <div className="relative xl:min-w-[350px]">
           <img
             src="/bloodbowl.png"
             className="pr-5 sm:block sm:flex-shrink-0 w-[160px] sm:w-[250px] xl:w-[350px] float-left clear-left xl:pr-10"
