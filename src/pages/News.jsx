@@ -86,29 +86,18 @@ function News() {
           </a>
         )}
       </section>
-      <section className="pt-10 sm:pt-18 pb-10 sm:pb-10 bg-stone-800 -mx-4 sm:-mx-14 lg:-mx-20 text-white">
-        <div className="mx-auto max-w-[80%] text-center flex flex-col justify-center items-center">
-          <h3 className="mb-2 sm:mb-4 font-semibold">News & Blog abonnieren</h3>
-          <div className="text-base md:text-lg max-w-[500px]">
-            Um stets auf dem Laufenden zu bleiben, melde dich für unseren
-            Newsblogletter an! Du bekommst dann eine Info per Mail, sobald es
-            einen neuen News- oder Blogbeitrag gibt.
-          </div>
-          <div className="flex items-center justify-center gap-x-5 pt-5">
-            <a
-              className="bg-red-600 hover:bg-red-500 py-2 px-3 rounded-md font-semibold transition text-white hover:text-white"
-              href="https://seu2.cleverreach.com/f/375593-376397/"
-              target="_blank"
-            >
-              Anmelden
-            </a>
-            <a
-              href="https://seu2.cleverreach.com/f/375593-376397/wwu/"
-              className="bg-stone-800 hover:bg-stone-900 border-stone-600 border py-2 px-3 rounded-md font-semibold transition text-white hover:text-white"
-              target="_blank"
-            >
-              Abmelden
-            </a>
+      <section className="pt-9 sm:pt-18 pb-10 sm:pb-10 bg-stone-800 -mx-4 sm:-mx-14 lg:-mx-20 text-white">
+        <h3 className="mb-8 font-semibold text-center">
+          Unsere Community auf Discord
+        </h3>
+
+        <div className="mx-auto text-center flex flex-col justify-center items-center px-6 sm:px-12 lg:px-32">
+          <div class="iframe-container">
+            <iframe
+              src="https://e.widgetbot.io/channels/259586290142412800/889188324504404008"
+              frameborder="0"
+              allowtransparency="true"
+            ></iframe>
           </div>
         </div>
       </section>
