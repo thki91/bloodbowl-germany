@@ -32,7 +32,7 @@ const DropdownMenu = ({
       )}
       {icon && icon}
       <div className={dropdownContainerClasses}>
-        <ul className="bg-stone-700 divide-y divide-stone-600 rounded-lg shadow overflow-hidden !list-none pl-0 bg-opacity-100">
+        <ul className="bg-stone-700 divide-y divide-stone-600 rounded-lg shadow overflow-hidden list-none! pl-0">
           {items.map((item) => (
             <li key={item.link}>
               <a

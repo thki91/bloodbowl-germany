@@ -44,21 +44,21 @@ const Header = () => {
             }}
           />
           <div
-            className="absolute w-[1000px] sm:w-[1200px] h-[200%] -top-0 sm:right-0 animate-[pulse_4s_ease-in-out_infinite]"
+            className="absolute w-[1000px] sm:w-[1200px] h-[200%] top-0 sm:right-0 animate-[pulse_4s_ease-in-out_infinite]"
             style={{
               background:
                 "radial-gradient(circle, #fcd34d 0%, transparent 50%)",
             }}
           />
           <div
-            className="absolute w-[400px] sm:w-[700px] h-[200%] -top-0 sm:right-1/2 opacity-30 animate-[pulse_4s_ease-in-out_infinite]"
+            className="absolute w-[400px] sm:w-[700px] h-[200%] top-0 sm:right-1/2 opacity-30 animate-[pulse_4s_ease-in-out_infinite]"
             style={{
               background:
                 "radial-gradient(circle, #fcd34d 0%, transparent 20%)",
             }}
           />
           <div
-            className="absolute w-[300px] sm:w-[500px] h-[100%] -top-0 right-0 opacity-30 animate-[pulse_4s_ease-in-out_infinite]"
+            className="absolute w-[300px] sm:w-[500px] h-full top-0 right-0 opacity-30 animate-[pulse_4s_ease-in-out_infinite]"
             style={{
               background:
                 "radial-gradient(circle, rgba(220 38 38) 0%, transparent 50%)",
@@ -81,14 +81,14 @@ const Header = () => {
         isHomepage ? "md:min-h-[440px]" : "sm:min-h-[250px]"
       } bg-center bg-cover bg-no-repeat relative flex items-center transition-[background-image] duration-200 ease-in-out`}
     >
-      <div className="absolute bg-stone-800 bg-opacity-80 sm:bg-opacity-50 w-full h-full top-0 left-0" />
-      <div className="absolute bg-gradient-to-r from-stone-600 from-10% via-1% to-transparent w-1/2 h-full top-0 left-0" />
+      <div className="absolute bg-stone-800/80 sm:bg-stone-800/50 w-full h-full top-0 left-0" />
+      <div className="absolute bg-linear-to-r from-stone-600 from-10% via-1% to-transparent w-1/2 h-full top-0 left-0" />
       <div className="transition flex flex-col justify-center relative sm:pt-8 md:pt-5 lg:pt-10">
-        <h3 className="relative uppercase font-semibold sm:tracking-widest bg-clip-text text-transparent bg-gradient-to-r from-red-700 via-amber-500 to-yellow-400 w-full md:w-[150px] text-xl sm:text-2xl">
+        <h3 className="relative uppercase font-semibold sm:tracking-widest bg-clip-text text-transparent bg-linear-to-r from-red-700 via-amber-500 to-yellow-400 w-full md:w-[150px] text-xl sm:text-2xl">
           <span className="hidden md:block">Eurobowl</span>
           <span className="md:hidden">Eurobowl BB Deutschland</span>
         </h3>
-        <h3 className="hidden md:block relative uppercase font-semibold bg-clip-text text-transparent bg-gradient-to-r from-red-700 via-amber-500 to-yellow-400 w-[220px] sm:w-[320px] text-2xl sm:text-4xl">
+        <h3 className="hidden md:block relative uppercase font-semibold bg-clip-text text-transparent bg-linear-to-r from-red-700 via-amber-500 to-yellow-400 w-[220px] sm:w-[320px] text-2xl sm:text-4xl">
           {title}
         </h3>
         <div className="text-sm md:text-base text-white max-w-[450px] mt-2 lg:mt-4 mb-8 md:mb-0">

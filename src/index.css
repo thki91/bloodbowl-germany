@@ -1,113 +1,111 @@
+@import "tailwindcss";
 @import "./styles/balloon.min.css";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  color-scheme: light dark;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-  padding: 0 !important;
-  margin: 0 !important;
-  color: black;
+@layer base {
+  :root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    color-scheme: light dark;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+    padding: 0 !important;
+    margin: 0 !important;
+    color: black;
+  }
+
+  td,
+  th {
+    @apply px-3 py-2 text-left text-xs sm:text-sm max-w-[125px];
+  }
+
+  td:nth-child(n + 2) {
+    @apply text-center;
+  }
+
+  th:nth-child(n + 2) {
+    @apply text-center;
+  }
+
+  tr:nth-child(even) {
+    @apply bg-stone-300;
+  }
+
+  p {
+    @apply mb-1;
+  }
+
+  a {
+    @apply font-semibold text-red-600 hover:text-red-500 transition cursor-pointer;
+  }
+
+  ol {
+    @apply list-decimal pl-10;
+  }
+
+  ul {
+    @apply list-disc pl-8;
+  }
+
+  h1 {
+    @apply text-2xl sm:text-4xl;
+  }
+
+  h2 {
+    @apply text-xl sm:text-2xl my-4;
+  }
+
+  h3 {
+    @apply text-lg sm:text-xl mb-1;
+  }
+
+  h4 {
+    @apply text-base sm:text-lg;
+  }
 }
 
-td,
-th {
-  @apply px-3 py-2 text-left text-xs sm:text-sm max-w-[125px];
-}
+@layer components {
+  .link {
+    @apply font-semibold text-red-600 hover:text-red-500 transition cursor-pointer;
+  }
 
-td:nth-child(n + 2) {
-  @apply text-center;
-}
+  .react-multi-carousel-dot button {
+    @apply bg-black border;
+  }
 
-th:nth-child(n + 2) {
-  @apply text-center;
-}
+  .react-multi-carousel-dot--active button {
+    @apply border-stone-300 border;
+  }
 
-tr:nth-child(even) {
-  @apply bg-stone-300;
-}
+  .scrollbar-transparent::-webkit-scrollbar {
+    @apply hidden;
+  }
 
-p {
-  @apply mb-1;
-}
+  th:first-child {
+    @apply left-0 bg-stone-300 sticky;
+  }
 
-a {
-  @apply font-semibold text-red-600 hover:text-red-500 transition cursor-pointer;
-}
+  tr:nth-child(even) td:first-child {
+    @apply sticky left-0 bg-stone-300 z-10;
+  }
 
-.link {
-  @apply font-semibold text-red-600 hover:text-red-500 transition cursor-pointer;
-}
+  tr:nth-child(odd) td:first-child {
+    @apply sticky left-0 bg-stone-200 z-10;
+  }
 
-.react-multi-carousel-dot button {
-  @apply bg-black;
-}
+  .hamburger {
+    display: inline-block;
+    cursor: pointer;
+  }
 
-.react-multi-carousel-dot button {
-  @apply border-[1px];
-}
-
-.react-multi-carousel-dot--active button {
-  @apply border-stone-300 border-[1px];
-}
-
-.scrollbar-transparent::-webkit-scrollbar {
-  @apply hidden;
-}
-
-th:first-child {
-  @apply left-0 bg-stone-300 sticky;
-}
-
-tr:nth-child(even) td:first-child {
-  @apply sticky left-0 bg-stone-300 z-10;
-}
-
-tr:nth-child(odd) td:first-child {
-  @apply sticky left-0 bg-stone-200 z-10;
-}
-
-.hamburger {
-  display: inline-block;
-  cursor: pointer;
-}
-
-.hamburger-bar1,
-.hamburger-bar2,
-.hamburger-bar3 {
-  @apply bg-white my-[4px] h-[3px] w-[20px] opacity-80 hover:opacity-100 transition;
-}
-
-ol {
-  @apply list-decimal pl-10;
-}
-
-ul {
-  @apply list-disc pl-8;
-}
-
-h1 {
-  @apply text-2xl sm:text-4xl;
-}
-
-h2 {
-  @apply text-xl sm:text-2xl my-4;
-}
-
-h3 {
-  @apply text-lg sm:text-xl mb-1;
-}
-
-h4 {
-  @apply text-base sm:text-lg;
+  .hamburger-bar1,
+  .hamburger-bar2,
+  .hamburger-bar3 {
+    @apply bg-white my-[4px] h-[3px] w-[20px] opacity-80 hover:opacity-100 transition;
+  }
 }
 
 .flip-card {
